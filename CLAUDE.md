@@ -1,4 +1,4 @@
-# CLAUDE.md
+﻿# CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
@@ -18,10 +18,10 @@ Planning complete. Implementation in progress.
 Completed phases:
 - [x] Phase 0 — CLAUDE.md + repo structure
 - [x] Phase 1 — Crawler (modular: `crawler/crawl_store.py`, `utils.py`, `url_discovery.py`, `technical_checks.py`, `page_crawler.py`, `shopping_journey.py`)
-- [ ] Phase 2 — Skills (`skills/*.md`)
-- [ ] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`)
-- [ ] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`)
-- [ ] Phase 5 — Sample runs (gingerpeople + zenrojas)
+- [x] Phase 2 — Skills (`skills/audit.md`, `skills/page_evidence_extractor.md`, `skills/evidence_analyst.md`, `skills/audit_writer.md`, `skills/eval_judge.md`)
+- [x] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`)
+- [x] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`)
+- [ ] Phase 5 — Sample runs (zenrojas full pipeline, gingerpeople if CF resolved)
 
 ## How to Run an Audit
 
@@ -102,6 +102,8 @@ artifacts/<run_id>/
 
 **Exactly 10 experiments:** All 5 pillars required — Conversion, AOV, Retention, Acquisition, Performance.
 
+**Modular code:** No single file should exceed 500 lines. Split at logical boundaries when approaching that limit.
+
 ## Eval Layers
 
 | Layer | Check |
@@ -115,3 +117,25 @@ artifacts/<run_id>/
 | 7 | Technical checks table matches `technical_checks.json` (all 17) |
 | 8 | Competitor table has 3–4 rows relevant to `store_category` |
 | 9 | Quality rubric — pre-filled prompt output, paste to `/eval-judge` |
+
+## 17 Technical Checks
+
+| Key | Label |
+|---|---|
+| ssl_certificate | SSL Certificate |
+| https_redirect | HTTPS Redirect |
+| sitemap | Sitemap |
+| robots_txt | Robots.txt |
+| meta_tags_social | Meta Tags & Social Previews |
+| structured_data | Structured Data |
+| favicon | Favicon |
+| cookie_privacy | Cookie / Privacy |
+| broken_links | Broken Links |
+| image_optimization | Image Optimization |
+| mobile_friendly | Mobile-Friendly |
+| page_speed_mobile | Page Speed Mobile |
+| page_speed_desktop | Page Speed Desktop |
+| critical_pages_loading | Critical Pages Loading |
+| checkout_reachable | Checkout Reachable |
+| shopping_journey | Shopping Journey |
+| payment_methods | Payment Methods |
