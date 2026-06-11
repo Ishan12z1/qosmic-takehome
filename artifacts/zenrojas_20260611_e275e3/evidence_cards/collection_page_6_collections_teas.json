@@ -1,0 +1,31 @@
+﻿{
+    "purchase_path_notes":  "Better-configured than /collections/all. Product names are benefit-led which aids discovery.",
+    "observed_strengths":  [
+                               {
+                                   "observation":  "Teas collection has strong meta description: \u0027100% organic, ethically sourced\u0027 + ritual framing — well-configured",
+                                   "evidence":  "artifacts/zenrojas_20260611_e275e3/pages/collection_page_6_collections_teas.json",
+                                   "pillar":  "Acquisition"
+                               },
+                               {
+                                   "observation":  "Breadth of products visible: Sencha, Heartburn, Sleep Tea, Samplers, Black Tea — clear product range",
+                                   "evidence":  "artifacts/zenrojas_20260611_e275e3/pages/collection_page_6_collections_teas.json",
+                                   "pillar":  "Conversion"
+                               }
+                           ],
+    "pillar_tags":  [
+                        "Conversion",
+                        "Acquisition"
+                    ],
+    "page_type":  "collection_page",
+    "name":  "collection_page_6_collections_teas",
+    "page_url":  "https://zenrojas.com/collections/teas",
+    "screenshot":  "artifacts/zenrojas_20260611_e275e3/screenshots/collection_page_6_collections_teas.png",
+    "run_id":  "zenrojas_20260611_e275e3",
+    "missing_or_weak":  [
+                            {
+                                "observation":  "No callout differentiating health benefits between teas — visitor must click each PDP to understand differences",
+                                "evidence":  "artifacts/zenrojas_20260611_e275e3/screenshots/collection_page_6_collections_teas.png",
+                                "pillar":  "Conversion"
+                            }
+                        ]
+}

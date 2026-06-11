@@ -13,15 +13,46 @@ Qosmic Audit Harness — a generic Shopify CRO audit agent. Given any Shopify UR
 
 ## Current State
 
-Planning complete. Implementation in progress.
-
 Completed phases:
 - [x] Phase 0 — CLAUDE.md + repo structure
-- [x] Phase 1 — Crawler (modular: `crawler/crawl_store.py`, `utils.py`, `url_discovery.py`, `technical_checks.py`, `page_crawler.py`, `shopping_journey.py`)
+- [x] Phase 1 — Crawler (modular: `crawler/crawl_store.py`, `utils.py`, `url_discovery.py`, `technical_checks.py`, `page_crawler.py`, `shopping_journey.py`) — tested on 4 stores, 5 bugs fixed
 - [x] Phase 2 — Skills (`skills/audit.md`, `skills/page_evidence_extractor.md`, `skills/evidence_analyst.md`, `skills/audit_writer.md`, `skills/eval_judge.md`)
 - [x] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`)
 - [x] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`)
-- [ ] Phase 5 — Sample runs (zenrojas full pipeline, gingerpeople if CF resolved)
+- [ ] Phase 5 — Sample runs (in progress — see below)
+
+## Phase 5 Status (Resume Here)
+
+Testing each phase on 4 diverse stores: zenrojas.com, beardbrand.com, deathwishcoffee.com, mudwtr.com
+
+### Phase 1 test: COMPLETE (all 4 stores crawled, bugs fixed, committed)
+
+Crawl artifacts exist at:
+- `artifacts/zenrojas_20260611_e275e3/` — tea/beverages, 11/11 pages, 5.0/5 friction
+- `artifacts/beardbrand_20260611_fbafd8/` — men's grooming, 11/11 pages, 4.5/5 friction
+- `artifacts/deathwishcoffee_20260611_5362ac/` — coffee, 10/11 pages, 5.0/5 friction
+- `artifacts/mudwtr_20260611_df56a4/` — wellness/subscription, 11/11 pages, 5.0/5 friction
+
+### Phase 2 test: IN PROGRESS
+
+Evidence cards written for zenrojas (`artifacts/zenrojas_20260611_e275e3/evidence_cards/` — 12 cards):
+- [x] homepage_0_home.json
+- [x] product_page_1_products_tea-bags.json
+- [x] product_page_2_products_blacktea.json
+- [x] product_page_3_products_tea-seeper.json
+- [x] cart_page_4_cart.json
+- [x] collection_page_5_collections_all.json
+- [x] collection_page_6_collections_teas.json
+- [x] where_to_buy_7_pages_where-to-buy.json
+- [x] faq_shipping_returns_8_pages_faq.json
+- [x] about_page_9_pages_about.json
+- [x] blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json
+- [x] shopping_journey.json
+
+**Next step:** Run `/evidence-analyst` on zenrojas → write `artifacts/zenrojas_20260611_e275e3/evidence_summary.md`
+**Then:** Run `/audit-writer` → write `sample_output/zenrojas_20260611_e275e3_audit.md`
+**Then:** Run `python evals/run_eval.py zenrojas_20260611_e275e3`
+**Then:** Repeat Phase 2 pipeline for beardbrand, deathwishcoffee, mudwtr
 
 ## How to Run an Audit
 
@@ -129,7 +160,7 @@ artifacts/<run_id>/
 | meta_tags_social | Meta Tags & Social Previews |
 | structured_data | Structured Data |
 | favicon | Favicon |
-| cookie_privacy | Cookie / Privacy |
+| cookie_privacy | Cookie/Privacy |
 | broken_links | Broken Links |
 | image_optimization | Image Optimization |
 | mobile_friendly | Mobile-Friendly |
@@ -139,3 +170,21 @@ artifacts/<run_id>/
 | checkout_reachable | Checkout Reachable |
 | shopping_journey | Shopping Journey |
 | payment_methods | Payment Methods |
+
+## Phase 1 Bug Fixes (committed)
+
+Five bugs found during multi-store testing and fixed:
+1. `mailto:` links being selected as pages — now filtered in url_discovery.py
+2. www/non-www duplicate URLs — deduplicated by path key
+3. Subdomain leakage (careers.mudwtr.com) — exact netloc match now enforced
+4. body_too_short blocking JS-heavy pages — one retry with +3s wait added
+5. Add-to-cart fails on non-buyable first PDP — now tries all PDPs before flagging failure
+
+## Known Limitations
+
+- **Allbirds-class stores** (heavy SPA + bot protection like Imperva) block all pages — not fixable at crawler level
+- **Gingerpeople.com** blocks non-homepage pages with Cloudflare — revisit later
+
+## claude-mem Plugin Issue
+
+The claude-mem plugin hooks are registered in **global** settings at `C:\Users\sharm\.claude\settings.json` (not project settings). To remove: open that file, delete hook entries referencing `thedotmack/claude-mem` or `bun-runner.js`. These hooks were causing the Read tool to be blocked during this session.

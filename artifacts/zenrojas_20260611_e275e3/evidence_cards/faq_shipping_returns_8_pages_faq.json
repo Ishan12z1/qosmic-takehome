@@ -1,0 +1,26 @@
+﻿{
+    "purchase_path_notes":  "Page missing. Broken URL /pages/faq — actual FAQ is at /pages/faqs. Navigation inconsistency.",
+    "observed_strengths":  [
+
+                           ],
+    "pillar_tags":  [
+                        "Conversion"
+                    ],
+    "page_type":  "faq_shipping_returns",
+    "name":  "faq_shipping_returns_8_pages_faq",
+    "page_url":  "https://zenrojas.com/pages/faq",
+    "screenshot":  "artifacts/zenrojas_20260611_e275e3/screenshots/faq_shipping_returns_8_pages_faq.png",
+    "run_id":  "zenrojas_20260611_e275e3",
+    "missing_or_weak":  [
+                            {
+                                "observation":  "FAQ page at /pages/faq returns 404 — common support URL is dead; note actual FAQs live at /pages/faqs (different URL)",
+                                "evidence":  "artifacts/zenrojas_20260611_e275e3/screenshots/faq_shipping_returns_8_pages_faq.png",
+                                "pillar":  "Conversion"
+                            },
+                            {
+                                "observation":  "Shipping/returns policy location not visible in navigation — buyer confidence impact at checkout",
+                                "evidence":  "artifacts/zenrojas_20260611_e275e3/pages/product_page_2_products_blacktea.json",
+                                "pillar":  "Conversion"
+                            }
+                        ]
+}
