@@ -1,4 +1,4 @@
-"""URL discovery and page-type quota sampling for the Qosmic crawler."""
+﻿"""URL discovery and page-type quota sampling for the Qosmic crawler."""
 
 import re
 from urllib.parse import urlparse, urljoin
@@ -38,6 +38,30 @@ def classify_url(url: str) -> str:
 
 
 # ---------------------------------------------------------------------------
+# URL validation helpers
+# ---------------------------------------------------------------------------
+
+def _is_valid_store_url(url: str, base_netloc: str) -> bool:
+    """Accept only http/https on exact store domain or www. prefix.
+    Rejects mailto:, tel:, subdomains, and external domains.
+    """
+    if not url.startswith("http"):
+        return False
+    url_netloc = urlparse(url).netloc.lower()
+    clean_base = base_netloc.lstrip("www.")
+    return url_netloc == clean_base or url_netloc == "www." + clean_base
+
+
+def _path_key(url: str) -> str:
+    """Normalized path key for deduplication - strips www and trailing slash."""
+    p = urlparse(url)
+    netloc = p.netloc.lower()
+    if netloc.startswith("www."):
+        netloc = netloc[4:]
+    return netloc + p.path.rstrip("/").lower()
+
+
+# ---------------------------------------------------------------------------
 # Sitemap parsing (handles sitemap index + nested sitemaps)
 # ---------------------------------------------------------------------------
 
@@ -54,17 +78,17 @@ def _fetch_sitemap_urls(sitemap_url: str, depth: int = 0) -> list[str]:
             return []
         soup = BeautifulSoup(r.text, "lxml-xml")
 
-        # Sitemap index — recurse into child sitemaps
+        # Sitemap index - recurse into child sitemaps
         sitemaps = soup.find_all("sitemap")
         if sitemaps:
             urls = []
-            for sm in sitemaps[:8]:  # limit nested sitemaps
+            for sm in sitemaps[:8]:
                 loc = sm.find("loc")
                 if loc:
                     urls.extend(_fetch_sitemap_urls(loc.get_text(strip=True), depth + 1))
             return urls
 
-        # Regular sitemap — return all <loc> entries
+        # Regular sitemap - return all <loc> entries
         return [loc.get_text(strip=True) for loc in soup.find_all("loc")]
     except Exception:
         return []
@@ -79,11 +103,11 @@ def discover_urls(base_url: str) -> list[str]:
     origin = f"https://{parsed.netloc}"
     found: set[str] = set()
 
-    # 1. Sitemap (handles nested sitemap indexes)
+    # 1. Sitemap
     sitemap_urls = _fetch_sitemap_urls(f"{origin}/sitemap.xml")
     for url in sitemap_urls:
-        if parsed.netloc in url:
-            found.add(url.split("?")[0])  # strip query params
+        if _is_valid_store_url(url, parsed.netloc):
+            found.add(url.split("?")[0])
 
     # 2. Homepage nav links
     try:
@@ -94,12 +118,12 @@ def discover_urls(base_url: str) -> list[str]:
                 href = a["href"].split("?")[0]
                 if href.startswith("/"):
                     found.add(urljoin(origin, href))
-                elif parsed.netloc in href:
+                elif _is_valid_store_url(href, parsed.netloc):
                     found.add(href.split("?")[0])
     except Exception:
         pass
 
-    # 3. Shopify standard paths (always try these)
+    # 3. Shopify standard paths
     standard_paths = [
         "/", "/cart", "/collections", "/collections/all",
         "/pages/about", "/pages/faq", "/pages/shipping",
@@ -109,9 +133,7 @@ def discover_urls(base_url: str) -> list[str]:
     for path in standard_paths:
         found.add(urljoin(origin, path))
 
-    # 4. Always include the homepage
     found.add(origin + "/")
-
     return list(found)
 
 
@@ -132,7 +154,6 @@ PAGE_QUOTA = {
 
 MAX_PAGES = 12
 
-# Keywords that make a blog URL higher priority
 _BLOG_PRIORITY_KEYWORDS = ["health", "guide", "routine", "recipe", "education",
                             "wellness", "glp", "nausea", "digest", "nutrition"]
 
@@ -144,24 +165,38 @@ def _blog_priority(url: str) -> int:
 
 def select_pages(urls: list[str], base_url: str) -> tuple[list[dict], list[dict]]:
     parsed = urlparse(base_url)
-    origin = f"https://{parsed.netloc}"
+    base_netloc = parsed.netloc.lower()
+    if base_netloc.startswith("www."):
+        base_netloc = base_netloc[4:]
 
-    # Classify
+    # Classify - only accept valid store URLs, deduplicate by path key
     classified: dict[str, list[str]] = {k: [] for k in list(PAGE_QUOTA.keys()) + ["other"]}
+    seen_keys: set[str] = set()
+
     for url in urls:
-        if parsed.netloc not in url:
+        # Reject non-http links (mailto:, tel:, javascript:, etc.)
+        if not url.startswith("http"):
             continue
+        # Reject subdomains and external domains
+        if not _is_valid_store_url(url, base_netloc):
+            continue
+        # Deduplicate www vs non-www via path key
+        key = _path_key(url)
+        if key in seen_keys:
+            continue
+        seen_keys.add(key)
+
         ptype = classify_url(url)
         classified[ptype].append(url)
 
-    # Sort for determinism and quality
+    # Sort for quality
     classified["product_page"].sort(key=lambda u: len(urlparse(u).path))
     classified["collection_page"].sort(key=lambda u: len(urlparse(u).path))
     classified["blog_or_content_page"].sort(key=lambda u: -_blog_priority(u))
 
     # Ensure homepage
     if not classified["homepage"]:
-        classified["homepage"] = [origin + "/"]
+        classified["homepage"] = [f"https://{parsed.netloc}/"]
 
     # Apply quota in priority order
     priority_order = [
