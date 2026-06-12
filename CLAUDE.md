@@ -13,42 +13,110 @@ Qosmic Audit Harness — a generic Shopify CRO audit agent. Given any Shopify UR
 
 ## Current State
 
+All build phases complete. Project is submission-ready pending 3 user-written deliverables.
+
 Completed phases:
 - [x] Phase 0 — CLAUDE.md + repo structure
-- [x] Phase 1 — Crawler (modular: `crawler/crawl_store.py`, `utils.py`, `url_discovery.py`, `technical_checks.py`, `page_crawler.py`, `shopping_journey.py`) — tested on 4 stores, 5 bugs fixed
+- [x] Phase 1 — Crawler (modular: `crawler/crawl_store.py`, `utils.py`, `url_discovery.py`, `technical_checks.py`, `page_crawler.py`, `shopping_journey.py`) — tested on 5 stores, 5 bugs fixed
 - [x] Phase 2 — Skills (`skills/audit.md`, `skills/page_evidence_extractor.md`, `skills/evidence_analyst.md`, `skills/audit_writer.md`, `skills/eval_judge.md`)
-- [x] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`)
-- [x] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`)
-- [x] Phase 5 — Sample runs (COMPLETE — all 4 stores, all phases, 8/8 eval layers each)
+- [x] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`) — 4 bugs fixed
+- [x] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`) — crawler command bug fixed in 4 doc files
+- [x] Phase 5 — Sample runs (5 stores, 8/8 eval layers each)
+- [x] Phase 6 — Layer 9 quality rubric scored (tentree: 44/50 — Good)
+- [x] Phase 7 — Eval website list (17 sites across 4 types, `docs/eval_website_list.md`)
 
-## Phase 5 Status
+## Full Run History
 
-Testing complete on 4 diverse stores: zenrojas.com, beardbrand.com, deathwishcoffee.com, mudwtr.com
+| Store | run_id | Pages | Friction | Layer 1–8 | Layer 9 |
+|---|---|---|---|---|---|
+| zenrojas.com | zenrojas_20260611_e275e3 | 11/11 | 5.0/5 | 8/8 Pass | not scored |
+| beardbrand.com | beardbrand_20260611_fbafd8 | 11/11 | 4.5/5 | 8/8 Pass | not scored |
+| deathwishcoffee.com | deathwishcoffee_20260611_5362ac | 10/11 | 5.0/5 | 8/8 Pass | not scored |
+| mudwtr.com | mudwtr_20260611_df56a4 | 11/11 | 5.0/5 | 8/8 Pass | not scored |
+| tentree.com | tentree_20260611_72bf40 | 11/11 | 5.0/5 | 8/8 Pass | **44/50 Good** |
+| gingerpeople.com | gingerpeople_20260611_5f1b85 | 1/10 | 2.0/5 | blocked | n/a |
 
-### Phase 1 test: COMPLETE (all 4 stores crawled, bugs fixed, committed)
+## Layer 9 Score Detail (tentree — 44/50)
 
-Crawl artifacts exist at:
-- `artifacts/zenrojas_20260611_e275e3/` — tea/beverages, 11/11 pages, 5.0/5 friction
-- `artifacts/beardbrand_20260611_fbafd8/` — men's grooming, 11/11 pages, 4.5/5 friction
-- `artifacts/deathwishcoffee_20260611_5362ac/` — coffee, 10/11 pages, 5.0/5 friction
-- `artifacts/mudwtr_20260611_df56a4/` — wellness/subscription, 11/11 pages, 5.0/5 friction
+`eval_results/tentree_20260611_72bf40_eval.md` contains full scored rubric.
 
-### Phase 2 test: COMPLETE (all 4 stores — evidence cards + evidence summary + audit report + eval, 8/8 each)
+| Dimension | Score | Issue |
+|---|---|---|
+| Diagnosis sharpness | 4/5 | Leads with technical gap not funnel constraint |
+| Hypothesis quality | 4/5 | EXP-10 bundles two unrelated changes |
+| Evidence grounding | 5/5 | All 26 citations verified |
+| Pillar balance | 5/5 | Exactly 2 per pillar |
+| Competitor relevance | 5/5 | All 4 in sustainable apparel, tied to experiments |
+| Experiment specificity | 4/5 | EXP-10 bundles two unrelated tasks |
+| Technical integration | 4/5 | Mobile-Friendly Warn not acknowledged |
+| Exec summary quality | 4/5 | Para 1 leads with strengths, not diagnosis |
+| AOV/Retention depth | 5/5 | Store-specific throughout |
+| Overall actionability | 4/5 | EXP-06 needs backend data integration |
 
-| Store | Evidence Cards | Evidence Summary | Audit Report | Eval Result |
-|---|---|---|---|---|
-| zenrojas | 12 cards | evidence_summary.md | sample_output/zenrojas_20260611_e275e3_audit.md | 8/8 Pass |
-| beardbrand | 12 cards | evidence_summary.md | sample_output/beardbrand_20260611_fbafd8_audit.md | 8/8 Pass |
-| deathwishcoffee | 12 cards | evidence_summary.md | sample_output/deathwishcoffee_20260611_5362ac_audit.md | 8/8 Pass |
-| mudwtr | 12 cards | evidence_summary.md | sample_output/mudwtr_20260611_df56a4_audit.md | 8/8 Pass |
+### 3 fixes to reach 45+ (not yet applied to tentree audit)
 
-4 eval bugs found and fixed in `evals/run_eval.py` during Phase 2 testing:
+1. **Split EXP-10** into EXP-10a (cookie consent) and EXP-10b (Lighthouse) — fixes Hypothesis quality + Experiment specificity (+2 pts)
+2. **Flip exec summary para 1** to lead with OG tag diagnosis, move strengths to para 3 — fixes Exec summary quality (+1 pt)
+3. **Acknowledge Mobile-Friendly Warn** in EXP-10b or Technical Checks section — fixes Technical integration (+1 pt)
+
+Applying all 3 would bring tentree to ~48/50 (Excellent).
+
+## Gingerpeople Status (confirmed)
+
+`artifacts/gingerpeople_20260611_5f1b85/` — Cloudflare blocks everything except homepage.
+- 1/10 pages crawled, 9 `bot_challenge_detected`
+- Retailer-routed, friction 2.0/5, 0 payment methods detected
+- **No audit producible** — insufficient evidence (only homepage)
+- Document this as a known limitation in submission: "gingerpeople.com blocked by Cloudflare; zenrojas.com serves as the calibration generalization run"
+
+## Eval Website List (`docs/eval_website_list.md`)
+
+17 sites across 4 types for ongoing harness validation:
+- **Type A (5):** zenrojas, beardbrand, deathwishcoffee, mudwtr, tentree — all validated baselines
+- **Type B (3):** graza.co, puravidabracelets.com, chubbiesshorts.com — new Shopify targets
+- **Type C (3):** gingerpeople.com (confirmed blocked), allbirds.com, gymshark.com — edge cases
+- **Type D (3):** patagonia.com, warbyparker.com, rei.com — non-Shopify ecommerce
+- **Type E (3):** stripe.com, wikipedia.org, vercel.com — non-ecommerce adversarial
+
+## Submission Readiness
+
+### Completed (harness)
+- [x] Runtime harness (`/audit <url>` → full report on any Shopify store)
+- [x] 5 sample runs in `sample_output/` (zenrojas + 4 generalization stores)
+- [x] Eval system — 8 deterministic layers + Layer 9 rubric, all working
+- [x] `EVAL_LOOP.md` — autonomy plan written
+- [x] `evals/failure_log.jsonl` — live failure accumulation (Month 1 of autonomy plan already working)
+- [x] `docs/eval_website_list.md` — 17-site test matrix
+
+### User still needs to write/record
+- [ ] `AGENT_LOG.md` — time per part, prompts fed, where Claude drove vs. you took the wheel
+- [ ] `WORKFLOWS.md` — how you use coding agents day-to-day (tool stack, delegation patterns)
+- [ ] Loom video (3–5 min) — walk through harness + eval loop; one decision you'd reverse; one unmeasured dimension that matters. Email link to trustin@qosmic.ai
+
+### Known gap vs. target_report.md
+- Expected lift and confidence are qualitative (High/Medium/Low) — target uses numeric ("+12–20%", "78%")
+- Competitor table is 4 columns — target uses 6 columns (adds "what they make easier" + "[store] edge")
+- Both are doc-only fixes in `skills/audit_writer.md` — no code change needed
+
+## Bug Fixes Log
+
+**Phase 1 — Crawler (5 bugs):**
+1. `mailto:` links selected as pages → filtered in url_discovery.py
+2. www/non-www duplicate URLs → deduplicated by path key
+3. Subdomain leakage (careers.mudwtr.com) → exact netloc match enforced
+4. body_too_short blocking JS-heavy pages → retry with +3s wait
+5. Add-to-cart fails on non-buyable first PDP → tries all PDPs before flagging
+
+**Phase 3 — Eval (4 bugs):**
 1. Layer 6 path resolution: `run_dir.parent` → `run_dir`
-2. Layer 6 backtick stripping in artifact paths: added backtick to rstrip
+2. Layer 6 backtick stripping: added backtick to rstrip
 3. Layer 7 first-occurrence: search only within `## Technical Checks` section
 4. Layer 9 Unicode crash on Windows cp1252: use `sys.stdout.buffer.write` with utf-8
 
-**Next step:** Phase 3 end-to-end pipeline test — run `/audit <url>` on a fresh store not in the Phase 2 set
+**Phase 4 — Doc fixes (4 files, same bug):**
+- `python crawler/crawl_store.py` → `python -m crawler.crawl_store` (ImportError on direct invocation)
+- Fixed in: CLAUDE.md (2 places), AGENTS.md (2 places), skills/audit.md (1 place)
+- Also fixed: `skills/audit_writer.md` pillar distribution ("minimum 3 Conversion" → "2 per pillar")
 
 ## How to Run an Audit
 
