@@ -186,8 +186,8 @@ def layer6_evidence_paths(report: str, run_id: str, run_dir: Path) -> dict:
     cross_run = []
 
     for raw_path in cited_paths:
-        # Strip trailing punctuation
-        clean = raw_path.rstrip(".,;)")
+        # Strip trailing punctuation and markdown delimiters
+        clean = raw_path.rstrip(".,;)`")
 
         # Cross-run contamination: path must be under this run_id
         if not clean.startswith(f"artifacts/{run_id}/"):
@@ -195,7 +195,7 @@ def layer6_evidence_paths(report: str, run_id: str, run_dir: Path) -> dict:
             continue
 
         # File existence check
-        abs_path = run_dir.parent / clean.replace(f"artifacts/{run_id}/", "")
+        abs_path = run_dir / clean.replace(f"artifacts/{run_id}/", "")
         if not abs_path.exists():
             issues.append(clean)
 
@@ -216,20 +216,24 @@ def layer6_evidence_paths(report: str, run_id: str, run_dir: Path) -> dict:
 def layer7_technical_checks(report: str, checks: dict, run_id: str) -> dict:
     issues = []
 
+    # Constrain search to the Technical Checks section to avoid false label matches elsewhere
+    tech_section_match = re.search(
+        r"## Technical Checks.*?(?=\n## |\Z)", report, re.DOTALL | re.IGNORECASE
+    )
+    search_text = tech_section_match.group(0).lower() if tech_section_match else report.lower()
+
     for key, check in checks.items():
         label = check.get("label", key)
         json_status = check.get("status", "")
-        lower_report = report.lower()
 
-        # Check label appears in report
-        if label.lower() not in lower_report:
+        # Check label appears in report (use full report as fallback for missing check)
+        if label.lower() not in search_text:
             issues.append(f"'{label}' missing from report")
             continue
 
-        # Check status matches (look for label + status proximity)
-        # Find the row containing this label
-        label_pos = lower_report.find(label.lower())
-        surrounding = lower_report[label_pos:label_pos + 120]
+        # Check status matches — search within the row (120 chars after the label)
+        label_pos = search_text.find(label.lower())
+        surrounding = search_text[label_pos:label_pos + 120]
         if json_status.lower() not in surrounding:
             issues.append(f"'{label}': JSON says '{json_status}' but not found in report row")
             _log_failure(run_id, 7, "technical_mismatch",
@@ -414,7 +418,7 @@ def run_eval(run_id: str) -> None:
     print(f"\n{'='*60}")
     print("Layer 9 — paste this prompt to /eval-judge:")
     print(f"{'='*60}\n")
-    print(layer9_prompt)
+    sys.stdout.buffer.write((layer9_prompt + "\n").encode("utf-8", errors="replace"))
 
 
 if __name__ == "__main__":
