@@ -1,0 +1,17 @@
+{
+  "page_type": "where_to_buy",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "where_to_buy_7_pages_where-to-buy",
+  "page_url": "https://deathwishcoffee.com/pages/where-to-buy",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/where_to_buy_7_pages_where-to-buy.png",
+  "pillar_tags": ["Acquisition"],
+  "observed_strengths": [],
+  "missing_or_weak": [
+    {
+      "observation": "Page failed to load during crawl (1 of 11 pages blocked) — status unknown; where-to-buy page may return 404 or be rate-limited",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/technical_checks.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Page load failure means retail distribution presence is unknown for this store. Death Wish Coffee is available at Costco and Amazon in addition to DTC — a where-to-buy page would capture searchers comparing purchase channels."
+}

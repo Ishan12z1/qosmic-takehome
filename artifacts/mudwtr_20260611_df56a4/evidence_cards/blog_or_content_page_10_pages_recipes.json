@@ -1,0 +1,43 @@
+{
+  "page_type": "blog_or_content_page",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "blog_or_content_page_10_pages_recipes",
+  "page_url": "https://mudwtr.com/pages/recipes",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/blog_or_content_page_10_pages_recipes.png",
+  "pillar_tags": ["Acquisition", "Retention", "Conversion"],
+  "observed_strengths": [
+    {
+      "observation": "Dedicated recipe page for product use-cases — 'Smoothies, protein shakes, lattes, and more all made with our coffee alternative' per meta description; recipe content builds habitual use and reduces churn by showing product versatility beyond the standard morning ritual",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Meta description targets 'coffee alternative recipes' and 'how to enjoy MUD\\WTR' queries — recipe content is a natural SEO surface for long-tail 'mudwtr latte recipe', 'adaptogenic smoothie' search queries that attract discovery-mode visitors",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "H1 'SpecialtyRecipes' (concatenated text — likely a CSS image-replacement class that was read as heading text by the crawler) — the actual H1 visual content is a stylized image, not a text heading; this means the page has no text H1 for SEO purposes",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "No product purchase CTAs visible in page headings — recipe visitors who find specific product uses are not directed to buy the relevant product (e.g., 'Try this recipe with Hot Cacao → Add to cart')",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No email capture heading visible on recipes page — content-engaged visitors who browse recipes are not captured for email nurture sequences",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Only H1 present — no H2/H3 sections visible beyond navigation footer; the recipes page content structure may be image-heavy with little crawlable text, reducing SEO keyword density",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/blog_or_content_page_10_pages_recipes.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Recipe content is strong for retention and discovery but lacks in-page conversion infrastructure. Product CTAs inline with specific recipe steps (e.g., 'Made with Hot Cacao — shop now') would convert recipe-engaged visitors to buyers."
+}

@@ -1,0 +1,33 @@
+{
+  "page_type": "collection_page",
+  "run_id": "beardbrand_20260611_fbafd8",
+  "name": "collection_page_6_collections_body",
+  "page_url": "https://www.beardbrand.com/collections/body",
+  "screenshot": "artifacts/beardbrand_20260611_fbafd8/screenshots/collection_page_6_collections_body.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Body collection combines cologne, balm, deodorant, wash — cross-category bundling opportunity surfaced in a single collection",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_6_collections_body.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "Entertaining meta description: 'Want all of your nooks, crannies, cracks, crevices, and pits to smell as awesome as your beard? Of course you do.' — brand voice that drives click-through",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_6_collections_body.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Scent families (Norse Winter, Bold Fortune, etc.) appear without benefit or use-case descriptor — first-time buyer can't determine which scent is right for them without clicking each",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_6_collections_body.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No quiz or scent selector on collection page — conversion opportunity for first-time buyers who don't know which scent to choose",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/screenshots/collection_page_6_collections_body.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Body collection groups cologne with care products — natural cross-sell environment. Fragrance lines carry the same scent across multiple formats (cologne, beard oil, balm) which enables the 'build your routine' bundle pitch."
+}

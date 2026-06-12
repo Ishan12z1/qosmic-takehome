@@ -1,0 +1,33 @@
+{
+  "page_type": "where_to_buy",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "where_to_buy_7_pages_where-to-buy",
+  "page_url": "https://mudwtr.com/pages/where-to-buy",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/where_to_buy_7_pages_where-to-buy.png",
+  "pillar_tags": ["Acquisition", "Conversion"],
+  "observed_strengths": [
+    {
+      "observation": "'Find in Stores' CTA present on the 404 page — indicates mudwtr has retail distribution and includes retail discovery as a navigation option even from error pages, suggesting brick-and-mortar presence",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "404 page includes full product navigation links (Coffee, Original, Matcha, Turmeric, Rest, Protein, StrawberryMatcha) — the error page doesn't dead-end visitors but redirects to the full product catalog",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "/pages/where-to-buy returns 404 (canonical: /404) — retail store finder does not exist at the standard URL. Visitors arriving via organic search for 'where to buy MUD\\WTR' land on a dead page with no store locator",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Retail distribution extent is unknown — no store locator page found; the 'Find in Stores' CTA links to an unknown destination (not visible in the crawled link structure)",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Where-to-buy is a 404. If mudwtr has meaningful retail distribution (Whole Foods, Target, etc.), this is a missed organic SEO and retail discovery opportunity. Broken Links check in technical_checks.json records this URL."
+}

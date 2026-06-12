@@ -1,0 +1,28 @@
+{
+  "page_type": "faq_shipping_returns",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "faq_shipping_returns_8_pages_help",
+  "page_url": "https://www.deathwishcoffee.com/pages/help",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/faq_shipping_returns_8_pages_help.png",
+  "pillar_tags": ["Conversion", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "'STAY BOLD, STAY CAFFEINATED. SIGN UP AND SAVE 20% OFF YOUR FIRST ORDER' email capture H2 on FAQ page — email acquisition opportunity at a high-intent trust-building page",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/faq_shipping_returns_8_pages_help.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "FAQ exists at /pages/help with structured sections (GENERAL, CONTACT US, TERMS AND CONDITIONS, PRIVACY POLICY, UNAUTHORIZED SELLER INFO, HOW SAFE IS IT TO ORDER ONLINE) — pre-purchase trust questions addressed",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/faq_shipping_returns_8_pages_help.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "FAQ at non-standard URL /pages/help instead of /pages/faq — standard URL /pages/faq is in rejected pages (quota_exceeded), not confirmed as working or 404",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/discovered_links.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "FAQ is functional and addresses key pre-purchase concerns. The email capture on this page captures high-intent visitors who are in 'research mode' before first purchase."
+}

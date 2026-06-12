@@ -1,0 +1,38 @@
+{
+  "page_type": "about_page",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "about_page_9_pages_about",
+  "page_url": "https://www.deathwishcoffee.com/pages/about",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/about_page_9_pages_about.png",
+  "pillar_tags": ["Acquisition", "Conversion", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "'Guaranteed minimum prices to protect farmers', 'Safe and sustainable farming methods', 'Community development funds in coffee-growing regions' — Fair Trade ethical sourcing story creates brand trust and differentiation",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Meta: 'Rebels with causes...Disrupting the status quo...We live to rebel against blah beans—and basic brews' — strong brand voice establishes identity",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "'STAY BOLD, STAY CAFFEINATED. SIGN UP AND SAVE 20% OFF YOUR FIRST ORDER' email capture also present on about page — email acquisition at every stage of the discovery journey",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/about_page_9_pages_about.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "About page at standard /pages/about URL — works correctly (unlike zenrojas and beardbrand which had 404 at standard about URL)",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "'REAP WHAT YOU SOW' and 'REBELLIOUS BY NATURE' are the only H2 content sections — the ethical sourcing story (Fair Trade, sourcing countries) exists in H3 subheadings but the about page doesn't prominently link to the subscribe program or community, missing a conversion opportunity from high-intent brand storytelling",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/about_page_9_pages_about.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "About page is functionally correct, has strong brand story, and has email capture. The conversion gap is that visitors who read the ethical sourcing story aren't shown an immediate 'shop now' or 'subscribe' CTA tied to the values story."
+}

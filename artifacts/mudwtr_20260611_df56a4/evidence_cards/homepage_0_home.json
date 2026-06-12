@@ -1,0 +1,58 @@
+{
+  "page_type": "homepage",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "homepage_0_home",
+  "page_url": "https://mudwtr.com/",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/homepage_0_home.png",
+  "pillar_tags": ["Conversion", "Acquisition", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "H1 'Fuel for Mind & Body' — clear functional benefit positioning that differentiates from standard coffee (energy without jitters framing) and immediately communicates the wellness value proposition",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "OG description confirms '60,000 5-star reviews' — massive social proof claim present in meta, indicating a large verified review base even if not surfaced as a visible badge in headings",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Product catalog organized by functional benefit families in homepage: Energy & Focus Blends (Coffee, Original, Matcha, Turmeric), Protein Blends (Chocolate, Vanilla), Calm Blends (Rest, Hot Cacao) — benefit-first navigation lowers decision friction",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'ApprovedBy Leaders' H2 — influencer/authority endorsement section visible above fold, adding social proof beyond reviews",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Active promotional calendar: 'Shop Summer sale - up to 43% off' + 'NEW - Try Our Limited Time Strawberry Matcha' — dual urgency signals (seasonal sale + limited edition launch) running concurrently",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Subscription login at /tools/recurring/get-subscription-access in nav — subscription management directly accessible from all pages, reinforcing retention-first positioning",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "60,000 5-star reviews claim exists only in meta/OG tags — no visible review count badge or 'stars' H2/H3 on homepage headings detected, meaning this social proof may not be visually surfaced to first-time visitors scanning the page",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No email capture heading visible — unlike deathwishcoffee which had '20% OFF YOUR FIRST ORDER' email capture on multiple pages including homepage, no email capture section heading detected on mudwtr homepage",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Where-to-buy link not confirmed on homepage — 'Find in Stores' CTA appears on other pages but homepage CTAs don't include a retail/wholesale discovery path for visitors who cannot or prefer not to buy online",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Homepage has strong benefit framing and product family organization. The absence of a visible reviews section heading on the page (vs. the meta 60k claim) is the primary social proof gap. CTAs are promotional and product-linked — no discount email capture as homepage entry mechanism."
+}

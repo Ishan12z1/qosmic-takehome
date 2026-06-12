@@ -1,0 +1,28 @@
+{
+  "page_type": "collection_page",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "collection_page_6_collections_sale",
+  "page_url": "https://www.deathwishcoffee.com/collections/sale",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/collection_page_6_collections_sale.png",
+  "pillar_tags": ["Conversion", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "Active sale collection with 24 products including Father's Day 'up to 60% off' — seasonal promotional calendar in place",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/collection_page_6_collections_sale.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Sale collection meta description is empty — no descriptive text for SEO; sale pages attract discount-intent traffic that deserves a description",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/collection_page_6_collections_sale.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Sale section shows only apparel (Letterman Jacket, Corduroy Jacket, Maple Cinnamon Tee) in visible product headings — core coffee products may be discounted but weren't visible in H3 product headings",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/collection_page_6_collections_sale.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Sale collection drives urgency-based conversions. The seasonal Father's Day promo is active and well-promoted. Empty meta description is a quick win for SEO."
+}

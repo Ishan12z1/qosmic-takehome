@@ -1,0 +1,33 @@
+{
+  "page_type": "blog_or_content_page",
+  "run_id": "beardbrand_20260611_fbafd8",
+  "name": "blog_or_content_page_10_blogs_urbanbeardsman",
+  "page_url": "https://www.beardbrand.com/blogs/urbanbeardsman",
+  "screenshot": "artifacts/beardbrand_20260611_fbafd8/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+  "pillar_tags": ["Acquisition", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "Blog organized into topical sections (Beard, Mustache, Hair) — structured content categories that support SEO cluster strategy",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/blog_or_content_page_10_blogs_urbanbeardsman.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Strong blog meta description: 'explores topics for beardsman, as well as beyond the beard, including style, grooming, travel, community' — broad enough for multiple search traffic clusters",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/blog_or_content_page_10_blogs_urbanbeardsman.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Blog index page crawled (not an individual post) — no in-content product CTAs visible in page structure, no email capture form in headings",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/blog_or_content_page_10_blogs_urbanbeardsman.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Blog index shows no product recommendations in sidebar or inline — blog-to-product conversion path not detectable from structure",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Blog index page is a content hub. The organic traffic entering through individual posts is a major acquisition channel — in-post product CTAs and email capture at post-read are the conversion plays."
+}

@@ -1,0 +1,43 @@
+{
+  "page_type": "faq_shipping_returns",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "faq_shipping_returns_8_pages_help-center",
+  "page_url": "https://mudwtr.com/pages/help-center",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/faq_shipping_returns_8_pages_help-center.png",
+  "pillar_tags": ["Conversion", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "Functional Help Center at /pages/help-center — page loads and is well-structured with three clear H2 sections: 'Drinking Mud' (product experience), 'Accounts & Subscriptions' (retention), 'Orders & Shipping' (post-purchase)",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Drinking Mud' FAQ section with H3 questions about caffeine, ingredients, sourcing, organic status, and pregnancy safety — objection handling for health-conscious buyers embedded in a discoverable help page",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Accounts & Subscriptions' H2 section — subscription management FAQ is prominently included in the help center, supporting subscriber retention by making subscription changes easy to find",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Meta description is specific to product experience questions ('What does mud taste like?', 'Does it taste like coffee?', 'What is sediment?') — this help center targets first-time buyer uncertainty directly",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No email capture heading visible on Help Center page — unlike deathwishcoffee which included email capture on the FAQ page, mudwtr's help center doesn't appear to include an email capture section in the visible heading structure",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "No product purchase CTA in FAQ headings — visitors who arrive via 'does MUD\\WTR have caffeine?' search intent are answered but not immediately funneled to a PDP or subscription offer after their question is resolved",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/faq_shipping_returns_8_pages_help-center.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Help center is well-organized and functional. The primary conversion opportunity is adding product CTAs at the bottom of FAQ answers to capture visitors who arrive via ingredient-intent search queries."
+}

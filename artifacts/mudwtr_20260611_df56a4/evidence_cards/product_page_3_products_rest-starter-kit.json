@@ -1,0 +1,43 @@
+{
+  "page_type": "product_page",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "product_page_3_products_rest-starter-kit",
+  "page_url": "https://mudwtr.com/products/rest-starter-kit",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/product_page_3_products_rest-starter-kit.png",
+  "pillar_tags": ["Conversion", "AOV", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "'How it Stacks Up' H2 comparison section — in-page competitor or alternative comparison on PDP directly addresses 'why not just take melatonin/Calm/ZzzQuil' objection, a key conversion-blocker for a zero-caffeine sleep product",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Zero-caffeine positioning with named ingredients (Rooibos, Valerian, Passionflower) — strong functional differentiation from the energy blends, indicates breadth of use-cases (morning energy + nighttime calm) within the same brand",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Rest Starter Kit as a named bundle — consistent starter kit merchandising strategy across the catalog (Original, Coffee, Matcha, Turmeric, Rest) lowers AOV by positioning multi-product trial as the default entry point",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No 'Reviews' H2 visible — same gap as all 3 sampled PDPs; reviews are not confirmed as visible in the above-fold heading structure of any crawled PDP",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No cross-sell from Rest to Energy blend on PDP — 'Morning + Evening ritual bundle' pairing (Rest + Original/Coffee) is a natural high-AOV combination that isn't surfaced on the Rest PDP",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "'Buy now' cross-links to coffee-starter-kit — same sitewide pattern; on Rest PDP this creates specific confusion (you're reading about zero-caffeine Rest and Buy Now takes you to a caffeinated coffee product)",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_3_products_rest-starter-kit.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Rest Starter Kit demonstrates strong use-case differentiation. The 'How it Stacks Up' comparison section is a CRO asset unique to this PDP. Cross-sell from Rest to Energy (morning + evening bundle) is the primary missed AOV opportunity."
+}

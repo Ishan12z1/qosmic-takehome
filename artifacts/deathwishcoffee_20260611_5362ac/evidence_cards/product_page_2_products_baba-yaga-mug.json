@@ -1,0 +1,33 @@
+{
+  "page_type": "product_page",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "product_page_2_products_baba-yaga-mug",
+  "page_url": "https://www.deathwishcoffee.com/products/baba-yaga-mug",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/product_page_2_products_baba-yaga-mug.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Reviews section with Rating Snapshot, Average Customer Ratings, and individual review headlines ('The Baba Yaga mug made my day extraordinary!') — full review system active",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_2_products_baba-yaga-mug.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'LIKE FREE SH*T?' H1 block on PDP — giveaway entry CTA embedded in product pages to drive engagement and email acquisition alongside purchase",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_2_products_baba-yaga-mug.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Compelling limited-edition narrative in meta: 'Inspired by the witch who lives between worlds...for the bold souls that like their coffee strong and their folklore a little too real' — strong brand voice creates emotional purchase justification",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_2_products_baba-yaga-mug.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Mug PDP has no coffee cross-sell — natural pairing (Baba Yaga Mug + matching dark roast coffee) not surfaced; coffee + mug bundle opportunity missed on drinkware PDPs",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_2_products_baba-yaga-mug.json",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "Limited-edition mug is a collectible item — likely purchased alongside coffee. Cross-sell to coffee (with or without discount) on mug PDPs is a high-AOV opportunity."
+}

@@ -1,0 +1,38 @@
+{
+  "page_type": "cart_page",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "cart_page_4_cart",
+  "page_url": "https://mudwtr.com/cart",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/cart_page_4_cart.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Shopping journey confirms cart_upsell_present: TRUE — the cart displays product upsell recommendations when items are in cart; this is the only store of the 4 tested to have a live, populating cart upsell (deathwishcoffee had the section but it didn't populate)",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/shopping_journey.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "Shopping journey confirms urgency_elements_present: TRUE — the cart shows urgency signals (free shipping threshold or countdown) when items are in cart; uniquely strong among all 4 tested stores",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Shopping journey confirms trust_badges_at_checkout: TRUE — payment security signals present at highest-anxiety step in the funnel",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Empty cart (mudwtr.com/cart) canonically redirects to homepage — the empty cart state shows homepage content, not a cart recovery page with 'Your cart is empty' + recommended products. An empty-cart recovery experience is a missed conversion opportunity for return visitors",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/cart_page_4_cart.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No email capture heading visible in cart headings — unlike deathwishcoffee and zenrojas which captured email in the cart, mudwtr's cart structure (in empty state) shows only homepage content",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/cart_page_4_cart.json",
+      "pillar": "Retention"
+    }
+  ],
+  "purchase_path_notes": "Cart with items in it is the strongest of all 4 stores: live upsell + urgency + trust badges + 5.0/5 friction. The only gap is the empty cart state, which redirects to homepage rather than showing a recovery experience."
+}

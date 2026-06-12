@@ -1,0 +1,33 @@
+{
+  "page_type": "collection_page",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "collection_page_6_collections_shop",
+  "page_url": "https://mudwtr.com/collections/shop",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/collection_page_6_collections_shop.png",
+  "pillar_tags": ["Conversion", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "Canonical collection page at /collections/shop — this is the authoritative URL that /collections/all redirects to; has the same strong product family organization (Coffee, Original, Matcha, Turmeric H2s) and matching meta description",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/collection_page_6_collections_shop.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Strawberry Matcha featured as 'NEW' in H3 — limited-edition product launch integrated into the main shop collection, creating urgency and novelty signals for returning visitors",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/collection_page_6_collections_shop.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Both collection pages (collections/all and collections/shop) render identical content — only one unique collection was effectively crawled; the Calm/Rest/Protein sub-collections may have their own pages with better benefit targeting that were not sampled",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/collection_page_6_collections_shop.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "H1 'Shop' — same generic heading issue as /collections/all; both canonical and redirect pages have the same weak H1 for collection-level SEO",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/collection_page_6_collections_shop.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Evidence gap: collections/all and collections/shop are functionally identical. The distinct sub-collections (Energy, Calm, Protein) likely have better benefit-specific landing pages that were not crawled within the 12-page cap."
+}

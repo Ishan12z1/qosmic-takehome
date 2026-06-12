@@ -1,0 +1,38 @@
+{
+  "page_type": "collection_page",
+  "run_id": "beardbrand_20260611_fbafd8",
+  "name": "collection_page_5_collections_all",
+  "page_url": "https://beardbrand.com/collections/all",
+  "screenshot": "artifacts/beardbrand_20260611_fbafd8/screenshots/collection_page_5_collections_all.png",
+  "pillar_tags": ["Conversion", "AOV", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "'Current Deals' section prominently placed — promotional collection featured at top of all-products view",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_5_collections_all.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Scent-based product sub-categories within collections (Norse Winter, Bold Fortune, Old Money, Tree Ranger, Temple Smoke) — fragrance line clearly differentiated by name/identity, aids product discovery",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_5_collections_all.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "Witty, brand-voice meta description: 'Every single thing we sell, all on one page, like how they did it in the 90s.' — strong brand personality",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_5_collections_all.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Collection page sections show only 3 product categories (Beard Oil, Utility Beard Balm, Utility Beard Wash) in headings — the full catalog depth (cologne, deodorant, tools, etc.) not fully surfaced in page structure",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/collection_page_5_collections_all.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No sorting or filtering controls visible in page headings — discoverability relies on scrolling a large catalog",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/screenshots/collection_page_5_collections_all.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "All-products collection is a catch-all landing page. The fragrance scent families (Norse Winter, etc.) work well as identity hooks but require buyers to know which scent they want — first-time buyers may need a quiz or selector."
+}

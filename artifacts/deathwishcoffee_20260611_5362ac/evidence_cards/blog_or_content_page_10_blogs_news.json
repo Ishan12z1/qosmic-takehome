@@ -1,0 +1,33 @@
+{
+  "page_type": "blog_or_content_page",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "blog_or_content_page_10_blogs_news",
+  "page_url": "https://deathwishcoffee.com/blogs/news",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/blog_or_content_page_10_blogs_news.png",
+  "pillar_tags": ["Acquisition", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "Strong SEO-intent blog articles: 'How to Make Adaptogenic Coffee at Home', 'What Is Instant Coffee: Everything You Need To Know', 'Why I love brewing coffee in a Chemex' — educational content targeting coffee enthusiast search queries",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/blog_or_content_page_10_blogs_news.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "'STAY BOLD, STAY CAFFEINATED. SIGN UP AND SAVE 20% OFF YOUR FIRST ORDER' email capture H2 on blog index page — email acquisition built into blog experience",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/blog_or_content_page_10_blogs_news.json",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Blog index page crawled (not individual post) — individual post-level email capture and in-content product CTAs are not confirmed from page structure",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/blog_or_content_page_10_blogs_news.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Blog meta description is generic: 'Welcome to the Death Wish Coffee Company blog. You'll find pictures, recipes, reviews, lists' — doesn't target coffee-specific SEO queries that would match article content",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/blog_or_content_page_10_blogs_news.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Blog content is strong with educational intent-matching articles. Email capture on blog index is confirmed. In-post product CTAs are the key unverified conversion mechanism."
+}

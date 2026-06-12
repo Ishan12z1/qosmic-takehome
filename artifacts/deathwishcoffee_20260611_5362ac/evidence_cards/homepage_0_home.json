@@ -1,0 +1,48 @@
+{
+  "page_type": "homepage",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "homepage_0_home",
+  "page_url": "https://www.deathwishcoffee.com/",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/homepage_0_home.png",
+  "pillar_tags": ["Conversion", "AOV", "Retention", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "Subscribe & Save CTA in primary navigation alongside 'Subscription Perks' and 'Choose Your Coffee' links — subscription is a top-nav priority, not buried",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "'Build Your Own Bundle' with 'Save Up to 15% Off' linked from homepage — bundle builder actively merchandised as an AOV lever",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "'WIN FREE COFFEE FOR A YEAR' giveaway CTA sitewide — urgency/engagement mechanism drives purchase (purchase entry required to win)",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Full brew-format navigation: Ground/Whole Bean, Single-Serve Pods, Canned Lattes, Cold Brew, Espresso Capsules, Instant — broad product range organized by brewing method for immediate buyer clarity",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Strong meta description with USDA Organic, Fair Trade, arabica/robusta source countries — SEO-rich and differentiating",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No H1 heading on homepage — page structure starts at H2; primary keyword ('Death Wish Coffee') is in page title but no H1 present which weakens on-page SEO signal",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "'NEW ARRIVALS' section features Father Time Mug and Father Time Tee — merch-heavy new arrivals may not drive core coffee subscription conversion from first-time visitors",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Homepage is subscription-forward and bundle-forward — architecture matches a mature DTC coffee brand. The missing H1 and merch-heavy new arrivals are minor gaps in an otherwise strong entry experience."
+}

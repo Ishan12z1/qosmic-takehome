@@ -1,0 +1,33 @@
+{
+  "page_type": "product_page",
+  "run_id": "deathwishcoffee_20260611_5362ac",
+  "name": "product_page_3_products_father-time-mug",
+  "page_url": "https://www.deathwishcoffee.com/products/father-time-mug",
+  "screenshot": "artifacts/deathwishcoffee_20260611_5362ac/screenshots/product_page_3_products_father-time-mug.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Reviews H2 and 'Details' H2 present — consistent PDP template with social proof and product details structure",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_3_products_father-time-mug.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Father's Day context: featured in homepage 'NEW ARRIVALS' and Father's Day sale banner — limited-time campaign creates urgency for this specific SKU",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "All 3 sampled PDPs are non-coffee (gift card, Baba Yaga mug, Father Time mug) — the core coffee SKUs (Death Wish Coffee, Power Surge, Valhalla Java) are in rejected pages. Subscribe & Save toggle on main coffee PDPs is the key retention mechanism but was not observed.",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/discovered_links.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "No coffee cross-sell on mug PDP — 'Start the ritual: add your coffee' is a natural bundle play not visible in page structure",
+      "evidence": "artifacts/deathwishcoffee_20260611_5362ac/pages/product_page_3_products_father-time-mug.json",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "Father Time Mug is a seasonal/limited item. The pattern across both mug PDPs: strong brand narrative, active reviews, but no coffee cross-sell. Adding coffee recommendations to all mug PDPs would increase basket size."
+}

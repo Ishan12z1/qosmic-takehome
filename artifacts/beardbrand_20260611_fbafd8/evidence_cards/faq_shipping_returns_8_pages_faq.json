@@ -1,0 +1,17 @@
+{
+  "page_type": "faq_shipping_returns",
+  "run_id": "beardbrand_20260611_fbafd8",
+  "name": "faq_shipping_returns_8_pages_faq",
+  "page_url": "https://beardbrand.com/pages/faq",
+  "screenshot": "artifacts/beardbrand_20260611_fbafd8/screenshots/faq_shipping_returns_8_pages_faq.png",
+  "pillar_tags": ["Conversion", "Acquisition"],
+  "observed_strengths": [],
+  "missing_or_weak": [
+    {
+      "observation": "Page returns 404 (canonical: /404) — standard Shopify FAQ URL is broken; actual FAQ may be at /pages/faqs (rejected due to quota) or another path",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/faq_shipping_returns_8_pages_faq.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Broken FAQ page reduces purchase confidence. Beardbrand does have /pages/faqs (seen in rejected pages) — a 301 redirect from /pages/faq to /pages/faqs would fix this broken standard URL."
+}

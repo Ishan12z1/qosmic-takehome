@@ -19,11 +19,11 @@ Completed phases:
 - [x] Phase 2 — Skills (`skills/audit.md`, `skills/page_evidence_extractor.md`, `skills/evidence_analyst.md`, `skills/audit_writer.md`, `skills/eval_judge.md`)
 - [x] Phase 3 — Eval (`evals/run_eval.py`, `evals/rubric.md`)
 - [x] Phase 4 — Agent docs (`AGENTS.md`, `EVAL_LOOP.md`)
-- [ ] Phase 5 — Sample runs (in progress — see below)
+- [x] Phase 5 — Sample runs (COMPLETE — all 4 stores, all phases, 8/8 eval layers each)
 
-## Phase 5 Status (Resume Here)
+## Phase 5 Status
 
-Testing each phase on 4 diverse stores: zenrojas.com, beardbrand.com, deathwishcoffee.com, mudwtr.com
+Testing complete on 4 diverse stores: zenrojas.com, beardbrand.com, deathwishcoffee.com, mudwtr.com
 
 ### Phase 1 test: COMPLETE (all 4 stores crawled, bugs fixed, committed)
 
@@ -33,26 +33,22 @@ Crawl artifacts exist at:
 - `artifacts/deathwishcoffee_20260611_5362ac/` — coffee, 10/11 pages, 5.0/5 friction
 - `artifacts/mudwtr_20260611_df56a4/` — wellness/subscription, 11/11 pages, 5.0/5 friction
 
-### Phase 2 test: IN PROGRESS
+### Phase 2 test: COMPLETE (all 4 stores — evidence cards + evidence summary + audit report + eval, 8/8 each)
 
-Evidence cards written for zenrojas (`artifacts/zenrojas_20260611_e275e3/evidence_cards/` — 12 cards):
-- [x] homepage_0_home.json
-- [x] product_page_1_products_tea-bags.json
-- [x] product_page_2_products_blacktea.json
-- [x] product_page_3_products_tea-seeper.json
-- [x] cart_page_4_cart.json
-- [x] collection_page_5_collections_all.json
-- [x] collection_page_6_collections_teas.json
-- [x] where_to_buy_7_pages_where-to-buy.json
-- [x] faq_shipping_returns_8_pages_faq.json
-- [x] about_page_9_pages_about.json
-- [x] blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json
-- [x] shopping_journey.json
+| Store | Evidence Cards | Evidence Summary | Audit Report | Eval Result |
+|---|---|---|---|---|
+| zenrojas | 12 cards | evidence_summary.md | sample_output/zenrojas_20260611_e275e3_audit.md | 8/8 Pass |
+| beardbrand | 12 cards | evidence_summary.md | sample_output/beardbrand_20260611_fbafd8_audit.md | 8/8 Pass |
+| deathwishcoffee | 12 cards | evidence_summary.md | sample_output/deathwishcoffee_20260611_5362ac_audit.md | 8/8 Pass |
+| mudwtr | 12 cards | evidence_summary.md | sample_output/mudwtr_20260611_df56a4_audit.md | 8/8 Pass |
 
-**Next step:** Run `/evidence-analyst` on zenrojas → write `artifacts/zenrojas_20260611_e275e3/evidence_summary.md`
-**Then:** Run `/audit-writer` → write `sample_output/zenrojas_20260611_e275e3_audit.md`
-**Then:** Run `python evals/run_eval.py zenrojas_20260611_e275e3`
-**Then:** Repeat Phase 2 pipeline for beardbrand, deathwishcoffee, mudwtr
+4 eval bugs found and fixed in `evals/run_eval.py` during Phase 2 testing:
+1. Layer 6 path resolution: `run_dir.parent` → `run_dir`
+2. Layer 6 backtick stripping in artifact paths: added backtick to rstrip
+3. Layer 7 first-occurrence: search only within `## Technical Checks` section
+4. Layer 9 Unicode crash on Windows cp1252: use `sys.stdout.buffer.write` with utf-8
+
+**Next step:** Phase 3 end-to-end pipeline test — run `/audit <url>` on a fresh store not in the Phase 2 set
 
 ## How to Run an Audit
 

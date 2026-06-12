@@ -1,0 +1,38 @@
+{
+  "page_type": "cart_page",
+  "run_id": "beardbrand_20260611_fbafd8",
+  "name": "cart_page_4_cart",
+  "page_url": "https://www.beardbrand.com/cart",
+  "screenshot": "artifacts/beardbrand_20260611_fbafd8/screenshots/cart_page_4_cart.png",
+  "pillar_tags": ["AOV", "Conversion"],
+  "observed_strengths": [
+    {
+      "observation": "'WANT MORE?' H2 section on cart page — cart upsell/cross-sell section exists in page structure",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/cart_page_4_cart.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "'Beardbrand Assurance' trust block visible in cart — reinforces purchase confidence at final pre-checkout step",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/cart_page_4_cart.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Journey observation confirms cart_upsell_present: false despite 'WANT MORE?' heading — cross-sell section renders structurally but may not show product recommendations when cart is empty (crawler loads empty cart)",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/shopping_journey.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "No urgency signal detected in cart (urgency_elements_present: false) — no countdown, free shipping threshold bar, or low-stock notification",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No trust badges at checkout (trust_badges_at_checkout: false) — payment security signals absent at the highest-anxiety conversion step",
+      "evidence": "artifacts/beardbrand_20260611_fbafd8/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Cart has structural upsell section but it may require cart contents to render products. The gap is that urgent AOV lift (free shipping threshold, countdown) and checkout trust signals are absent."
+}

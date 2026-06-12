@@ -1,0 +1,43 @@
+{
+  "page_type": "product_page",
+  "run_id": "mudwtr_20260611_df56a4",
+  "name": "product_page_2_products_30-servings-tin",
+  "page_url": "https://mudwtr.com/products/30-servings-tin",
+  "screenshot": "artifacts/mudwtr_20260611_df56a4/screenshots/product_page_2_products_30-servings-tin.png",
+  "pillar_tags": ["Conversion", "Retention"],
+  "observed_strengths": [
+    {
+      "observation": "Nutrition facts section present — regulatory and health-conscious buyer expectation met; builds trust for wellness-positioned product",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Starter Kit framing ('30-servings-tin' positioned as Original Starter Kit) — bundles ritual + product into a single SKU concept, lowering barrier for first-time buyers who want a complete setup",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Consistent in-page FAQ and ingredient sections carry over from product to product — educational content infrastructure is uniform across the catalog",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No 'Reviews' H2 visible in PDP headings — same gap as hot-cacao-bag PDP; 60,000 5-star reviews exist in meta but aren't visibly surfaced on the Original Starter Kit PDP headings",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Buy now' links to /products/coffee-starter-kit?view=main2, not this product — same cross-link pattern as other PDPs; if the coffee-starter-kit is the hero product, this is a consistent merchandising strategy, but if unintentional it creates UX confusion",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Subscribe & Save toggle not confirmed — the Original 30-serving tin is the core subscription SKU by volume; whether subscription pricing is visible and prominent on this PDP is unverified",
+      "evidence": "artifacts/mudwtr_20260611_df56a4/pages/product_page_2_products_30-servings-tin.json",
+      "pillar": "Retention"
+    }
+  ],
+  "purchase_path_notes": "The Original 30-servings tin is likely the highest-revenue SKU as the flagship starter kit. Key gaps: reviews not visible in headings, subscription pricing not confirmed. The Buy Now cross-link pattern to coffee-starter-kit appears site-wide rather than PDP-specific."
+}
