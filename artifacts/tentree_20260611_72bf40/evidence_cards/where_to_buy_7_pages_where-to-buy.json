@@ -1,0 +1,22 @@
+{
+  "page_type": "where_to_buy",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "where_to_buy_7_pages_where-to-buy",
+  "page_url": "https://tentree.com/pages/where-to-buy",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/where_to_buy_7_pages_where-to-buy.png",
+  "pillar_tags": ["Acquisition"],
+  "observed_strengths": [],
+  "missing_or_weak": [
+    {
+      "observation": "/pages/where-to-buy returns 404 (canonical: /404) — no retail store locator exists at the standard URL; visitors searching 'where to buy tentree' or 'tentree near me' land on a dead page",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Retail distribution presence is unknown — no store locator data available; tentree sells via third-party retailers (REI, MEC, etc.) but online discovery of retail locations is not supported",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/where_to_buy_7_pages_where-to-buy.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Where-to-buy is 404. This is the third store of 5 tested with this gap (also mudwtr and tentree). For an apparel brand with retail distribution, a store locator is a measurable traffic capture opportunity."
+}

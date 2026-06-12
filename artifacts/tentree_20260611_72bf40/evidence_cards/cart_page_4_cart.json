@@ -1,0 +1,48 @@
+{
+  "page_type": "cart_page",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "cart_page_4_cart",
+  "page_url": "https://www.tentree.com/cart",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/cart_page_4_cart.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Cart page title is 'Your Shopping Cart' — functional cart exists with a proper title (unlike mudwtr's empty cart which redirected to homepage)",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/cart_page_4_cart.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Shopping journey confirms trust_badges_at_checkout: TRUE — payment security signals present at checkout; 12 payment methods including Klarna for BNPL, Google Pay, Apple Pay, Shop Pay — widest payment coverage of all 5 stores tested",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Klarna BNPL available — for a $50–120 apparel purchase, Klarna's 4-installment option removes price friction; tentree dedicates a full FAQ page to educating buyers about Klarna, indicating this is an active conversion strategy",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Cart has no headings at all (empty heading structure) — no upsell section, no trust badge text, no mission reinforcement ('your purchase plants 10 trees') visible in the cart heading structure; the cart is a bare-bones funnel step",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/cart_page_4_cart.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Shopping journey confirms cart_upsell_present: FALSE — no product recommendations in cart; after adding a $70 sweatpant, no 'complete the look' or 'frequently bought with' suggestions appeared to increase order value",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/shopping_journey.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "Shopping journey confirms urgency_elements_present: FALSE — no free shipping threshold bar, no countdown timer; the homepage advertises free shipping ending Friday, but this urgency signal is absent from the cart where it would have the highest conversion impact",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No 'Your purchase plants X trees' mission reinforcement in the cart — the '10 trees per item' promise is a unique value proposition but is absent from the cart, which is the highest-anxiety step where reassurance would reduce drop-off",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/cart_page_4_cart.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Cart has best-in-class payment coverage (12 methods including Klarna) but is completely bare in terms of AOV and conversion optimization: no upsell, no urgency, no mission reinforcement. The 'plants 10 trees' hook that closes the brand loop is absent at the last pre-checkout step."
+}

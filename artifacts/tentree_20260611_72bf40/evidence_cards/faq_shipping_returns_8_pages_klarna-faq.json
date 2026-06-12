@@ -1,0 +1,38 @@
+{
+  "page_type": "faq_shipping_returns",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "faq_shipping_returns_8_pages_klarna-faq",
+  "page_url": "https://www.tentree.com/pages/klarna-faq",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/faq_shipping_returns_8_pages_klarna-faq.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Dedicated Klarna FAQ page with educational headings ('What is Klarna?', 'Why Use Klarna?', 'How Does Klarna Work?') — tentree actively promotes BNPL as a purchase tool with a full educational page, indicating BNPL is a deliberate conversion strategy for higher-ticket apparel",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Pay Over Time With Klarna' H2 — leading with the value proposition ('pay over time') rather than just the brand name reduces friction for visitors unfamiliar with BNPL",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'No Impact to Your Credit Score' H3 — directly addresses the primary objection to BNPL (fear of credit checks); proactive objection handling for first-time Klarna users",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Klarna FAQ was selected as the FAQ page because no standard /pages/faq or shipping FAQ page was discovered in the sitemap — the general shipping, returns, and order FAQ is either not linked prominently or has a non-standard URL, making it hard to find for buyers with post-purchase questions",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Meta description empty on Klarna FAQ — the page has no meta description, missing the opportunity to surface in searches for 'buy tentree now pay later' or 'tentree payment options'",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/faq_shipping_returns_8_pages_klarna-faq.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "The Klarna FAQ is a CRO asset — dedicated BNPL education reduces the barrier for buyers who want to spread $120+ apparel purchases over installments. The gap is that a general shipping/returns FAQ wasn't discoverable within the 12-page crawl, suggesting it may be buried or missing prominent navigation."
+}

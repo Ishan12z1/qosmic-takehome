@@ -1,0 +1,43 @@
+{
+  "page_type": "product_page",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "product_page_1_products_e-gift-code",
+  "page_url": "https://www.tentree.com/products/e-gift-code",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/product_page_1_products_e-gift-code.png",
+  "pillar_tags": ["Conversion", "AOV"],
+  "observed_strengths": [
+    {
+      "observation": "Reviews confirmed on gift code PDP — H3 headings include 'Just What I Needed', 'Happy to Plant Trees but a few website errors', 'Mother's Day Best!', 'Fantastic company', 'SO EASY' — review infrastructure present and active; one review title mentions 'plant trees', confirming environmental mission resonates with buyers",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_1_products_e-gift-code.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'We Think You'll Like...' H2 — product recommendation section present on PDP, enabling cross-sell to related apparel items from the gift code page",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_1_products_e-gift-code.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "'Every Item Plants 10 Trees' H2 — consistent mission reinforcement directly on the PDP, placing environmental impact at the moment of purchase decision",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_1_products_e-gift-code.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Add-to-cart failed on this PDP during the shopping journey — gift codes may require email input or a value selection that the crawler's standard add-to-cart detection couldn't trigger; this is a gift-code-specific UX issue, not an apparel add-to-cart bug",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "OG title and description empty on this PDP — same sitewide OG tag gap; gift code social shares produce blank preview cards",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_1_products_e-gift-code.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "No product H1 visible in heading structure — the product name 'E-Gift Code' appears in the page title but not in an H1; PDPs lack a visible heading hierarchy starting with the product name",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_1_products_e-gift-code.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Gift code PDP has reviews and cross-sell. Add-to-cart failure is expected (gift code requires value selection) — the crawler correctly fell back to the next PDP. Review titles confirm mission resonance: gift buyers explicitly cite 'planting trees' as a purchase motivator."
+}

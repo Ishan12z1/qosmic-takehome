@@ -1,0 +1,43 @@
+{
+  "page_type": "collection_page",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "collection_page_6_collections_mens",
+  "page_url": "https://www.tentree.com/collections/mens",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/collection_page_6_collections_mens.png",
+  "pillar_tags": ["Acquisition", "Conversion"],
+  "observed_strengths": [
+    {
+      "observation": "Meta description is keyword-rich: 'Canada's Sustainable Men's Clothing, featuring Hoodies, Sweatpants, Jackets, Sweaters, T-Shirts & More. Eco Friendly fabric made from organic cotton, hemp, recycled polyester and TENCEL. 10 Trees Planted for Every Item.' — product types, materials, and mission all present; strong organic signal for 'sustainable men's clothing' queries",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "H1 'Men's Clothing' — proper capitalised category H1 on the men's collection (unlike the degenerate 'all items' on /collections/all)",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "H3 benefit-copy sections: 'Stylish Options for Every Occasion', 'Durable Men's Clothing: Everyday Essentials', 'Embrace Eco-Friendly Fabrics and Plant Trees' — editorial content sections beneath the product grid provide mission and lifestyle context to drive conversion",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Up to 50% Off' H3 — sale badge present on collection page to increase urgency for discounted items",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "OG title and OG description empty — sitewide gap; the men's collection — with the strongest meta of all crawled pages — still has no OG tags for social sharing",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Women's collection equivalent not crawled — the men's collection demonstrates better SEO structure than the all-products page; whether the womens collection (/collections/womens) has equivalent quality is unverified within the 12-page cap",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/collection_page_6_collections_mens.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Men's collection is the best-optimized crawled page from an SEO perspective — strong meta, proper H1, benefit-copy H3s. The pattern in the men's collection (but not /collections/all) suggests inconsistent SEO optimization across the catalog."
+}

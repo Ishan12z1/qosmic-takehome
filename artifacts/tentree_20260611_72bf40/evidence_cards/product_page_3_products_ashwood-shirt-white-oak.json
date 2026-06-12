@@ -1,0 +1,43 @@
+{
+  "page_type": "product_page",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "product_page_3_products_ashwood-shirt-white-oak",
+  "page_url": "https://www.tentree.com/products/ashwood-shirt-white-oak",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/product_page_3_products_ashwood-shirt-white-oak.png",
+  "pillar_tags": ["Conversion", "Acquisition"],
+  "observed_strengths": [
+    {
+      "observation": "'We Think You'll Like...' H2 — cross-sell recommendation section present, enabling outfit-building cross-sell (shirt + bottoms)",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Every Item Plants 10 Trees' H2 — consistent mission badge across all three crawled PDPs confirms uniform brand reinforcement at the purchase step",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Meta description is PDP-specific: 'Sustainable Womens Ashwood Shirt in White. Our Organic Cotton Button Up Shirt is ethically crafted from Organic Cotton.' — consistent material-specific meta pattern across the catalog",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No reviews visible in heading structure — unlike the sweatpant and gift code PDPs, the Ashwood Shirt has no review H3 headings; either reviews are absent on this product or they load below the crawl threshold",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No H1 visible — same pattern as other PDPs; product title 'Womens Ashwood Shirt' is in the page title but not in an H1 heading",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "OG title and OG description empty — same sitewide gap",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/product_page_3_products_ashwood-shirt-white-oak.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Ashwood Shirt appears to lack reviews in its heading structure — potential evidence gap (reviews may load via JavaScript below the crawl threshold) or actual absence. If truly absent, this would be an inconsistency in review coverage across the catalog."
+}

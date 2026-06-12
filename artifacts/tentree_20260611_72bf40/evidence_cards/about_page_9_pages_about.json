@@ -1,0 +1,43 @@
+{
+  "page_type": "about_page",
+  "run_id": "tentree_20260611_72bf40",
+  "name": "about_page_9_pages_about",
+  "page_url": "https://tentree.com/pages/about",
+  "screenshot": "artifacts/tentree_20260611_72bf40/screenshots/about_page_9_pages_about.png",
+  "pillar_tags": ["Acquisition", "Conversion"],
+  "observed_strengths": [
+    {
+      "observation": "H1 'We Believe Big Change Starts Small.' — strong mission-led primary heading that immediately communicates the brand's environmental philosophy; paired with the meta description explaining tree planting per purchase, this is the clearest brand differentiator statement in the store",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Meta description establishes mission credibility: trees planted in communities, carbon capture, planting jobs — the about page's meta captures the brand's full sustainability story; buyers who research before purchasing can find this directly",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Stats presented as H3s (100M+, 75M+, 1) — likely trees planted, partners, or B Corp stats; numerical proof points on the mission page build credibility",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "H3 stat labels are just numbers ('100M+', '75M+', '1') without labels in the heading structure — the context for these numbers (trees planted? community members? countries?) is not in the crawled heading text, making them ambiguous without the surrounding body copy",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "No product CTA or 'shop now' heading on the about page — mission-convinced visitors who read the about page are not given an immediate path to purchase with a conversion nudge ('Every purchase plants 10 trees → Shop Now')",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "OG title and OG description empty — about page social shares produce blank preview cards; if tentree's mission story spreads via social sharing, blank OG tags kill the click-through from those shares",
+      "evidence": "artifacts/tentree_20260611_72bf40/pages/about_page_9_pages_about.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "About page has the strongest brand narrative in the store. The absence of OG tags is particularly costly on this page — mission-driven stories are highly shareable, and blank social preview cards suppress the viral coefficient of that content."
+}
