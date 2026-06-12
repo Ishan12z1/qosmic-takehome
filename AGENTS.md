@@ -12,13 +12,13 @@ Given any Shopify store URL, produce a full CRO audit report matching
 ```bash
 pip install -r requirements.txt
 playwright install chromium
-python crawler/crawl_store.py https://example-store.com
+python -m crawler.crawl_store https://example-store.com
 ```
 
 Then follow the pipeline in sequence:
 
 ```
-1. crawler/crawl_store.py <url>          → artifacts/<run_id>/
+1. python -m crawler.crawl_store <url>   → artifacts/<run_id>/
 2. /page-evidence-extractor (per page)  → artifacts/<run_id>/evidence_cards/
 3. /evidence-analyst                    → artifacts/<run_id>/evidence_summary.md
 4. /audit-writer                        → sample_output/<run_id>_audit.md

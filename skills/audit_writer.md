@@ -61,11 +61,11 @@ should relate to at least one experiment recommendation.
 
 One H3 block per experiment. **Exactly 10 — no more, no fewer.** All 5 pillars
 must appear at least once:
-- Conversion (minimum 3 experiments)
-- AOV (minimum 1)
-- Retention (minimum 1)
-- Acquisition (minimum 1)
-- Performance (minimum 1)
+- Conversion (2)
+- AOV (2)
+- Retention (2)
+- Acquisition (2)
+- Performance (2)
 
 Each experiment block:
 

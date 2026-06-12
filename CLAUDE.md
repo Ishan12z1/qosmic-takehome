@@ -58,7 +58,7 @@ pip install -r requirements.txt
 playwright install chromium
 
 # Step 1 — Crawl (creates artifacts/<slug>_<YYYYMMDD>_<uuid>/)
-python crawler/crawl_store.py https://example-store.com
+python -m crawler.crawl_store https://example-store.com
 
 # Step 2 — Full pipeline (in Claude Code)
 /audit https://example-store.com
@@ -74,7 +74,7 @@ Re-running is safe — completed artifacts are skipped. Use `--force` to overwri
 ```
 /audit <url>
   ↓
-crawler/crawl_store.py       → artifacts/<run_id>/
+python -m crawler.crawl_store → artifacts/<run_id>/
   ↓
 /page-evidence-extractor     → evidence_cards/<page>.json  (one per page + shopping_journey.json)
   ↓

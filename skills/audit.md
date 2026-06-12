@@ -24,7 +24,7 @@ Example: `/audit https://zenrojas.com`
 ## Step 1 — Crawl
 
 ```bash
-python crawler/crawl_store.py <url>
+python -m crawler.crawl_store <url>
 ```
 
 - Skip if `artifacts/<slug>_*/discovered_links.json` already exists for this URL's slug.
