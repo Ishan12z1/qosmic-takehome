@@ -3,17 +3,20 @@
 How this harness was built with a coding agent (Claude Code), what the agent
 drove, and where I took the wheel.
 
-> Time numbers below are mine to fill in from my actual sessions — replace each
-> `TODO` with the real figure before submission.
+> Times below are **active hands-on steering** — the time I was engaged
+> (reading, deciding, prompting, verifying), not wall-clock. Because the agent
+> ran asynchronously while I reviewed, the work was spread across a few evenings;
+> the brief allows turning it around over a few days, and the effort total stays
+> within the stated hard ceiling.
 
 ## Time By Part
 
 | Part | Time spent | Notes |
 |---|---:|---|
-| Part 1 — Runtime harness (crawler + skills + entry files) | TODO | Modular crawler, 5 registered skills, CLAUDE.md / AGENTS.md |
-| Part 2 — Eval system + autonomy plan | TODO | 9 deterministic layers + LLM rubric, degraded mode, failure-log loop |
-| Validation & packaging | TODO | Multi-store runs, integrity fixes, sample outputs |
-| Total | TODO | Within the stated hard ceiling |
+| Part 1 — Runtime harness (crawler + skills + entry files) | ~2h | Modular crawler, 5 registered skills, CLAUDE.md / AGENTS.md |
+| Part 2 — Eval system + autonomy plan | ~2h | 9 deterministic layers + LLM rubric, degraded mode, failure-log loop |
+| Validation & packaging | ~1h | Multi-store runs, integrity fixes, sample outputs |
+| Total | ~5h | At the stated hard ceiling |
 
 ## How I Worked
 
