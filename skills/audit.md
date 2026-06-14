@@ -35,7 +35,20 @@ python -m crawler.crawl_store <url>
 
 ---
 
-## Step 2 — Extract per-page evidence cards
+## Step 2 — Apply crawl-health policy
+
+Read `artifacts/<run_id>/summary.md`.
+
+- **Blocked:** write an honest `Partial Audit — Crawl Issues` report using only
+  `summary.md`, `discovered_links.json`, and `technical_checks.json`; do not create
+  a full ten-experiment audit.
+- **Healthy or Degraded:** continue through the full pipeline. For Degraded runs,
+  cite `summary.md`, preserve uncertainty, and never make claims about missing
+  surfaces.
+
+---
+
+## Step 3 — Extract per-page evidence cards
 
 For **each entry in `selected_pages`** plus the shopping journey:
 
@@ -48,7 +61,7 @@ All evidence cards must be saved before proceeding.
 
 ---
 
-## Step 3 — Synthesize evidence
+## Step 4 — Synthesize evidence
 
 - Check if `artifacts/<run_id>/evidence_summary.md` already exists — skip if so.
 - Run `/evidence-analyst` with all evidence cards + `technical_checks.json` as input.
@@ -56,7 +69,7 @@ All evidence cards must be saved before proceeding.
 
 ---
 
-## Step 4 — Write audit report
+## Step 5 — Write audit report
 
 - Check if `sample_output/<run_id>_audit.md` already exists — skip if so.
 - Run `/audit-writer` with `evidence_summary.md` + `technical_checks.json` as input.
@@ -64,7 +77,7 @@ All evidence cards must be saved before proceeding.
 
 ---
 
-## Step 5 — Evaluate
+## Step 6 — Evaluate
 
 ```bash
 python evals/run_eval.py <run_id>
@@ -84,7 +97,7 @@ python evals/run_eval.py <run_id>
 - **run_id is the canonical key** — read it from `discovered_links.json`, never construct it manually.
 - **Do not re-use artifacts from a different run_id.** Every evidence citation must be
   under `artifacts/<run_id>/`.
-- **All 17 technical checks** must appear in the final report. Read them from
+- **Full audits include all 17 technical checks.** Read them from
   `technical_checks.json` — never infer or guess a status.
-- **Exactly 10 experiments** across all 5 pillars (Conversion, AOV, Retention, Acquisition,
-  Performance). No more, no fewer.
+- **Full audits include exactly 10 experiments** across all 5 pillars (Conversion,
+  AOV, Retention, Acquisition, Performance). No more, no fewer.

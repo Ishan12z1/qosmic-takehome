@@ -96,6 +96,11 @@ conclusions here — that is the evidence analyst's job.
 **Missing observations** — if the page has no obvious weaknesses in a pillar, omit that
 pillar from `missing_or_weak` rather than inventing one.
 
+**Be precise about proof placement.** If reviews or stars exist on the page, do
+not mark them as missing. Instead describe the real issue only if the screenshot
+supports it, for example "reviews are below the fold" or "rating exists but is
+not adjacent to the primary CTA."
+
 **Shopping journey card specifics:**
 - Copy `friction_score`, `friction_flags`, `friction_detail`, `journey_observations`, and
   `payment_methods_detected` verbatim from `pages/shopping_journey.json`.

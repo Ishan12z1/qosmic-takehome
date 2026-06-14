@@ -27,6 +27,12 @@ Then follow the pipeline in sequence:
 
 For a single command that orchestrates all steps: `/audit <url>`
 
+Health policy:
+
+- `Healthy` and `Degraded` crawls continue through the full pipeline. Degraded
+  reports must cite `summary.md` and label evidence gaps.
+- `Blocked` crawls produce only an honest partial crawl-issues report.
+
 ## Key files
 
 | File | Purpose |
@@ -47,9 +53,11 @@ For a single command that orchestrates all steps: `/audit <url>`
 1. **Never go past `/checkout` entry** — do not fill payment forms, do not place orders.
 2. **Never invent artifact paths** — only cite paths that exist under `artifacts/<run_id>/`.
 3. **Never change a technical check status** — copy from `technical_checks.json` verbatim.
-4. **Exactly 10 experiments, all 5 pillars** — Conversion, AOV, Retention, Acquisition, Performance.
-5. **run_id from `discovered_links.json`** — never construct it manually.
-6. **No store-specific hardcoding** — competitors derived from `store_category` in evidence_summary, not hardcoded.
+4. **Full reports have exactly four H2 sections** — Executive Summary, Proposed
+   Experiments, Competitor Analysis, Technical Checks.
+5. **Exactly 10 experiments, all 5 pillars** — Conversion, AOV, Retention, Acquisition, Performance.
+6. **run_id from `discovered_links.json`** — never construct it manually.
+7. **No store-specific hardcoding** — competitors derived from `store_category` in evidence_summary, not hardcoded.
 
 ## Artifact structure
 
@@ -67,12 +75,12 @@ artifacts/<slug>_<YYYYMMDD>_<6char-uuid>/
 
 | Layer | Check |
 |---|---|
-| 1 | Required sections present |
+| 1 | Exactly four required sections, in order |
 | 2 | Exec summary: 2–3 paragraphs with diagnosis |
 | 3 | Exactly 10 experiments |
 | 4 | All required fields per experiment |
 | 5 | All 5 pillars present |
 | 6 | Evidence paths exist on disk, all under `artifacts/<run_id>/` |
-| 7 | Technical checks table matches `technical_checks.json` |
+| 7 | All 17 technical statuses and details match `technical_checks.json` |
 | 8 | Competitor table has 3–4 rows relevant to store_category |
 | 9 | Quality rubric — paste pre-filled prompt to `/eval-judge` |

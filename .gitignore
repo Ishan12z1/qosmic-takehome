@@ -1,5 +1,32 @@
 __pycache__/
 *.pyc
 *.pyo
-artifacts/
 .env
+archive/
+
+# Keep raw crawl history local. Include only the compact verification bundles
+# for the two submitted README targets.
+artifacts/*
+!artifacts/zenrojas_20260613_b07d01/
+!artifacts/gingerpeople_20260613_5bcc0b/
+
+artifacts/zenrojas_20260613_b07d01/*
+!artifacts/zenrojas_20260613_b07d01/discovered_links.json
+!artifacts/zenrojas_20260613_b07d01/technical_checks.json
+!artifacts/zenrojas_20260613_b07d01/summary.md
+!artifacts/zenrojas_20260613_b07d01/evidence_summary.md
+!artifacts/zenrojas_20260613_b07d01/evidence_cards/
+!artifacts/zenrojas_20260613_b07d01/evidence_cards/**
+!artifacts/zenrojas_20260613_b07d01/screenshots/
+!artifacts/zenrojas_20260613_b07d01/screenshots/**
+!artifacts/zenrojas_20260613_b07d01/pages/
+artifacts/zenrojas_20260613_b07d01/pages/*
+!artifacts/zenrojas_20260613_b07d01/pages/*.json
+
+artifacts/gingerpeople_20260613_5bcc0b/*
+!artifacts/gingerpeople_20260613_5bcc0b/discovered_links.json
+!artifacts/gingerpeople_20260613_5bcc0b/technical_checks.json
+!artifacts/gingerpeople_20260613_5bcc0b/summary.md
+!artifacts/gingerpeople_20260613_5bcc0b/pages/
+artifacts/gingerpeople_20260613_5bcc0b/pages/*
+!artifacts/gingerpeople_20260613_5bcc0b/pages/shopping_journey.json

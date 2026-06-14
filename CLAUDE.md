@@ -13,7 +13,22 @@ Qosmic Audit Harness — a generic Shopify CRO audit agent. Given any Shopify UR
 
 ## Current State
 
-All build phases complete. Project is submission-ready pending 3 user-written deliverables.
+Runtime and evaluator hardening is implemented, with regression tests under
+`tests/`. The project is not submission-ready until fresh required-target reports
+and their cited verification artifacts are packaged, and the user-authored
+deliverables are completed.
+
+Health policy:
+- Healthy and Degraded crawls continue to a full audit; Degraded reports must
+  label evidence gaps and cite `summary.md`.
+- Blocked crawls produce only an honest partial crawl-issues report.
+
+Current submission runs:
+
+| Store | Run ID | Crawl health | Eval |
+|---|---|---|---|
+| zenrojas.com | `zenrojas_20260613_b07d01` | Healthy, 10/10 observed pages | 9/9 deterministic, Layer 9 48/50 |
+| gingerpeople.com | `gingerpeople_20260613_5bcc0b` | Blocked by bot protection | 3/3 Blocked-site checks |
 
 Completed phases:
 - [x] Phase 0 — CLAUDE.md + repo structure
@@ -25,7 +40,10 @@ Completed phases:
 - [x] Phase 6 — Layer 9 quality rubric scored (tentree: 44/50 — Good)
 - [x] Phase 7 — Eval website list (17 sites across 4 types, `docs/eval_website_list.md`)
 
-## Full Run History
+## Historical Run History
+
+These are historical calibration records. Re-run the current evaluator before
+using any score as a submission claim.
 
 | Store | run_id | Pages | Friction | Layer 1–8 | Layer 9 |
 |---|---|---|---|---|---|
@@ -81,22 +99,30 @@ Applying all 3 would bring tentree to ~48/50 (Excellent).
 ## Submission Readiness
 
 ### Completed (harness)
-- [x] Runtime harness (`/audit <url>` → full report on any Shopify store)
-- [x] 5 sample runs in `sample_output/` (zenrojas + 4 generalization stores)
-- [x] Eval system — 8 deterministic layers + Layer 9 rubric, all working
+- [x] Runtime harness with explicit Healthy / Degraded / Blocked policy
+- [x] Safe shopping journey that stops at checkout entry
+- [x] Fail-closed deterministic eval + Layer 9 rubric
+- [x] Regression tests for critical crawler/evaluator behavior
 - [x] `EVAL_LOOP.md` — autonomy plan written
-- [x] `evals/failure_log.jsonl` — live failure accumulation (Month 1 of autonomy plan already working)
+- [x] `evals/failure_log.jsonl` — deduplicated live failure accumulation
 - [x] `docs/eval_website_list.md` — 17-site test matrix
+
+### Required before submission
+- [ ] Generate fresh Zen Rojas evidence cards, evidence summary, exact four-section
+  audit, deterministic eval, and Layer 9 score.
+- [ ] Package every artifact cited by submitted reports.
+- [ ] Re-run every submitted sample with the current evaluator and remove stale reports.
 
 ### User still needs to write/record
 - [ ] `AGENT_LOG.md` — time per part, prompts fed, where Claude drove vs. you took the wheel
 - [ ] `WORKFLOWS.md` — how you use coding agents day-to-day (tool stack, delegation patterns)
 - [ ] Loom video (3–5 min) — walk through harness + eval loop; one decision you'd reverse; one unmeasured dimension that matters. Email link to trustin@qosmic.ai
 
-### Known gap vs. target_report.md
-- Expected lift and confidence are qualitative (High/Medium/Low) — target uses numeric ("+12–20%", "78%")
-- Competitor table is 4 columns — target uses 6 columns (adds "what they make easier" + "[store] edge")
-- Both are doc-only fixes in `skills/audit_writer.md` — no code change needed
+### Current output contract
+- Exactly four H2 sections: Executive Summary, Proposed Experiments, Competitor
+  Analysis, Technical Checks.
+- Expected lift and confidence are numeric.
+- Competitor analysis uses the six-column target schema.
 
 ## Bug Fixes Log
 
@@ -189,7 +215,8 @@ artifacts/<run_id>/
 
 **No hardcoding:** No store names, competitor names, or category-specific logic in skills or scripts. `store_category` is extracted by the evidence analyst from crawled evidence.
 
-**Retry safety:** Each pipeline step checks if its output artifact already exists and skips if present. `--force` overwrites.
+**Retry safety:** The crawler reuses the newest usable complete crawl. `--force`
+creates a fresh run.
 
 **Shopping journey limit:** Never go past `/checkout` entry. Never fill forms. Never place orders.
 
@@ -203,13 +230,13 @@ artifacts/<run_id>/
 
 | Layer | Check |
 |---|---|
-| 1 | Required sections present |
+| 1 | Exactly four required sections, in order |
 | 2 | Exec summary is 2–3 paragraphs with diagnosis |
 | 3 | Exactly 10 experiments |
 | 4 | All required fields in every experiment |
 | 5 | All 5 pillars present |
 | 6 | Evidence paths exist on disk and under `artifacts/<run_id>/` (cross-run contamination check) |
-| 7 | Technical checks table matches `technical_checks.json` (all 17) |
+| 7 | All 17 technical statuses and details match `technical_checks.json` |
 | 8 | Competitor table has 3–4 rows relevant to `store_category` |
 | 9 | Quality rubric — pre-filled prompt output, paste to `/eval-judge` |
 

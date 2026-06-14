@@ -1,105 +1,71 @@
-# EVAL_LOOP.md — Autonomy Plan
+# EVAL_LOOP.md - Autonomous Improvement Plan
 
-How the Qosmic Audit Harness improves itself over time using a failure taxonomy
-feedback loop.
+The eval loop treats every audit as a traceable training example:
 
----
-
-## Core mechanism
-
-Every eval failure is tagged with a failure type and appended to
-`evals/failure_log.jsonl`. The most common failure types drive automatic
-tightening of the relevant skill instructions.
-
-```
-eval run → failures tagged → failure_log.jsonl → top failure types → skill instructions tightened
+```text
+crawl + report -> fail-closed deterministic eval -> quality judge
+-> deduplicated failure taxonomy -> candidate skill change
+-> held-out store evaluation -> promote or roll back
 ```
 
----
+## Current Foundation
 
-## Failure taxonomy
+`evals/run_eval.py` checks the exact report contract, experiment schema, pillar
+coverage, evidence existence, technical status/detail fidelity, competitor
+schema, and unobserved-surface claims. Failed deterministic checks return a
+non-zero exit and block Layer 9.
 
-| Tag | What it means | Skill to tighten |
-|---|---|---|
-| `weak_hypothesis` | Hypothesis doesn't follow "X→Y because Z (evidence)" | `audit_writer.md` |
-| `missing_evidence_citation` | Observation has no artifact path | `page_evidence_extractor.md`, `audit_writer.md` |
-| `generic_experiment` | Primary change is vague ("improve UX", "add social proof") | `audit_writer.md` |
-| `wrong_pillar` | Experiment tagged to wrong pillar | `audit_writer.md`, `evidence_analyst.md` |
-| `technical_mismatch` | Report status differs from `technical_checks.json` | `audit_writer.md` |
-| `competitor_mismatch` | Competitors don't match store_category | `evidence_analyst.md`, `audit_writer.md` |
-| `pillar_missing` | One of 5 pillars absent from experiments | `audit_writer.md` |
-| `exec_summary_generic` | Exec summary could apply to any store | `audit_writer.md` |
-| `cross_run_contamination` | Evidence paths reference a different run_id | `audit.md`, `audit_writer.md` |
-| `missing_section` | Required report section absent | `audit_writer.md` |
+Each unique failure is appended once to `evals/failure_log.jsonl`. Run:
 
----
+```bash
+python evals/analyze_failures.py --min-runs 3
+```
 
-## Month 1 — Baseline
+This proposes skill-tightening candidates only when a failure repeats across
+distinct stores. Re-running one bad audit cannot inflate the signal.
 
-- Run deterministic eval (Layers 1–8) + manual Layer 9 rubric on all audit outputs.
-- Human reviews all low-scoring audits (total < 35/50).
-- Build failure taxonomy by tagging every failure in `failure_log.jsonl`.
-- Identify the top 3 most common failure types across all runs.
+## Month 1 - Establish Trusted Baselines
 
----
+- Maintain a versioned suite covering normal Shopify stores, blocked stores,
+  unusual domains, and non-Shopify adversarial sites.
+- Store audit, artifacts, eval result, skill version, and runtime version
+  together for every baseline.
+- Humans review deterministic-eval changes and score a stratified sample with
+  Layer 9. Disagreements become new deterministic checks or rubric examples.
+- Track false-positive and false-negative rates for every evaluator layer.
 
-## Month 2 — Auto-tighten
+## Month 2 - Candidate/Champion Loop
 
-- Read `failure_log.jsonl` to count failure type frequency.
-- For any failure type that fires 5+ times: update the relevant skill's instruction
-  with a stricter rule or additional example.
+- A recurring cross-store failure generates a candidate skill patch and a
+  focused regression test.
+- Run champion and candidate skills against held-out stores not used to propose
+  the patch.
+- Promote only when the candidate improves the target failure without reducing
+  evidence validity, contract pass rate, or Layer 9 score.
+- Commit every promoted change with before/after evals. Automatically roll back
+  regressions.
 
-Example tightening triggers:
-- `generic_experiment` fires 8× → `audit_writer.md` gets: "Every 'Primary change' must
-  name the exact element (e.g. 'star rating widget below product title'), not a category
-  ('improve social proof')."
-- `weak_hypothesis` fires 6× → `audit_writer.md` gets a required template with a
-  filled example.
-- `cross_run_contamination` fires 3× → `audit.md` gets an explicit cross-check step
-  before saving the report.
+The system may regenerate only a failed report section after deterministic
+validation. It never auto-edits crawler safety rules or promotes its own skill
+change without held-out evidence.
 
-For any section that failed Layer 1–8 deterministic checks: auto-regenerate only that
-section (not the full report). Re-run eval to confirm fix.
+## Month 3 - Outcome Calibration
 
-Track skill instruction versions in git — each tightening is a separate commit with
-the failure count that triggered it.
+- Join merchant A/B outcomes to experiment type, evidence pattern, expected
+  lift, and confidence.
+- Recalibrate confidence and expected-lift guidance from observed results.
+- Route novel categories, low evidence coverage, evaluator disagreement, and
+  safety-sensitive changes to humans.
+- Shrink review by demonstrated reliability per category, not by elapsed time.
 
----
+## Human Surface
 
-## Month 3 — Confidence calibration
-
-- Merchant A/B test outcomes feed back as ground truth where available.
-- Experiment types that consistently underperform expected lift get downweighted
-  in the `Expected lift` field guidance.
-- Human review scope shrinks: only audits with confidence < 70% or novel
-  `store_category` values require review.
-- Novel categories (not seen in prior runs) flag for human review automatically
-  since competitor selection is untested.
-
----
-
-## Human review surface over time
-
-| Stage | What humans review |
+| Stage | Human responsibility |
 |---|---|
-| Month 1 | All audits scoring < 35/50 on Layer 9 |
-| Month 2 | Audits with 2+ deterministic layer failures |
-| Month 3 | Only low-confidence audits and novel store categories |
+| Month 1 | Validate evaluator correctness and review low-scoring audits |
+| Month 2 | Approve candidate promotion when held-out results are ambiguous |
+| Month 3 | Review novel categories, safety changes, and outcome anomalies |
 
----
-
-## failure_log.jsonl format
-
-Each line is one JSON object:
-
-```json
-{
-  "run_id": "zenrojas_20260611_e275e3",
-  "timestamp": "2026-06-11T14:23:01",
-  "layer": 4,
-  "failure_type": "missing_exp_fields",
-  "detail": "EXP-07: missing ['decision rule', 'confidence']"
-}
-```
-
-Used by: human reviewers, future auto-tighten scripts, confidence calibration.
+The target is not zero humans. It is a small, auditable approval surface around
+novelty and risk, while repetitive quality failures are detected, tested, and
+corrected automatically.

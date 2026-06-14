@@ -13,6 +13,10 @@ selection in the audit writer.
 
 Save to `artifacts/<run_id>/evidence_summary.md`
 
+This file is the writer's main source of truth. If it is thin or generic, the
+final audit will also be thin or generic. Complete all required sections below;
+do not stop after `Findings by pillar`.
+
 ---
 
 ## Required sections (in order)
@@ -93,6 +97,16 @@ audit writer's job based on `store_category` and `primary_use_cases`.
 **Cross-page patterns are the gold standard.** A weakness observed on one page
 is a signal. The same weakness on three pages is a finding. Weight cross-page
 patterns more heavily in candidate experiments.
+
+**Do not contradict the screenshot.** If a PDP already shows reviews, stars,
+subscriptions, bundles, or another proof element, do not summarize it as
+"missing." Instead describe the real issue precisely, for example "reviews are
+below the fold" or "cross-sell exists on PDP A but not PDP B."
+
+**Candidate experiments must be store-specific.** Avoid defaulting to generic
+"add stars / add cart upsell / add email capture" ideas unless the cited
+evidence clearly shows the element is absent and the change is one of the
+strongest cross-page opportunities.
 
 **Shopping journey friction is always a Conversion pillar finding.** Even a
 perfect 5.0/5 score should be noted (positive signal) with citations to the
