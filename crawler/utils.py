@@ -14,6 +14,12 @@ from bs4 import BeautifulSoup
 # Naming
 # ---------------------------------------------------------------------------
 
+def normalize_host(host: str) -> str:
+    """Normalize a hostname without stripping legitimate leading characters."""
+    normalized = host.lower()
+    return normalized[4:] if normalized.startswith("www.") else normalized
+
+
 def derive_slug(url: str) -> str:
     hostname = urlparse(url).hostname or url
     for prefix in ["www.", "shop.", "store.", "m."]:
@@ -47,6 +53,11 @@ BLOCKED_SIGNALS = [
     "enable javascript and cookies",
     "please wait",
     "attention required",
+    # Geo-routing / interstitial walls that serve placeholder content on every
+    # URL instead of the real storefront (e.g. patagonia "Hang Tight!").
+    "hang tight",
+    "routing to checkout",
+    "sit tight",
 ]
 
 
@@ -66,44 +77,122 @@ def is_valid_page(title: str, body_text: str) -> tuple[bool, str]:
 
 
 # ---------------------------------------------------------------------------
+# Soft-404 detection (branded 404 pages that return HTTP 200)
+# ---------------------------------------------------------------------------
+
+_SOFT_404_TITLE_SIGNALS = ["404", "page not found", "not found"]
+
+
+def is_soft_404(title: str, canonical: str, body_text: str) -> bool:
+    """True if a page is a branded/soft 404 despite a 200 status.
+
+    Detected via the document title ("404 Not Found"), a canonical URL that
+    resolves to a /404 path, or an explicit not-found message in a short body.
+    """
+    t = (title or "").lower()
+    if any(sig in t for sig in _SOFT_404_TITLE_SIGNALS):
+        return True
+    canon_path = urlparse(canonical or "").path.rstrip("/").lower()
+    if canon_path.endswith("/404"):
+        return True
+    body = (body_text or "").lower()
+    if len(body.strip()) < 1200 and ("page not found" in body or "page you requested" in body):
+        return True
+    return False
+
+
+# ---------------------------------------------------------------------------
+# Cart content detection (verify add-to-cart actually populated the cart)
+# ---------------------------------------------------------------------------
+
+_EMPTY_CART_SIGNALS = [
+    "your cart is empty",
+    "your shopping cart is empty",
+    "cart is empty",
+    "no items in your cart",
+    "your bag is empty",
+]
+
+
+def cart_has_items(cart_body_text: str) -> bool:
+    """True if the cart page shows at least one line item.
+
+    Returns False when the cart page explicitly states it is empty. This guards
+    against treating a successful add-to-cart *click* as a successful add when
+    the item never actually landed in the cart.
+    """
+    body = (cart_body_text or "").lower()
+    if any(sig in body for sig in _EMPTY_CART_SIGNALS):
+        return False
+    # Heuristic positive signals of a populated cart.
+    return any(sig in body for sig in ["subtotal", "checkout", "remove", "quantity"])
+
+
+# ---------------------------------------------------------------------------
 # Payment method detection
 # ---------------------------------------------------------------------------
 
-_PAYMENT_LABEL_MAP = {
-    "visa": "Visa",
-    "mastercard": "Mastercard",
-    "amex": "Amex",
-    "american-express": "Amex",
-    "paypal": "PayPal",
-    "apple-pay": "Apple Pay",
-    "apple_pay": "Apple Pay",
-    "applepay": "Apple Pay",
-    "google-pay": "Google Pay",
-    "google_pay": "Google Pay",
-    "googlepay": "Google Pay",
-    "shop-pay": "Shop Pay",
-    "shop_pay": "Shop Pay",
-    "shopify-pay": "Shop Pay",
-    "shopifypay": "Shop Pay",
-    "klarna": "Klarna",
-    "afterpay": "Afterpay",
-    "clearpay": "Afterpay",
-    "stripe": "Stripe",
-    "discover": "Discover",
-    "amazon-pay": "Amazon Pay",
-    "diners": "Diners Club",
-    "jcb": "JCB",
+_PAYMENT_PATTERNS = {
+    "Visa": [
+        r"\bvisa\b",
+        r"visa(?:\.svg|\.png|\.webp|\.jpg)",
+    ],
+    "Mastercard": [
+        r"\bmastercard\b",
+        r"master[-_ ]?card(?:\.svg|\.png|\.webp|\.jpg)?",
+    ],
+    "Amex": [
+        r"\bamex\b",
+        r"american[-_ ]?express",
+    ],
+    "PayPal": [
+        r"\bpaypal\b",
+        r"pay[-_ ]?pal",
+    ],
+    "Apple Pay": [
+        r"apple[-_ ]?pay",
+    ],
+    "Google Pay": [
+        r"google[-_ ]?pay",
+        r"\bgpay\b",
+    ],
+    "Shop Pay": [
+        r"shop(?:ify)?[-_ ]?pay",
+    ],
+    "Klarna": [
+        r"\bklarna\b",
+    ],
+    "Afterpay": [
+        r"\bafterpay\b",
+        r"\bclearpay\b",
+    ],
+    "Stripe": [
+        r"\bstripe\b",
+    ],
+    "Discover": [
+        r"discover[-_ ]card",
+        r"card[-_ ]discover",
+        r"discover(?:\.svg|\.png|\.webp|\.jpg)",
+    ],
+    "Amazon Pay": [
+        r"amazon[-_ ]?pay",
+    ],
+    "Diners Club": [
+        r"\bdiners\b",
+        r"diners[-_ ]club",
+    ],
+    "JCB": [
+        r"\bjcb\b",
+    ],
 }
 
 
 def detect_payment_methods(html: str) -> list[str]:
     lower = html.lower()
-    seen: set[str] = set()
     found = []
-    for pattern, label in _PAYMENT_LABEL_MAP.items():
-        if pattern in lower and label not in seen:
+    for label, patterns in _PAYMENT_PATTERNS.items():
+        if any(re.search(pattern, lower, re.IGNORECASE) for pattern in patterns):
             found.append(label)
-            seen.add(label)
     return found
 
 
@@ -163,11 +252,43 @@ def extract_page_metadata(soup: BeautifulSoup, url: str, page_type: str) -> dict
 def find_existing_run(slug: str, artifacts_root: Path) -> str | None:
     if not artifacts_root.exists():
         return None
-    for folder in sorted(artifacts_root.iterdir(), reverse=True):
-        if folder.is_dir() and folder.name.startswith(f"{slug}_"):
-            if (folder / "discovered_links.json").exists() and (folder / "technical_checks.json").exists():
-                return folder.name
-    return None
+
+    candidates: list[tuple[int, datetime, str]] = []
+    required = [
+        "discovered_links.json",
+        "technical_checks.json",
+        "summary.md",
+        "pages/shopping_journey.json",
+    ]
+
+    for folder in artifacts_root.iterdir():
+        if not folder.is_dir() or not folder.name.startswith(f"{slug}_"):
+            continue
+        if not all((folder / relative).exists() for relative in required):
+            continue
+
+        discovered = folder / "discovered_links.json"
+        try:
+            data = json.loads(discovered.read_text(encoding="utf-8"))
+            crawled_at = datetime.fromisoformat(data["crawled_at"])
+        except (KeyError, TypeError, ValueError, json.JSONDecodeError):
+            crawled_at = datetime.fromtimestamp(folder.stat().st_mtime)
+
+        summary = (folder / "summary.md").read_text(encoding="utf-8", errors="replace")
+        verdict_match = re.search(r"crawl health:\s*([A-Za-z]+)", summary, re.IGNORECASE)
+        verdict = verdict_match.group(1).lower() if verdict_match else "unknown"
+        usability = {"healthy": 2, "degraded": 1, "blocked": 0}.get(verdict, 0)
+        candidates.append((usability, crawled_at, folder.name))
+
+    if not candidates:
+        return None
+
+    # Prefer the newest Healthy/Degraded crawl. Blocked-only runs should be retried
+    # by default rather than silently reused, because they are often transient.
+    usable = [candidate for candidate in candidates if candidate[0] > 0]
+    if not usable:
+        return None
+    return max(usable, key=lambda candidate: candidate[1])[2]
 
 
 def make_run_dirs(run_dir: Path) -> None:

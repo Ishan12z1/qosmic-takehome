@@ -6,6 +6,8 @@ from urllib.parse import urlparse, urljoin
 import requests
 from bs4 import BeautifulSoup
 
+from .utils import normalize_host
+
 
 # ---------------------------------------------------------------------------
 # Page type classification
@@ -48,8 +50,8 @@ def _is_valid_store_url(url: str, base_netloc: str) -> bool:
     if not url.startswith("http"):
         return False
     url_netloc = urlparse(url).netloc.lower()
-    clean_base = base_netloc.lstrip("www.")
-    return url_netloc == clean_base or url_netloc == "www." + clean_base
+    clean_base = normalize_host(base_netloc)
+    return normalize_host(url_netloc) == clean_base
 
 
 def _path_key(url: str) -> str:
@@ -123,16 +125,6 @@ def discover_urls(base_url: str) -> list[str]:
     except Exception:
         pass
 
-    # 3. Shopify standard paths
-    standard_paths = [
-        "/", "/cart", "/collections", "/collections/all",
-        "/pages/about", "/pages/faq", "/pages/shipping",
-        "/pages/returns", "/pages/where-to-buy", "/pages/contact",
-        "/blogs/news", "/blogs/recipes",
-    ]
-    for path in standard_paths:
-        found.add(urljoin(origin, path))
-
     found.add(origin + "/")
     return list(found)
 
@@ -157,17 +149,27 @@ MAX_PAGES = 12
 _BLOG_PRIORITY_KEYWORDS = ["health", "guide", "routine", "recipe", "education",
                             "wellness", "glp", "nausea", "digest", "nutrition"]
 
+# Product handles that are rarely representative of the catalog. These are ranked
+# LAST (not excluded) so they're only chosen when nothing better exists.
+_PRODUCT_DENYLIST = ["gift-card", "giftcard", "gift_card", "e-gift", "egift",
+                     "membership", "donation", "subscription-gift"]
+
 
 def _blog_priority(url: str) -> int:
     path = urlparse(url).path.lower()
     return sum(1 for kw in _BLOG_PRIORITY_KEYWORDS if kw in path)
 
 
-def select_pages(urls: list[str], base_url: str) -> tuple[list[dict], list[dict]]:
+def _is_denylisted_product(url: str) -> bool:
+    handle = urlparse(url).path.lower()
+    return any(kw in handle for kw in _PRODUCT_DENYLIST)
+
+
+def select_pages(urls: list[str], base_url: str,
+                 nav_links: set[str] | None = None,
+                 guessed_links: set[str] | None = None) -> tuple[list[dict], list[dict]]:
     parsed = urlparse(base_url)
-    base_netloc = parsed.netloc.lower()
-    if base_netloc.startswith("www."):
-        base_netloc = base_netloc[4:]
+    base_netloc = normalize_host(parsed.netloc)
 
     # Classify - only accept valid store URLs, deduplicate by path key
     classified: dict[str, list[str]] = {k: [] for k in list(PAGE_QUOTA.keys()) + ["other"]}
@@ -189,10 +191,37 @@ def select_pages(urls: list[str], base_url: str) -> tuple[list[dict], list[dict]
         ptype = classify_url(url)
         classified[ptype].append(url)
 
-    # Sort for quality
-    classified["product_page"].sort(key=lambda u: len(urlparse(u).path))
-    classified["collection_page"].sort(key=lambda u: len(urlparse(u).path))
-    classified["blog_or_content_page"].sort(key=lambda u: -_blog_priority(u))
+    # Rank for representativeness. Products/collections linked from the homepage
+    # nav are featured/representative; gift-cards & memberships rank last. This
+    # replaces the old shortest-path sort that picked mugs/gift-cards/memberships.
+    nav_keys = {_path_key(u) for u in (nav_links or set())}
+    guessed_keys = {_path_key(u) for u in (guessed_links or set())}
+
+    def _source_rank(u: str) -> tuple[int, int]:
+        return (
+            1 if _path_key(u) in guessed_keys else 0,
+            0 if _path_key(u) in nav_keys else 1,
+        )
+
+    def _product_rank(u: str):
+        return (*_source_rank(u),
+                0 if not _is_denylisted_product(u) else 1,
+                len(urlparse(u).path))
+
+    def _collection_rank(u: str):
+        return (*_source_rank(u),
+                len(urlparse(u).path))
+
+    classified["product_page"].sort(key=_product_rank)
+    classified["collection_page"].sort(key=_collection_rank)
+    classified["blog_or_content_page"].sort(
+        key=lambda u: (*_source_rank(u), -_blog_priority(u), len(urlparse(u).path)))
+
+    # Real sitemap/nav URLs always outrank guessed standard Shopify paths.
+    for page_type in [
+        "cart_page", "where_to_buy", "faq_shipping_returns", "about_page",
+    ]:
+        classified[page_type].sort(key=lambda u: (*_source_rank(u), len(urlparse(u).path)))
 
     # Ensure homepage
     if not classified["homepage"]:

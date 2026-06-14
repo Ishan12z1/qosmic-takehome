@@ -7,10 +7,11 @@ from urllib.parse import urlparse
 from bs4 import BeautifulSoup
 
 from .page_crawler import make_stealth_context
-from .utils import detect_payment_methods, is_valid_page
+from .utils import detect_payment_methods, is_valid_page, cart_has_items
 
 FRICTION_DEDUCTIONS = {
     "add_to_cart_failed": 2.0,
+    "api_add_to_cart_fallback": 1.0,
     "cart_load_failed": 1.0,
     "checkout_load_failed": 1.0,
     "popup_blocked_flow": 1.0,
@@ -42,6 +43,7 @@ _EMPTY_OBSERVATIONS = {
     "cart_upsell_present": False,
     "urgency_elements_present": False,
     "error_messages_detected": False,
+    "api_add_to_cart_fallback": False,
 }
 
 
@@ -59,8 +61,44 @@ def _detail_from_flags(score: float, flags: list[str]) -> str:
     return f"Score {score}/5 - " + ", ".join(notes)
 
 
+async def _select_first_variant(page) -> None:
+    """Best-effort: pick the first available size/variant so add-to-cart works.
+
+    Many Shopify PDPs (apparel sizes, subscribe-vs-onetime) refuse add-to-cart
+    until an option is chosen. Try a <select>, then radio/button swatches.
+    """
+    # 1. <select> variant dropdowns
+    try:
+        selects = page.locator("select[name*='id' i], select[name*='option' i], "
+                               ".product-form select, select.single-option-selector")
+        if await selects.count() > 0:
+            options = selects.first.locator("option:not([disabled])")
+            if await options.count() > 1:
+                val = await options.nth(1).get_attribute("value")
+                if val:
+                    await selects.first.select_option(val)
+                    await asyncio.sleep(0.5)
+                    return
+    except Exception:
+        pass
+    # 2. radio / button swatches
+    for sel in ["fieldset input[type='radio']:not([disabled])",
+                ".product-form__input input:not([disabled])",
+                "[data-option-value]:not([disabled])",
+                "button[name='add'] ~ * [role='radio']"]:
+        try:
+            loc = page.locator(sel).first
+            if await loc.is_visible(timeout=1000):
+                await loc.click(timeout=2000)
+                await asyncio.sleep(0.5)
+                return
+        except Exception:
+            continue
+
+
 async def _try_add_to_cart(page) -> bool:
     """Attempt add-to-cart using all known selectors. Returns True on success."""
+    await _select_first_variant(page)
     for selector in ADD_TO_CART_SELECTORS:
         try:
             btn = page.locator(selector).first
@@ -72,6 +110,57 @@ async def _try_add_to_cart(page) -> bool:
         except Exception:
             continue
     return False
+
+
+async def _cart_item_count(page) -> int:
+    """Authoritative cart size via Shopify's /cart.js. -1 if unavailable.
+
+    Uses the page's own location.origin so the fetch is always same-origin (the
+    store may redirect bare-domain → www, which would otherwise break CORS).
+    """
+    try:
+        return await page.evaluate(
+            """async () => {
+                try {
+                    const r = await fetch(location.origin + '/cart.js', {headers: {'Accept': 'application/json'}});
+                    if (!r.ok) return -1;
+                    const j = await r.json();
+                    return (typeof j.item_count === 'number') ? j.item_count : -1;
+                } catch (e) { return -1; }
+            }""")
+    except Exception:
+        return -1
+
+
+async def _api_add_first_variant(page, pdp_url: str) -> bool:
+    """Fallback: add the first available variant via /cart/add.js.
+
+    Used when the UI add-to-cart leaves the cart empty (e.g. a required variant
+    selection the headless run could not make). Uses location.origin to stay
+    same-origin through any bare-domain → www redirect.
+    """
+    try:
+        handle = pdp_url.rstrip("/").split("/products/")[-1].split("?")[0]
+        return await page.evaluate(
+            """async (handle) => {
+                try {
+                    const pr = await fetch(location.origin + '/products/' + handle + '.js',
+                        {headers: {'Accept': 'application/json'}});
+                    if (!pr.ok) return false;
+                    const p = await pr.json();
+                    const variants = p.variants || [];
+                    const v = variants.find(x => x.available) || variants[0];
+                    if (!v) return false;
+                    const ar = await fetch(location.origin + '/cart/add.js', {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                        body: JSON.stringify({id: v.id, quantity: 1})
+                    });
+                    return ar.ok;
+                } catch (e) { return false; }
+            }""", handle)
+    except Exception:
+        return False
 
 
 async def run_shopping_journey(
@@ -186,9 +275,27 @@ async def run_shopping_journey(
             else:
                 print(f"  [WARN] Add-to-cart failed on {pdp_url} - trying next PDP")
 
-        if not atc_success:
+        # ------------------------------------------------------------------
+        # Authoritative add-to-cart verification via /cart.js, with a
+        # variant-aware API-add fallback for PDPs requiring an option selection.
+        # ------------------------------------------------------------------
+        item_count = await _cart_item_count(page)
+        api_fallback_used = False
+        if item_count <= 0:
+            print("  -> Cart empty after UI add; trying variant-aware API add...")
+            if await _api_add_first_variant(page, pdp_url):
+                item_count = await _cart_item_count(page)
+                api_fallback_used = item_count > 0
+        atc_success = item_count > 0
+        if atc_success:
+            print(f"  [OK] Cart verified via /cart.js: {item_count} item(s)")
+            if api_fallback_used:
+                friction_flags.append("api_add_to_cart_fallback")
+                journey["journey_observations"]["api_add_to_cart_fallback"] = True
+                print("  [WARN] Customer-facing add-to-cart was not verified; API fallback used")
+        else:
             friction_flags.append("add_to_cart_failed")
-            print("  [FAIL] Add-to-cart failed on all PDPs")
+            print("  [FAIL] Cart empty after UI + API add attempts")
 
         # ------------------------------------------------------------------
         # Step 3: Cart
@@ -238,7 +345,8 @@ async def run_shopping_journey(
         # ------------------------------------------------------------------
         print(f"  -> Checkout entry: {origin}/checkout")
         try:
-            await page.goto(f"{origin}/checkout", wait_until="domcontentloaded", timeout=20000)
+            checkout_response = await page.goto(
+                f"{origin}/checkout", wait_until="domcontentloaded", timeout=20000)
             await asyncio.sleep(1.5)
             click_count += 1
 
@@ -246,9 +354,27 @@ async def run_shopping_journey(
             checkout_body = await page.evaluate("() => document.body ? document.body.innerText : ''")
             checkout_lower = checkout_body.lower()
 
-            if "404" in checkout_lower or "page not found" in checkout_lower:
+            # Reachable only if we actually landed on a checkout URL with an OK
+            # status — not merely the absence of "404". Shopify bounces an empty
+            # cart back to /cart, which must NOT count as checkout reachable.
+            final_url = (page.url or "").lower()
+            checkout_status = checkout_response.status if checkout_response else None
+            on_checkout_url = ("/checkout" in final_url or "/checkouts/" in final_url
+                               or "checkout." in final_url)
+            http_failed = checkout_status is not None and checkout_status >= 400
+            is_404_body = "404" in checkout_lower or "page not found" in checkout_lower
+
+            if http_failed or is_404_body or not on_checkout_url:
                 friction_flags.append("checkout_load_failed")
-                print("  [FAIL] Checkout entry returned 404")
+                reason = (f"HTTP {checkout_status}" if http_failed
+                          else "404 body" if is_404_body
+                          else f"redirected away from checkout ({final_url[:60]})")
+                print(f"  [FAIL] Checkout entry not reachable - {reason}")
+                checks["checkout_reachable"] = {
+                    "label": "Checkout Reachable", "status": "Fail",
+                    "detail": f"Checkout entry not reachable - {reason}.",
+                    "evidence": f"artifacts/{run_dir.name}/screenshots/shopping_journey_checkout.png",
+                }
             else:
                 print("  [OK] Checkout entry reached - STOPPING here (no form filling)")
 
@@ -296,7 +422,11 @@ async def run_shopping_journey(
         journey["friction_detail"] = _detail_from_flags(score, friction_flags)
         journey["outcome"] = "full_journey" if not friction_flags else "partial_journey"
 
-        status = "Pass" if score >= 4.0 else ("Warn" if score >= 2.5 else "Fail")
+        status = (
+            "Pass" if score >= 4.0 and "api_add_to_cart_fallback" not in friction_flags
+            else "Warn" if score >= 2.5
+            else "Fail"
+        )
         pm_str = ", ".join(payment_methods) if payment_methods else "none detected"
         checks["shopping_journey"] = {
             "label": "Shopping Journey",

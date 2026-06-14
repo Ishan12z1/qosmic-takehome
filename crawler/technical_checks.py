@@ -72,12 +72,18 @@ def check_robots(netloc: str) -> dict:
 def check_broken_links(urls: list[str]) -> dict:
     sample = urls[:40]
     broken = []
+    inaccessible = []
     critical_paths = ["/cart", "/checkout", "/collections", "/products"]
     critical_broken = []
 
     for url in sample:
         try:
             r = _SESSION.head(url, timeout=8, allow_redirects=True)
+            if r.status_code == 405:
+                r = _SESSION.get(url, timeout=8, allow_redirects=True, stream=True)
+            if r.status_code in {401, 403, 429}:
+                inaccessible.append({"url": url, "status": r.status_code})
+                continue
             if r.status_code >= 400:
                 broken.append({"url": url, "status": r.status_code})
                 path = urlparse(url).path
@@ -92,6 +98,12 @@ def check_broken_links(urls: list[str]) -> dict:
     if broken:
         return _warn("Broken Links",
                      f"{len(broken)} non-critical broken links in {len(sample)} sampled.")
+    if inaccessible:
+        return _warn(
+            "Broken Links",
+            f"No broken links confirmed; {len(inaccessible)}/{len(sample)} sampled links "
+            "could not be verified because the server returned 401/403/429.",
+        )
     return _pass("Broken Links", f"No broken links in {len(sample)} sampled links.")
 
 
@@ -100,87 +112,159 @@ def check_broken_links(urls: list[str]) -> dict:
 # ---------------------------------------------------------------------------
 
 def update_from_html(checks: dict, soup: BeautifulSoup,
-                     screenshot_path: str, page_html: str) -> None:
-    """Update browser-dependent checks from a crawled page's soup + HTML."""
+                     screenshot_path: str, page_html: str,
+                     page_type: str = "other") -> None:
+    """Accumulate per-page HTML signals into checks["_html_accum"].
 
-    # Meta tags & social previews
+    Called for EVERY crawled page (not just the homepage). The aggregate
+    Pass/Warn/Fail statuses are computed later by finalize_html_checks, so
+    sitewide claims (e.g. image alt-text coverage, OG-tag coverage) reflect all
+    crawled pages rather than the homepage alone.
+    """
+    accum = checks.setdefault("_html_accum", [])
+
     title = soup.find("title")
     meta_desc = soup.find("meta", attrs={"name": "description"})
     og_title = soup.find("meta", property="og:title")
-    if title and meta_desc:
-        checks["meta_tags_social"] = _pass(
-            "Meta Tags & Social Previews",
-            "Title and meta description found." + (" OG tags present." if og_title else " OG tags missing."),
-            screenshot_path,
-        )
-    elif title:
-        checks["meta_tags_social"] = _warn(
-            "Meta Tags & Social Previews",
-            "Title found but meta description missing.",
-            screenshot_path,
-        )
 
-    # Structured data
-    ld_scripts = soup.find_all("script", type="application/ld+json")
-    if ld_scripts:
-        types_found = []
-        for block in ld_scripts:
-            try:
-                data = json.loads(block.string or "{}")
-                t = data.get("@type", "")
-                if t:
-                    types_found.append(t)
-            except Exception:
-                pass
-        checks["structured_data"] = _pass(
-            "Structured Data",
-            f"JSON-LD found: {', '.join(types_found[:5]) or 'present'}.",
-            screenshot_path,
-        )
+    ld_types = []
+    for block in soup.find_all("script", type="application/ld+json"):
+        try:
+            data = json.loads(block.string or "{}")
+            t = data.get("@type", "")
+            if isinstance(t, list):
+                ld_types.extend(str(x) for x in t)
+            elif t:
+                ld_types.append(str(t))
+        except Exception:
+            pass
 
-    # Favicon
     favicon = (soup.find("link", rel="icon") or
                soup.find("link", rel="shortcut icon") or
                soup.find("link", rel=lambda v: v and "icon" in (v if isinstance(v, str) else " ".join(v))))
-    if favicon:
-        checks["favicon"] = _pass("Favicon", "Favicon link tag found.", screenshot_path)
 
-    # Cookie / Privacy
     text = soup.get_text(separator=" ", strip=True).lower()
-    has_privacy = "privacy" in text
-    has_terms = "terms" in text
-    has_cookie = "cookie" in text
-    if has_privacy and has_terms:
-        checks["cookie_privacy"] = (
-            _pass("Cookie/Privacy",
-                  "Privacy Policy and Terms links found. Cookie policy also present." if has_cookie
-                  else "Privacy Policy and Terms found. Cookie policy not detected.",
-                  screenshot_path)
-            if has_cookie else
-            _warn("Cookie/Privacy",
-                  "Privacy and Terms found but cookie consent policy not detected.",
-                  screenshot_path)
-        )
-
-    # Image optimization
     imgs = soup.find_all("img")
-    if imgs:
-        missing_alt = sum(1 for img in imgs if not img.get("alt"))
-        alt_pct = int(missing_alt / len(imgs) * 100)
-        checks["image_optimization"] = _warn(
-            "Image Optimization",
-            f"{missing_alt}/{len(imgs)} images missing alt text ({alt_pct}%). Byte-level audit not run.",
-            screenshot_path,
-        )
+    missing_alt = sum(1 for img in imgs if not img.get("alt"))
 
-    # Payment methods from HTML
+    accum.append({
+        "screenshot": screenshot_path,
+        "page_type": page_type,
+        "has_title": bool(title),
+        "has_meta_desc": bool(meta_desc),
+        "has_og": bool(og_title),
+        "ld_types": ld_types,
+        "has_favicon": bool(favicon),
+        "has_privacy": "privacy" in text,
+        "has_terms": "terms" in text,
+        "has_cookie": "cookie" in text,
+        "img_total": len(imgs),
+        "img_missing_alt": missing_alt,
+    })
+
+    # Payment methods from HTML — fallback only; the shopping journey owns the
+    # authoritative payment_methods check and overwrites this later.
     methods = detect_payment_methods(page_html)
-    if methods:
+    if methods and checks.get("payment_methods", {}).get("status") != "Pass":
         checks["payment_methods"] = _pass(
             "Payment Methods",
             f"Detected: {', '.join(methods)}.",
             screenshot_path,
         )
+
+
+def finalize_html_checks(checks: dict) -> None:
+    """Compute aggregate HTML-based checks from accumulated per-page signals."""
+    accum = checks.pop("_html_accum", [])
+    if not accum:
+        return
+
+    n = len(accum)
+    first_shot = accum[0]["screenshot"]
+
+    # Meta tags & social previews — coverage across all crawled pages
+    titled = sum(1 for a in accum if a["has_title"])
+    described = sum(1 for a in accum if a["has_meta_desc"])
+    og_missing = sum(1 for a in accum if not a["has_og"])
+    if titled == n and described == n and og_missing == 0:
+        checks["meta_tags_social"] = _pass(
+            "Meta Tags & Social Previews",
+            f"Title, meta description, and OG tags present on all {n} crawled pages.",
+            first_shot)
+    elif titled or described:
+        og_note = (" OG tags present on all pages."
+                   if og_missing == 0 else f" OG tags missing on {og_missing}/{n} pages.")
+        checks["meta_tags_social"] = _warn(
+            "Meta Tags & Social Previews",
+            f"Title+meta description present on {min(titled, described)}/{n} pages." + og_note,
+            first_shot)
+    else:
+        checks["meta_tags_social"] = _warn(
+            "Meta Tags & Social Previews",
+            f"No title or meta description detected across {n} crawled pages.",
+            first_shot)
+
+    # Structured data — present anywhere, with PDP coverage noted
+    pages_with_ld = [a for a in accum if a["ld_types"]]
+    if pages_with_ld:
+        all_types = []
+        for a in pages_with_ld:
+            for t in a["ld_types"]:
+                if t not in all_types:
+                    all_types.append(t)
+        pdps = [a for a in accum if a["page_type"] == "product_page"]
+        pdps_with_ld = sum(1 for a in pdps if a["ld_types"])
+        pdp_note = (f" Product JSON-LD on {pdps_with_ld}/{len(pdps)} PDPs." if pdps else "")
+        checks["structured_data"] = _pass(
+            "Structured Data",
+            f"JSON-LD found on {len(pages_with_ld)}/{n} pages: {', '.join(all_types[:6])}." + pdp_note,
+            first_shot)
+    else:
+        checks["structured_data"] = _warn(
+            "Structured Data",
+            f"No JSON-LD detected across {n} crawled pages.",
+            first_shot)
+
+    # Favicon — any page
+    if any(a["has_favicon"] for a in accum):
+        checks["favicon"] = _pass("Favicon", "Favicon link tag found.", first_shot)
+    else:
+        checks["favicon"] = _warn(
+            "Favicon", f"No favicon link tag detected across {n} crawled pages.", first_shot)
+
+    # Cookie / Privacy — any page across the crawl
+    has_privacy = any(a["has_privacy"] for a in accum)
+    has_terms = any(a["has_terms"] for a in accum)
+    has_cookie = any(a["has_cookie"] for a in accum)
+    if has_privacy and has_terms:
+        checks["cookie_privacy"] = (
+            _pass("Cookie/Privacy",
+                  "Privacy Policy and Terms found. Cookie policy also present.", first_shot)
+            if has_cookie else
+            _warn("Cookie/Privacy",
+                  "Privacy and Terms found but cookie consent policy not detected.", first_shot)
+        )
+    else:
+        checks["cookie_privacy"] = _warn(
+            "Cookie/Privacy",
+            "Privacy Policy and Terms were not both detected across crawled pages.",
+            first_shot)
+
+    # Image optimization — sitewide aggregate across all crawled pages
+    total_imgs = sum(a["img_total"] for a in accum)
+    total_missing = sum(a["img_missing_alt"] for a in accum)
+    if total_imgs:
+        alt_pct = int(total_missing / total_imgs * 100)
+        checks["image_optimization"] = _warn(
+            "Image Optimization",
+            f"{total_missing}/{total_imgs} images missing alt text ({alt_pct}%) across "
+            f"{n} crawled pages. Byte-level audit not run.",
+            first_shot)
+    else:
+        checks["image_optimization"] = _warn(
+            "Image Optimization",
+            f"No images detected across {n} crawled pages; byte-level audit not run.",
+            first_shot)
 
 
 # ---------------------------------------------------------------------------
@@ -222,14 +306,20 @@ def build_initial_checks(base_url: str) -> dict:
         "shopping_journey": "Shopping Journey",
     }
 
+    # Fallback details only — mobile_friendly / page_speed_* are overwritten by a
+    # real measurement pass (check_mobile_and_speed). If that pass fails, these
+    # honest "not measured" Warns remain.
     details = {
-        "mobile_friendly": "Desktop-only audit. Mobile viewport not tested.",
-        "page_speed_mobile": "No Lighthouse run performed.",
-        "page_speed_desktop": "No Lighthouse run performed.",
+        "mobile_friendly": "Mobile layout not measured (measurement pass did not run).",
+        "page_speed_mobile": "Page speed not measured (measurement pass did not run).",
+        "page_speed_desktop": "Page speed not measured (measurement pass did not run).",
     }
 
     for key, label in browser_checks.items():
-        checks[key] = _warn(label, details.get(key, "Updated after browser crawl."))
+        checks[key] = _warn(
+            label,
+            details.get(key, "Not measured; no valid browser evidence was collected."),
+        )
 
     return checks
 

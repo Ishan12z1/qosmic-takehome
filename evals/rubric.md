@@ -50,3 +50,15 @@ Each dimension is scored 1–5. Total possible: 50 points.
 | `pillar_missing` | One of 5 pillars has zero experiments | Add experiment for missing pillar |
 | `exec_summary_generic` | Exec summary could apply to any store | Add store-specific diagnosis with artifact citation |
 | `cross_run_contamination` | Evidence paths point to a different run_id | Replace with correct run_id paths |
+| `non_numeric_lift` | Expected lift is Low/Medium/High | Use a numeric % range, e.g. `+8–15%` (match target_report.md) |
+| `non_numeric_confidence` | Confidence is Low/Medium/High | Use a numeric percentage, e.g. `72%` |
+| `uncited_section` | Exec summary or competitor table has no citation | Add an artifact path or URL backing the claim |
+| `competitor_schema` | Competitor table uses the old Category/Notable-CRO/Relevant-to columns | Use positioning / what they make easier / `<store>` edge / pattern to adapt |
+| `uncrawled_surface_claim` | Experiment asserts post-purchase/thank-you state as observed | Label evidence `inferred — journey stops at checkout entry` |
+
+## Note on the eval pipeline
+
+Deterministic Layers 1–8 + Layer 10 run in `run_eval.py`; Layer 9 is this rubric,
+scored by `/eval-judge` on the **full** report. For a **Blocked** crawl
+(`summary.md` verdict), the eval switches to Blocked mode and instead verifies the
+report honestly flags the crawl problem rather than demanding a full 10-experiment audit.
