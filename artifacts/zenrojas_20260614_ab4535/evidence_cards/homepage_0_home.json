@@ -3,41 +3,72 @@
   "page_type": "homepage",
   "name": "homepage_0_home",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+  "facts": [
+    {
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "note": "\"Join the Zen Journey\" email signup is visible near the footer."
+    },
+    {
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "note": "The signup asks for updates and offers but does not show a discount or other first-order incentive."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "present",
+      "scope": "mid_page",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "note": "A testimonial quote block is visible mid-page."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "present",
+      "scope": "hero_and_feature_blocks",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json",
+      "note": "CTAs include \"Shop Organic Sleep Tea\" and \"Discover Your Ritual.\""
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "mid_page",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.md",
+      "note": "Homepage copy includes the veteran-owned and family-operated brand story."
+    }
+  ],
   "observed_strengths": [
     {
-      "observation": "Clear above-fold brand promise headline 'Exceptional aroma. Exceptional tea.' establishing the 100% organic loose-leaf positioning",
+      "observation": "Homepage pairs use-case-led tea CTAs with a visible testimonial block.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "Use-case driven navigation into benefit collections (Sleep & Relaxation, Immune Support, Daily Energy) with dedicated 'Shop' CTAs, helping shoppers self-select",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "Persistent 'Free shipping on all $50+ orders' announcement bar sets an AOV anchor on entry",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
-      "pillar": "AOV"
+      "observation": "A branded email capture exists on the homepage rather than only on policy pages.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "pillar": "Retention"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "No customer reviews, ratings, or social-proof counts surfaced above the fold on the homepage",
+      "observation": "Homepage email capture is present but not incentivized.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "No email capture / newsletter incentive visible on the homepage to convert non-buyers into a retained audience",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.md",
       "pillar": "Retention"
     },
     {
-      "observation": "OG title is the generic 'Home Page' and meta description is only ' 100% Organic Loose Leaf tea' — thin metadata weakens social/search snippets",
+      "observation": "Homepage metadata is weak: the OG title is the generic \"Home Page.\"",
       "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json",
       "pillar": "Acquisition"
     }
   ],
-  "purchase_path_notes": "Homepage routes shoppers either by benefit collection or directly to featured products; primary path to PDP is one click via 'Shop' CTAs or the Teas nav.",
-  "pillar_tags": ["Conversion", "AOV", "Retention", "Acquisition"]
+  "purchase_path_notes": "Homepage offers direct product CTAs and a footer email signup, but no incentive is attached to the capture.",
+  "pillar_tags": [
+    "Conversion",
+    "Retention",
+    "Acquisition"
+  ]
 }

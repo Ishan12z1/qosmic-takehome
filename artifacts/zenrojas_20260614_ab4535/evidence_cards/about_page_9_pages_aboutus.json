@@ -3,31 +3,67 @@
   "page_type": "about_page",
   "name": "about_page_9_pages_aboutus",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
-  "observed_strengths": [
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+  "facts": [
     {
-      "observation": "Strong brand story with a differentiating 'Veteran owned' credential and a mindfulness/wellness mission ('every sip is a reminder to slow down')",
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
       "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
-      "pillar": "Conversion"
+      "note": "A footer subscribe field appears in the rendered markdown below the visible screenshot crop."
     },
     {
-      "observation": "Newsletter 'Subscribe' capture present on the page, converting brand-interested readers into the email list",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.json",
-      "pillar": "Retention"
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
+      "note": "No discount or signup incentive is shown with the footer email capture."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+      "note": "No reviews or testimonials are visible on the sampled about page body."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+      "note": "The about-page body does not include a CTA back to teas or teaware."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+      "note": "The page prominently communicates the veteran-owned, family-operated brand story and organic mission."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The about page contains a strong founder-and-mission trust story.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+      "pillar": "Conversion"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "About page tells the story but contains no CTA back into the catalog or featured products to convert engaged readers",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
-      "pillar": "Conversion"
+      "observation": "The trust story is not paired with a body CTA that returns readers to the catalog.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+      "pillar": "Acquisition"
     },
     {
-      "observation": "The 'Veteran owned' and ethically-sourced trust signals are not echoed on PDPs or cart where purchase decisions happen",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.json",
-      "pillar": "Conversion"
+      "observation": "Email capture exists only as a non-incentivized footer pattern on this surface.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
+      "pillar": "Retention"
     }
   ],
-  "purchase_path_notes": "About page builds trust but is a funnel dead-end with no path back to products; its trust cues are siloed from the buying surfaces.",
-  "pillar_tags": ["Conversion", "Retention"]
+  "purchase_path_notes": "The about page is trust-rich but commercially weak because the body ends without a path back into the shopping journey.",
+  "pillar_tags": [
+    "Conversion",
+    "Retention",
+    "Acquisition"
+  ]
 }

@@ -3,6 +3,7 @@
   "page_type": "shopping_journey",
   "name": "shopping_journey",
   "run_id": "zenrojas_20260614_ab4535",
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png",
   "outcome": "full_journey",
   "friction_score": 5.0,
   "friction_flags": [],
@@ -26,40 +27,71 @@
     "Diners Club",
     "JCB"
   ],
+  "facts": [
+    {
+      "key": "populated_cart_visible",
+      "state": "present",
+      "scope": "cart",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png",
+      "note": "The journey cart shows Tea Bags in-cart with subtotal and checkout CTA."
+    },
+    {
+      "key": "free_shipping_progress_present",
+      "state": "absent",
+      "scope": "cart",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png",
+      "note": "The populated cart shows subtotal and checkout CTA but no progress meter toward the free-shipping threshold."
+    },
+    {
+      "key": "cart_upsell_present",
+      "state": "absent",
+      "scope": "cart",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json",
+      "note": "journey_observations.cart_upsell_present is false."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "present",
+      "scope": "checkout",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png",
+      "note": "Express checkout buttons are visible above the contact form."
+    },
+    {
+      "key": "email_opt_in_prechecked",
+      "state": "present",
+      "scope": "checkout",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png",
+      "note": "\"Email me with news and offers\" is pre-checked at checkout."
+    }
+  ],
   "observed_strengths": [
     {
-      "observation": "Frictionless PDP -> cart -> checkout in 3 clicks with no errors and add-to-cart confirmed via /cart.js",
+      "observation": "The shopping journey reaches checkout in 3 clicks with no friction flags or errors.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json",
       "pillar": "Conversion"
     },
     {
-      "observation": "Checkout offers Express checkout (Shop Pay / PayPal / wallets) above the standard email+address form, plus a discount-code field",
+      "observation": "Checkout offers express checkout and broad payment-method coverage.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "Nine payment methods detected including Apple Pay, Google Pay, and Shop Pay — broad wallet coverage",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "Checkout pre-checks 'Email me with news and offers', capturing marketing consent during purchase",
+      "observation": "Checkout captures marketing consent with a pre-checked email opt-in.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png",
       "pillar": "Retention"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "No cart upsell or free-shipping progress nudge anywhere in the journey (cart_upsell_present false) despite a $50 free-shipping threshold",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json",
+      "observation": "The populated cart does not add basket-growth help: no upsell and no free-shipping progress are visible before checkout.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png",
       "pillar": "AOV"
-    },
-    {
-      "observation": "No urgency or scarcity elements (stock counts, timers) present in the journey",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json",
-      "pillar": "Conversion"
     }
   ],
-  "purchase_path_notes": "PDP -> /cart -> /checkout completes in 3 clicks with add-to-cart verified and the standard Shopify secure checkout reached (form-filling stopped at entry); the flow is friction-free but does nothing to lift basket size en route.",
-  "pillar_tags": ["Conversion", "AOV", "Retention"]
+  "purchase_path_notes": "Use this artifact for populated-cart and checkout claims; the standalone cart-page artifact is an empty-cart state.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV",
+    "Retention"
+  ]
 }

@@ -3,31 +3,53 @@
   "page_type": "collection_page",
   "name": "collection_page_5_collections_teas",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
-  "observed_strengths": [
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
+  "facts": [
     {
-      "observation": "Collection has a descriptive intro ('Exceptional Aroma. Exceptional Tea.') reinforcing the 100% organic, ethically sourced positioning at the top of the grid",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_5_collections_teas.json",
-      "pillar": "Conversion"
+      "key": "sort_control_present",
+      "state": "present",
+      "scope": "above_grid",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
+      "note": "A sort dropdown is visible above the product grid."
     },
     {
-      "observation": "Product grid spans the core catalog (Sencha Green, Heartburn, Sampler, Sleep, Black Tea), giving a complete browse path from one page",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_5_collections_teas.json",
+      "key": "filter_control_present",
+      "state": "absent",
+      "scope": "above_grid",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
+      "note": "No filter control is visible in the sampled mobile collection view."
+    },
+    {
+      "key": "proof_badges_present",
+      "state": "absent",
+      "scope": "product_cards",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
+      "note": "Product cards do not show review stars, best-seller badges, or other proof markers."
+    },
+    {
+      "key": "sold_out_state_visible",
+      "state": "present",
+      "scope": "product_cards",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
+      "note": "Multiple product cards visibly show \"Sold Out.\""
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "Collection copy explains the tea range by use case and includes a visible sort control.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
       "pillar": "Conversion"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "No sort/filter controls (by benefit, caffeine, price) visible, making it harder for shoppers to narrow within the tea range",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "No per-card ratings or 'best seller' badges on the grid to guide selection via social proof",
+      "observation": "The collection view lacks filters and card-level proof cues, making scan-and-select harder on mobile.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_5_collections_teas.png",
       "pillar": "Conversion"
     }
   ],
-  "purchase_path_notes": "Collection is a straightforward grid → PDP path; lacks filtering and proof cues that would speed selection within a multi-SKU range.",
-  "pillar_tags": ["Conversion"]
+  "purchase_path_notes": "The teas collection helps shoppers sort, but it does not help them narrow by need state or identify social proof quickly.",
+  "pillar_tags": [
+    "Conversion"
+  ]
 }

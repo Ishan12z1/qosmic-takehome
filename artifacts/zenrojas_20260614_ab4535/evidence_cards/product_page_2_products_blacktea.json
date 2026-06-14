@@ -3,31 +3,93 @@
   "page_type": "product_page",
   "name": "product_page_2_products_blacktea",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+  "facts": [
+    {
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "A customer reviews section is visible below the cross-sell grid."
+    },
+    {
+      "key": "review_count_visible",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "The reviews block shows \"1 review.\""
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "absent",
+      "scope": "not_adjacent_to_cta",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "The product has review content, but the rating summary is not visible near the Add to Cart CTA."
+    },
+    {
+      "key": "bundle_present",
+      "state": "present",
+      "scope": "above_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "A \"Frequently bought together\" bundle with add-ons is visible beside the product copy."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "\"Complete Your Ritual\" cross-sell cards are visible."
+    },
+    {
+      "key": "subscription_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "The PDP shows one-time purchase controls only."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "buy_box_and_copy",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "The PDP shows Shop Pay installment messaging plus organic/ethical sourcing and 30-Day Warranty copy."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "present",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "note": "\"Buy with Shop\" is visible under Add to Cart."
+    }
+  ],
   "observed_strengths": [
     {
-      "observation": "Benefit-led description ('Bold Flavor, Mindful Energy') with sourcing provenance (Sri Lanka and India, ethically grown) builds product credibility",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "observation": "This PDP already has real customer-review content, which is stronger proof than the empty review states on some other sampled PDPs.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "'Complete Your Ritual' cross-sell section recommends complementary products (Loose Leaf Samplers, Tea Bags, Bodyguard Organic Tea)",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "observation": "The PDP combines a bundle module with a separate cross-sell grid.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
       "pillar": "AOV"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "No reviews or rating shown adjacent to the buy box on a flagship product, so no social proof at the decision point",
+      "observation": "Social proof is placed too low on the page: the review content exists, but no rating summary is visible near the primary CTA.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "No subscribe-and-save option for a repeat-purchase consumable, missing a recurring-revenue hook",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "observation": "This tea PDP does not offer a subscription or replenishment option.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
       "pillar": "Retention"
     }
   ],
-  "purchase_path_notes": "Standard add-to-cart with Shop Pay express; AOV supported via the 'Complete Your Ritual' cross-sell row shared across PDPs.",
-  "pillar_tags": ["Conversion", "AOV", "Retention"]
+  "purchase_path_notes": "This PDP shows the strongest social proof of the three sampled PDPs, but that proof is still below the buy box.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV",
+    "Retention"
+  ]
 }

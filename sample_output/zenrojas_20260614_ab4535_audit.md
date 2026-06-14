@@ -1,179 +1,179 @@
-# CRO Audit — Zen Rojas (zenrojas.com)
+# CRO Audit - Zen Rojas (zenrojas.com)
 
-**Run ID:** `zenrojas_20260614_ab4535`
-**Date:** 2026-06-14
-**Crawl health:** Healthy — 10/10 pages loaded, full shopping journey, friction 5.0/5
+**Run ID:** `zenrojas_20260614_ab4535`  
+**Date:** 2026-06-14  
+**Crawl health:** Healthy - 10/10 pages loaded, full shopping journey, friction 5.0/5
 
 ## Executive Summary
 
-Zen Rojas has solved the hard part of ecommerce and left the easy money on the table. The storefront is technically clean and the purchase path is frictionless — the crawler completed a full PDP → cart → checkout journey in three clicks with no errors, scored friction 5.0/5, and detected nine payment methods including Apple Pay, Google Pay, and Shop Pay (`artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json`). The single biggest constraint is not friction; it is **trust and basket size at the moment of decision.** Every product page renders its reviews widget empty ("No reviews yet"), so qualified shoppers reach the buy box with zero social proof (`artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png`), and the brand's strongest credibility cue — "Veteran owned," organic, ethically sourced — is stranded on the About page, never echoed on the cart or checkout where doubt peaks (`artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md`, `artifacts/zenrojas_20260614_ab4535/screenshots/cart_page_4_cart.png`).
+The biggest conversion constraint is purchase reassurance placement, not purchase-path friction. The journey itself is clean: the crawler reached checkout in 3 clicks with no friction flags, and checkout shows express checkout plus 9 detected payment methods (`artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json`, `artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png`). But on all 3 sampled PDPs, no rating summary is visible near the primary CTA. Review depth is mixed below the fold instead: `/products/blacktea` shows a real reviews block with 1 review, while `/products/tea-bags` and `/products/tea-seeper` show empty review states (`artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png`). The brand's strongest trust story also lives on the About page rather than the populated cart surface where shoppers commit (`artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png`).
 
-The largest AOV opportunity is a structural mismatch between the PDP and the cart. The product pages actively grow baskets with a working "Frequently bought together" bundle and a "Complete Your Ritual" cross-sell row (`artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png`), yet the cart abandons that momentum entirely: there is no in-cart upsell and no free-shipping progress bar, even though the store advertises free shipping over $50 (`artifacts/zenrojas_20260614_ab4535/screenshots/cart_page_4_cart.png`, `artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json`). For a repeat-purchase consumable category, the absence of any subscribe-and-save option is the corresponding retention gap (`artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json`).
+The largest revenue opportunity is the gap between strong PDP merchandising and weak cart merchandising. PDP1 and PDP2 both show a visible "Frequently bought together" module, and all 3 sampled PDPs show "Complete Your Ritual" cross-sells (`artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png`). That momentum disappears in the populated cart: no upsell is visible, no free-shipping progress reinforces the "$50+ orders" threshold, and the journey JSON records `cart_upsell_present: false` (`artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png`, `artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json`). Retention has the same pattern: checkout captures marketing consent, and the homepage footer has email capture, but no first-order incentive or subscription option was observed on the sampled tea PDPs (`artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png`, `artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png`).
 
-Technical health is solid with no critical failures: 12 of 17 checks pass, including SSL, HTTPS redirect, sitemap, mobile-friendliness, and page speed (mobile load 1733ms, desktop 1978ms) (`artifacts/zenrojas_20260614_ab4535/technical_checks.json`). The five warnings are acquisition-and-performance drags rather than blockers — no JSON-LD structured data on any page, generic/truncated metadata, no favicon link tag, four non-critical broken links, and 33% of images missing alt text. None of these stop a sale, but together they cap organic discovery and rich-result eligibility for a brand whose blog and story are genuine acquisition assets.
+Technical health is solid but not complete. The run passed 12 of 17 checks, including mobile-friendly, page-speed timing, and checkout reachability (`artifacts/zenrojas_20260614_ab4535/technical_checks.json`). The 5 warnings are the more strategic cleanup list: no JSON-LD across the crawl, weak metadata on key discovery surfaces, no favicon link tag, 4 non-critical broken links, and 31/92 sampled images missing alt text (`artifacts/zenrojas_20260614_ab4535/technical_checks.json`, `artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json`, `artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json`). None of these block checkout, but they do hold back discovery quality and polish for a brand with real story depth.
 
 ## Proposed Experiments
 
-### EXP-01: Populate and surface PDP social proof
+### EXP-01: Move tea PDP proof into the buy box
 
 | Field | Value |
 |---|---|
 | Pillar | Conversion |
-| Surface | PDP — buy box |
-| URL | https://zenrojas.com/products/tea-bags |
-| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png |
-| Hypothesis | Seeding the existing (empty) review widget via automated review-request emails to past buyers and displaying a rating summary beside the product title will raise add-to-cart rate, because the PDP currently shows "No reviews yet" and offers no social proof at the decision point. |
-| Primary change | Launch automated review-request emails to past buyers; render the star-rating summary directly under the H1 and a reviews section above "Complete Your Ritual" |
+| Surface | PDP - buy box |
+| URL | https://zenrojas.com/products/blacktea |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png |
+| Hypothesis | Showing a rating summary and review count directly near the tea PDP CTA will lift add-to-cart rate, because the sampled PDPs keep review proof below the fold or in an empty state instead of at the decision point. |
+| Primary change | Add a compact star-rating summary with review count beneath the product title and above the primary CTA on tea PDPs; keep the full reviews section lower on the page. |
 | Primary KPI | PDP add-to-cart rate |
-| Decision rule | Ship if add-to-cart rate improves ≥5% relative over a 3-week test at 95% significance |
-| Expected lift | +6–12% |
-| Confidence | 70% |
+| Decision rule | Ship if add-to-cart rate improves by at least 5% relative over 3 weeks with no drop in checkout-start rate. |
+| Expected lift | +5-11% |
+| Confidence | 76% |
 
-### EXP-02: Trust strip on cart and checkout
+### EXP-02: Add a trust strip to the populated cart
 
 | Field | Value |
 |---|---|
 | Pillar | Conversion |
-| Surface | Cart page + checkout entry |
+| Surface | Cart - above checkout CTA |
 | URL | https://zenrojas.com/cart |
-| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/cart_page_4_cart.png |
-| Hypothesis | Adding a trust strip ("Veteran owned · 100% organic · 30-day guarantee · secure checkout") to the cart will reduce cart abandonment, because these credibility cues currently exist only on the About/PDP copy and are absent where final purchase doubt occurs. |
-| Primary change | Add a compact trust/reassurance band above the Checkout button on the cart, reusing existing About-page claims |
-| Primary KPI | Cart-to-checkout continuation rate |
-| Decision rule | Ship if cart→checkout rate improves ≥3% relative over a 3-week test |
-| Expected lift | +3–8% |
-| Confidence | 65% |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png |
+| Hypothesis | Adding a trust strip above checkout will increase cart-to-checkout continuation, because the populated cart currently shows price and subtotal but not the veteran-owned, organic, or guarantee reassurance visible elsewhere in the brand story. |
+| Primary change | Add a compact cart reassurance band above the Checkout button with veteran-owned, secure-checkout, and guarantee messaging pulled from existing brand copy. |
+| Primary KPI | Cart-to-checkout rate |
+| Decision rule | Ship if cart-to-checkout rate improves by at least 3% relative over 3 weeks. |
+| Expected lift | +3-7% |
+| Confidence | 67% |
 
-### EXP-03: Free-shipping progress bar in cart
+### EXP-03: Add free-shipping progress in the populated cart
 
 | Field | Value |
 |---|---|
 | Pillar | AOV |
-| Surface | Cart page |
+| Surface | Cart - summary area |
 | URL | https://zenrojas.com/cart |
-| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/cart_page_4_cart.png |
-| Hypothesis | Showing a dynamic "You're $X away from free shipping" progress bar tied to the existing $50 threshold will increase average order value, because the threshold is advertised in the announcement bar but never reinforced in the cart where the add-on decision is made. |
-| Primary change | Add a free-shipping progress meter to the cart that updates with subtotal and links to recommended add-ons |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png |
+| Hypothesis | Showing a dynamic progress cue toward the visible "$50+ orders" threshold will raise AOV, because the populated cart currently gives shoppers no reminder of how close they are to qualifying for free shipping. |
+| Primary change | Add a subtotal-aware progress bar with remaining-dollar messaging and a link to relevant add-ons. |
 | Primary KPI | Average order value |
-| Decision rule | Ship if AOV improves ≥4% relative with no drop in checkout rate over a 3-week test |
-| Expected lift | +5–10% |
-| Confidence | 74% |
+| Decision rule | Ship if AOV improves by at least 4% relative with no decrease in checkout-start rate over 3 weeks. |
+| Expected lift | +5-10% |
+| Confidence | 78% |
 
-### EXP-04: In-cart cross-sell
+### EXP-04: Continue "Complete Your Ritual" inside the cart
 
 | Field | Value |
 |---|---|
 | Pillar | AOV |
-| Surface | Cart page |
+| Surface | Cart - below line items |
 | URL | https://zenrojas.com/cart |
 | Evidence | artifacts/zenrojas_20260614_ab4535/pages/shopping_journey.json |
-| Hypothesis | Adding a "Complete your ritual" recommended-add-ons module to the cart will lift units per order, because the journey data confirms no cart upsell exists (cart_upsell_present: false) while the same mechanic already converts on the PDP. |
-| Primary change | Render 2–3 complementary recommendations (teaware for tea carts, sampler for single-SKU carts) with one-tap add, below the line items |
+| Hypothesis | Extending product recommendations into the cart will increase units per order, because the sampled PDPs already use cross-sells well while the journey cart records `cart_upsell_present: false`. |
+| Primary change | Add a 2-3 item cart recommendation module tied to cart contents, prioritizing tea-and-teaware pairings and sampler add-ons. |
 | Primary KPI | Units per order |
-| Decision rule | Ship if units-per-order improves ≥4% relative over a 3-week test |
-| Expected lift | +4–9% |
-| Confidence | 68% |
+| Decision rule | Ship if units per order improve by at least 4% relative over 3 weeks. |
+| Expected lift | +4-9% |
+| Confidence | 72% |
 
-### EXP-05: Subscribe-and-save on consumable teas
+### EXP-05: Add subscribe-and-save on consumable tea PDPs
 
 | Field | Value |
 |---|---|
 | Pillar | Retention |
-| Surface | PDP — buy box |
-| URL | https://zenrojas.com/products/blacktea |
-| Evidence | artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json |
-| Hypothesis | Offering a subscribe-and-save option (e.g. 10–15% off recurring) on consumable teas will increase repeat-purchase revenue, because the PDPs currently sell only one-time purchases despite tea being an inherently replenishable category. |
-| Primary change | Add a subscription toggle (one-time vs. deliver every 30/45/60 days) to tea PDP buy boxes |
+| Surface | Tea PDP - buy box |
+| URL | https://zenrojas.com/products/tea-bags |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png |
+| Hypothesis | Adding a recurring purchase option on consumable tea PDPs will grow repeat revenue, because the sampled tea PDPs currently offer one-time purchase only despite the product category being replenishable. |
+| Primary change | Add a one-time vs subscription selector with 30/45/60-day cadence options and a modest recurring-order discount on tea PDPs. |
 | Primary KPI | Subscription attach rate / 90-day repeat revenue |
-| Decision rule | Ship if ≥8% of tea orders select subscription within 4 weeks with no drop in overall conversion |
-| Expected lift | +8–18% (90-day repeat revenue) |
-| Confidence | 66% |
+| Decision rule | Ship if at least 8% of tea orders choose subscription within 4 weeks with no decrease in primary conversion. |
+| Expected lift | +8-18% |
+| Confidence | 70% |
 
-### EXP-06: Homepage email capture with first-order incentive
+### EXP-06: Upgrade homepage capture from footer signup to incentivized lead capture
 
 | Field | Value |
 |---|---|
 | Pillar | Retention |
 | Surface | Homepage |
 | URL | https://zenrojas.com/ |
-| Evidence | artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.md |
-| Hypothesis | Adding a homepage email-capture offering a first-order incentive will grow the marketing list and recover non-buyers, because newsletter signup currently exists only in the footer with no incentive and there is no homepage capture. |
-| Primary change | Add a delayed/exit-intent email modal (and inline footer form) offering 10% off the first order |
-| Primary KPI | Email capture rate (% of sessions) |
-| Decision rule | Ship if capture rate reaches ≥2% of sessions with no measurable bounce increase over a 3-week test |
-| Expected lift | +1.5–3% (sessions capturing email) |
-| Confidence | 72% |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png |
+| Hypothesis | Adding a clearer value exchange to homepage email capture will grow the list faster, because the current homepage already captures email in the footer but does not offer a first-order incentive or stronger prominence. |
+| Primary change | Add an entry or exit-intent capture that offers a first-order incentive and keep the footer signup as a secondary capture point. |
+| Primary KPI | Email capture rate |
+| Decision rule | Ship if email capture rate reaches at least 2% of sessions with no meaningful bounce-rate increase over 3 weeks. |
+| Expected lift | +1.5-3.5% |
+| Confidence | 75% |
 
 ### EXP-07: Add Product and FAQPage structured data
 
 | Field | Value |
 |---|---|
 | Pillar | Acquisition |
-| Surface | PDPs + FAQ page (sitewide) |
-| URL | https://zenrojas.com/products/tea-bags |
+| Surface | PDPs + FAQ page |
+| URL | https://zenrojas.com/products/blacktea |
 | Evidence | artifacts/zenrojas_20260614_ab4535/technical_checks.json |
-| Hypothesis | Adding Product JSON-LD (name, price, availability, rating once EXP-01 lands) and FAQPage JSON-LD will increase organic CTR via rich results, because no JSON-LD was detected on any of the 10 crawled pages. |
-| Primary change | Inject Product schema on PDPs and FAQPage schema on /pages/faqs through the theme |
-| Primary KPI | Organic impressions and CTR for product/FAQ queries |
-| Decision rule | Ship and keep if rich results validate in Search Console and organic CTR rises over 6 weeks |
-| Expected lift | +5–12% (organic CTR) |
-| Confidence | 64% |
+| Hypothesis | Adding Product and FAQPage JSON-LD will improve organic result quality and CTR, because the current crawl found no JSON-LD across the 10 sampled pages. |
+| Primary change | Implement Product schema on PDPs and FAQPage schema on `/pages/faqs`, validating the output in Search Console and rich-results testing. |
+| Primary KPI | Organic CTR / rich-result coverage |
+| Decision rule | Ship and keep if rich-result eligibility is validated and organic CTR improves over 6 weeks. |
+| Expected lift | +4-10% |
+| Confidence | 66% |
 
-### EXP-08: Fix templated metadata and commercialize content
+### EXP-08: Turn founder content into a product-discovery surface
 
 | Field | Value |
 |---|---|
 | Pillar | Acquisition |
-| Surface | Homepage, blog, collections |
+| Surface | Blog article body |
 | URL | https://zenrojas.com/blogs/weekly-blog/building-a-family-legacy-through-wellness-community-and-purpose-driven-growth |
-| Evidence | artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json |
-| Hypothesis | Replacing generic/truncated metadata (homepage OG title "Home Page", blog title cut at "Purpose-Driv") and adding contextual product cards to blog posts will improve organic CTR and content-assisted conversion, because the blog builds authority today but contains no product links or tuned metadata. |
-| Primary change | Author unique title/meta/OG per template; insert in-content product cards + a newsletter block into blog posts |
-| Primary KPI | Organic CTR + content-assisted conversion rate |
-| Decision rule | Ship if organic CTR improves and blog→PDP click-through exceeds 3% over 6 weeks |
-| Expected lift | +4–9% (organic CTR) |
-| Confidence | 60% |
+| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png |
+| Hypothesis | Adding contextual product cards and a stronger next-step CTA to founder-led blog content will increase content-assisted sessions into PDPs, because the sampled article builds trust today but does not place product CTAs inside the body. |
+| Primary change | Add an in-content module with 1-2 relevant teas, a ritual CTA, and a supporting newsletter prompt near the middle and end of the article. |
+| Primary KPI | Blog-to-PDP click-through rate |
+| Decision rule | Ship if article-to-PDP click-through exceeds 3% and assisted add-to-cart rate rises over 6 weeks. |
+| Expected lift | +3-8% |
+| Confidence | 69% |
 
-### EXP-09: Next-gen image compression and lazy-loading
+### EXP-09: Fix image accessibility coverage across the catalog
 
 | Field | Value |
 |---|---|
 | Pillar | Performance |
-| Surface | Sitewide (PDP, collections, homepage) |
-| URL | https://zenrojas.com/collections/teas |
+| Surface | Sitewide image library |
+| URL | https://zenrojas.com/ |
 | Evidence | artifacts/zenrojas_20260614_ab4535/technical_checks.json |
-| Hypothesis | Serving responsive WebP/AVIF images and lazy-loading below-the-fold media will protect and improve mobile LCP as the catalog grows, because 92 images were crawled with no byte-level optimization audited and image weight is the most common cause of mobile slowdown. |
-| Primary change | Enable responsive next-gen image formats and native lazy-loading for below-fold images across templates |
-| Primary KPI | Mobile LCP / page load time |
-| Decision rule | Ship if mobile LCP improves ≥10% with no layout regressions |
-| Expected lift | +5–12% (LCP improvement) |
-| Confidence | 67% |
+| Hypothesis | Closing the current image-alt coverage gap will improve crawl cleanliness and content accessibility, because the technical audit found 31 of 92 sampled images missing alt text. |
+| Primary change | Add descriptive alt text to missing catalog and content images, then add an image-publishing QA check so new assets cannot ship blank. |
+| Primary KPI | Image-alt coverage / crawl cleanliness |
+| Decision rule | Ship if alt coverage reaches at least 98% on the next crawl with no net-new missing-alt regressions. |
+| Expected lift | +20-33% |
+| Confidence | 73% |
 
-### EXP-10: Defer non-critical third-party scripts
+### EXP-10: Add a crawl-clean release checklist for favicon and broken-link hygiene
 
 | Field | Value |
 |---|---|
 | Pillar | Performance |
-| Surface | Sitewide — PDP and cart |
-| URL | https://zenrojas.com/products/tea-bags |
-| Evidence | artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png |
-| Hypothesis | Deferring the live-chat widget and other non-critical third-party scripts until browser idle will improve mobile interaction readiness, because the chat widget loads on the PDP and cart and such widgets commonly delay interactivity even when load timings look healthy (current mobile load 1733ms). |
-| Primary change | Lazy-initialize the chat widget and analytics/non-critical tags on idle or first interaction |
-| Primary KPI | Mobile Total Blocking Time / time-to-interactive |
-| Decision rule | Ship if TBT improves ≥15% with no loss of chat engagement over a 2-week test |
-| Expected lift | +5–10% (TBT improvement) |
-| Confidence | 62% |
+| Surface | Sitewide release QA |
+| URL | https://zenrojas.com/ |
+| Evidence | artifacts/zenrojas_20260614_ab4535/technical_checks.json |
+| Hypothesis | A lightweight technical QA checklist will reduce polish leaks that hurt perceived quality, because the current crawl still flags 4 non-critical broken links and no favicon link tag. |
+| Primary change | Add favicon-tag verification and broken-link scanning to the release checklist, then fix the current flagged issues before the next crawl. |
+| Primary KPI | Warning-count reduction in technical crawl |
+| Decision rule | Ship if the next crawl clears both the favicon and broken-link warnings with no new regressions. |
+| Expected lift | +40-100% |
+| Confidence | 64% |
 
 ## Competitor Analysis
 
-Selected on `store_category: tea / specialty organic beverages` and primary use cases (daily ritual, functional wellness, teaware attach).
+Selected from `store_category: tea / organic wellness beverages and teaware` and the store's ritual/wellness use cases in `artifacts/zenrojas_20260614_ab4535/evidence_summary.md`.
 
 | Competitor | Domain | Positioning | What they make easier | Zen Rojas edge | Pattern to adapt |
 |---|---|---|---|---|---|
-| Vahdam Teas | vahdam.com | Direct-from-India premium organic tea, sustainability-led | Dense star ratings and review counts on every PDP; subscribe-and-save built in | "Veteran owned" US brand story; cleaner, calmer UX | PDP review density (EXP-01) and subscription option (EXP-05) |
-| Art of Tea | artoftea.com | Organic loose-leaf, wellness and gifting focus | Curated bundles/gift sets and clear free-shipping threshold messaging in cart | Stronger founder/mission narrative | In-cart AOV mechanics and free-ship progress (EXP-03, EXP-04) |
-| Rishi Tea | rishi-tea.com | Botanical/organic sourcing authority, education-heavy | Content tightly linked to shoppable products; rich structured data | Active personal weekly blog with founder voice | Commercialized content + structured data (EXP-07, EXP-08) |
-| Tea Drops | myteadrop.com | Modern, design-forward organic tea, ritual branding | Email capture with incentive on entry; strong sampler funnel | Broader teaware attach and 9 payment methods | Homepage email capture (EXP-06) |
+| Vahdam Teas | https://www.vahdam.com | Premium global tea brand with strong tea-category merchandising | Review density and rating visibility on PDPs; subscription mechanics are easier to understand | Zen Rojas has a more personal veteran-owned story | Surface proof near the buy box and test subscriptions (EXP-01, EXP-05) |
+| Art of Tea | https://www.artoftea.com | Organic tea and gifting brand with ritual positioning | Bundles and giftable attach flows are more explicit across tea and teaware | Zen Rojas has a simpler, less crowded visual language | Extend ritual merchandising into cart and attach surfaces (EXP-03, EXP-04) |
+| Rishi Tea | https://rishi-tea.com | Botanical and wellness-forward tea authority | Discovery surfaces and education content connect more directly back to product exploration | Zen Rojas has founder-led local-community storytelling | Commercialize content and improve organic discovery hygiene (EXP-07, EXP-08) |
+| Tea Drops | https://www.myteadrop.com | Modern tea ritual brand with a broader lifestyle/lift-the-routine angle | List-growth and starter-funnel patterns are more assertive at session entry | Zen Rojas has stronger veteran-owned trust storytelling | Upgrade lead capture beyond footer-only value exchange (EXP-06) |
 
 ## Technical Checks
 

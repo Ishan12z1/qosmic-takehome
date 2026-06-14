@@ -3,51 +3,93 @@
   "page_type": "product_page",
   "name": "product_page_1_products_tea-bags",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+  "facts": [
+    {
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "below_fold_empty_state",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "A review block is visible near the bottom of the PDP, but it shows \"No reviews yet.\""
+    },
+    {
+      "key": "review_count_visible",
+      "state": "absent",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "No numeric review count is shown."
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "absent",
+      "scope": "not_adjacent_to_cta",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "No rating summary is visible near the primary Add to Cart CTA."
+    },
+    {
+      "key": "bundle_present",
+      "state": "present",
+      "scope": "above_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "A \"Frequently bought together\" bundle with an \"Add bundle to cart\" CTA is visible."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "\"Complete Your Ritual\" cross-sell cards are visible below the product details."
+    },
+    {
+      "key": "subscription_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "The PDP offers a one-time Add to Cart flow only."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "buy_box_and_copy",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "The PDP shows Shop Pay installment messaging plus 30-Day Warranty and organic/ethical sourcing copy."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "present",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "note": "\"Buy with Shop\" is visible under the Add to Cart CTA."
+    }
+  ],
   "observed_strengths": [
     {
-      "observation": "Both 'Add to Cart' and 'Buy with Shop' (Shop Pay express) buttons are present above the fold, giving a one-tap accelerated checkout path",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "'Frequently bought together' bundle widget with pre-checked add-ons (Tea Bags + Organic Black Tea + Tea Infuser) and an 'Add selected to cart' button",
+      "observation": "The PDP includes a working bundle module with preselected add-ons.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
       "pillar": "AOV"
     },
     {
-      "observation": "'Complete Your Ritual' cross-sell row recommends four complementary products below the description",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json",
-      "pillar": "AOV"
-    },
-    {
-      "observation": "Shop Pay installments offer ('Pay over time for orders over $35') reduces payment friction",
+      "observation": "The PDP offers both express checkout and reassurance copy without visible purchase friction.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
-      "pillar": "Conversion"
-    },
-    {
-      "observation": "Structured, scannable description with 'Why We Love It', 'How to Use', and a 30-Day Warranty mention",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.md",
       "pillar": "Conversion"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "Reviews widget is present but empty ('No reviews yet') — zero social proof at the point of decision",
+      "observation": "Social proof is weak on this PDP: the reviews block exists but remains in an empty state and no rating summary appears near the CTA.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "No subscribe-and-save / replenishment option on a consumable product, leaving recurring revenue on the table",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json",
+      "observation": "This consumable PDP does not offer a subscription or subscribe-and-save option.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
       "pillar": "Retention"
-    },
-    {
-      "observation": "No JSON-LD Product structured data on the PDP, weakening rich-result eligibility in search",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/technical_checks.json",
-      "pillar": "Acquisition"
     }
   ],
-  "purchase_path_notes": "Single-step add-to-cart with Shop Pay express alternative; AOV is actively encouraged via a 'Frequently bought together' bundle and a 'Complete Your Ritual' cross-sell.",
-  "pillar_tags": ["Conversion", "AOV", "Retention", "Acquisition"]
+  "purchase_path_notes": "This PDP is merchandised well for basket growth, but social proof is weak and the purchase mode is one-time only.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV",
+    "Retention"
+  ]
 }

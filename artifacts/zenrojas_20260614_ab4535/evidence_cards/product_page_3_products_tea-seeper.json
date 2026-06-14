@@ -3,31 +3,87 @@
   "page_type": "product_page",
   "name": "product_page_3_products_tea-seeper",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
-  "observed_strengths": [
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+  "facts": [
     {
-      "observation": "Teaware PDP (Tea Infuser) positions itself as the entry accessory for new loose-leaf drinkers ('Brew Mindfully, Sip Calmly'), pairing naturally with the tea catalog",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
-      "pillar": "Conversion"
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "below_fold_empty_state",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "A review block is visible near the bottom of the PDP, but it shows \"No reviews yet.\""
     },
     {
-      "observation": "'Complete Your Ritual' cross-sell surfaces Tea Bags, Loose Leaf Samplers, Mug, and Tea Bag Samplers — strong attach path for a hardware item",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
-      "pillar": "AOV"
+      "key": "review_count_visible",
+      "state": "absent",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "No numeric review count is shown."
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "absent",
+      "scope": "not_adjacent_to_cta",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "No rating summary is visible near Add to Cart."
+    },
+    {
+      "key": "bundle_present",
+      "state": "absent",
+      "scope": "above_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "Unlike the sampled tea PDPs, this accessory PDP does not show a \"Frequently bought together\" module."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "\"Complete Your Ritual\" cross-sell cards are visible."
+    },
+    {
+      "key": "subscription_present",
+      "state": "not_applicable",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "This is a teaware accessory rather than a consumable replenishment product."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "buy_box_and_copy",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "The PDP shows Shop Pay installment messaging and 30-Day Warranty copy."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "present",
+      "scope": "buy_box",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "note": "\"Buy with Shop\" is visible under Add to Cart."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The PDP includes a clear \"How to Use\" section and accessory cross-sell cards.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "pillar": "Conversion"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "No reviews/ratings shown for the infuser, removing reassurance on a physical product where durability matters",
+      "observation": "This PDP has the same weak proof placement as PDP1: no rating summary near the CTA and an empty review state below the fold.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "No bundle pricing that pairs the infuser with a starter tea, despite the obvious 'teaware + tea' attach opportunity",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
+      "observation": "A bundle module is absent on this accessory PDP even though cross-sell cards are present.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
       "pillar": "AOV"
     }
   ],
-  "purchase_path_notes": "Accessory PDP funnels into consumable teas via the cross-sell row, but relies on a flat add-to-cart with no infuser+tea bundle incentive.",
-  "pillar_tags": ["Conversion", "AOV"]
+  "purchase_path_notes": "This accessory PDP has clean purchase controls and cross-sells, but its proof state is still weak and its AOV merchandising is lighter than the sampled tea PDPs.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV"
+  ]
 }

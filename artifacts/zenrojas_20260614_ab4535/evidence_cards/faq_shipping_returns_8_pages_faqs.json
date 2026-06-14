@@ -3,31 +3,66 @@
   "page_type": "faq_shipping_returns",
   "name": "faq_shipping_returns_8_pages_faqs",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
-  "observed_strengths": [
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+  "facts": [
     {
-      "observation": "A dedicated FAQ page exists and is linked in the footer, giving shoppers a self-serve support surface",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.json",
-      "pillar": "Conversion"
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.md",
+      "note": "A footer subscribe field appears in the rendered markdown below the visible screenshot crop."
     },
     {
-      "observation": "Newsletter 'Subscribe' capture is present in the page footer, providing an email-list entry point",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.json",
-      "pillar": "Retention"
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.md",
+      "note": "The footer subscribe area does not mention a discount or incentive."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "No testimonials, ratings, or review snippets are visible on the FAQ page."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "The sampled FAQ content does not include product links or catalog CTAs."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "The page is informational rather than narrative."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The FAQ page does answer a concrete shipping question lower on the page.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "pillar": "Conversion"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "FAQ content leads with brand/history trivia ('Who first discovered tea?') rather than shipping, returns, and delivery-time questions that resolve purchase objections",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.md",
+      "observation": "The FAQ opens with tea-history and storage questions instead of leading with shipping, returns, or purchase-objection content.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
       "pillar": "Conversion"
     },
     {
-      "observation": "No FAQ structured data (FAQPage JSON-LD), so the Q&A content is not eligible for search rich results",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/technical_checks.json",
+      "observation": "The FAQ page is a commercial dead end because it does not include product CTAs.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
       "pillar": "Acquisition"
     }
   ],
-  "purchase_path_notes": "FAQ supports the funnel but under-serves logistics questions; shipping/returns reassurance is not front-loaded.",
-  "pillar_tags": ["Conversion", "Retention", "Acquisition"]
+  "purchase_path_notes": "This page answers some objections, but its question order and lack of CTAs make it weak as a pre-purchase support surface.",
+  "pillar_tags": [
+    "Conversion",
+    "Acquisition"
+  ]
 }

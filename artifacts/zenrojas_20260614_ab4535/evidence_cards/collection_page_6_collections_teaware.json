@@ -3,26 +3,53 @@
   "page_type": "collection_page",
   "name": "collection_page_6_collections_teaware",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+  "facts": [
+    {
+      "key": "sort_control_present",
+      "state": "present",
+      "scope": "above_grid",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+      "note": "A sort dropdown is visible above the product grid."
+    },
+    {
+      "key": "filter_control_present",
+      "state": "absent",
+      "scope": "above_grid",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+      "note": "No filter control is visible."
+    },
+    {
+      "key": "proof_badges_present",
+      "state": "absent",
+      "scope": "product_cards",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+      "note": "Product cards do not show star ratings, best-seller tags, or bundle cues."
+    },
+    {
+      "key": "sold_out_state_visible",
+      "state": "absent",
+      "scope": "product_cards",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+      "note": "No sold-out labels are visible in the sampled teaware grid."
+    }
+  ],
   "observed_strengths": [
     {
-      "observation": "Teaware collection intro ('Elevate Your Tea Ritual') frames accessories as ritual enhancers, supporting attach to the consumable catalog",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_6_collections_teaware.json",
+      "observation": "The teaware attach category is clearly separated from the tea catalog and easy to browse.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
       "pillar": "AOV"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "Thin teaware range (Tea Infuser, Mug, Tea Bags) with no bundling between teaware and tea on the collection page",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_6_collections_teaware.json",
-      "pillar": "AOV"
-    },
-    {
-      "observation": "No ratings or filtering on the grid, same as the teas collection",
+      "observation": "The teaware collection does not add attach cues such as bundles, proof badges, or filters by use case.",
       "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
-      "pillar": "Conversion"
+      "pillar": "AOV"
     }
   ],
-  "purchase_path_notes": "Teaware acts as an attach category to teas, but the collection presents items individually with no bundle path.",
-  "pillar_tags": ["AOV", "Conversion"]
+  "purchase_path_notes": "This collection is a clean attach surface, but it does little to connect teaware back to tea rituals or bundle intent.",
+  "pillar_tags": [
+    "AOV"
+  ]
 }

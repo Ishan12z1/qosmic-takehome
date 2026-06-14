@@ -3,31 +3,66 @@
   "page_type": "blog_or_content_page",
   "name": "blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega",
   "run_id": "zenrojas_20260614_ab4535",
-  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
-  "observed_strengths": [
+  "primary_visual_evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+  "facts": [
     {
-      "observation": "An active weekly blog with founder-led storytelling (Ashley & Jesse Rojas) supports content-driven organic acquisition and brand depth",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
-      "pillar": "Acquisition"
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.md",
+      "note": "A footer subscribe field appears in the rendered markdown below the visible screenshot crop."
     },
     {
-      "observation": "Comment capability ('Leave a comment') invites engagement and dwell time on content",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.md",
+      "note": "The footer subscribe area does not advertise a signup incentive."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "article_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+      "note": "The article page does not show reviews, ratings, or testimonials in the visible article body."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "article_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+      "note": "The article body does not contain in-content product CTAs; only navigation and cart controls are visible."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "article_body",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+      "note": "The article is explicitly founder- and community-story-led."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The blog article reinforces founder credibility and brand mission.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
       "pillar": "Acquisition"
     }
   ],
   "missing_or_weak": [
     {
-      "observation": "Blog post has no in-content product links, CTAs, or email capture to convert readers into shoppers or subscribers",
-      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.md",
-      "pillar": "Retention"
+      "observation": "The article is a commercial dead end because it does not place product CTAs inside the content.",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+      "pillar": "Acquisition"
     },
     {
-      "observation": "Post title and meta are truncated mid-word ('Purpose-Driv'), indicating untuned SEO metadata",
+      "observation": "The blog metadata is truncated: the title and OG title cut off at \"Purpose-Driv.\"",
       "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
       "pillar": "Acquisition"
     }
   ],
-  "purchase_path_notes": "Content exists for acquisition but does not bridge readers into the catalog or email list; no monetization path from the article.",
-  "pillar_tags": ["Acquisition", "Retention"]
+  "purchase_path_notes": "The blog builds trust and can capture email via the footer, but it does not route readers back into product discovery from the article body.",
+  "pillar_tags": [
+    "Retention",
+    "Acquisition"
+  ]
 }
