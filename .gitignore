@@ -1,32 +1,29 @@
+# Python
 __pycache__/
 *.pyc
 *.pyo
 .env
+
+# Test / tooling caches
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Unrelated local skill (not part of the audit harness)
+.claude/skills/grill-me/
+
+# Local-only build noise
 archive/
+scripts/*
 
-# Keep raw crawl history local. Include only the compact verification bundles
-# for the two submitted README targets.
+# Raw crawl history stays local. Ship only one compact verification bundle for
+# the submitted README target so every cited artifact path resolves in the repo.
 artifacts/*
-!artifacts/zenrojas_20260613_b07d01/
-!artifacts/gingerpeople_20260613_5bcc0b/
-
-artifacts/zenrojas_20260613_b07d01/*
-!artifacts/zenrojas_20260613_b07d01/discovered_links.json
-!artifacts/zenrojas_20260613_b07d01/technical_checks.json
-!artifacts/zenrojas_20260613_b07d01/summary.md
-!artifacts/zenrojas_20260613_b07d01/evidence_summary.md
-!artifacts/zenrojas_20260613_b07d01/evidence_cards/
-!artifacts/zenrojas_20260613_b07d01/evidence_cards/**
-!artifacts/zenrojas_20260613_b07d01/screenshots/
-!artifacts/zenrojas_20260613_b07d01/screenshots/**
-!artifacts/zenrojas_20260613_b07d01/pages/
-artifacts/zenrojas_20260613_b07d01/pages/*
-!artifacts/zenrojas_20260613_b07d01/pages/*.json
-
-artifacts/gingerpeople_20260613_5bcc0b/*
-!artifacts/gingerpeople_20260613_5bcc0b/discovered_links.json
-!artifacts/gingerpeople_20260613_5bcc0b/technical_checks.json
-!artifacts/gingerpeople_20260613_5bcc0b/summary.md
-!artifacts/gingerpeople_20260613_5bcc0b/pages/
-artifacts/gingerpeople_20260613_5bcc0b/pages/*
-!artifacts/gingerpeople_20260613_5bcc0b/pages/shopping_journey.json
+!artifacts/zenrojas_20260614_ab4535/
+artifacts/zenrojas_20260614_ab4535/pages/*.html
