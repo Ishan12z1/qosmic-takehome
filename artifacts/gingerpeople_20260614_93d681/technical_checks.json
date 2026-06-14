@@ -1,0 +1,104 @@
+{
+  "ssl_certificate": {
+    "label": "SSL Certificate",
+    "status": "Pass",
+    "detail": "HTTPS storefront loaded successfully.",
+    "evidence": "https://gingerpeople.com"
+  },
+  "https_redirect": {
+    "label": "HTTPS Redirect",
+    "status": "Pass",
+    "detail": "HTTP redirected to HTTPS.",
+    "evidence": "http://gingerpeople.com"
+  },
+  "sitemap": {
+    "label": "Sitemap",
+    "status": "Warn",
+    "detail": "sitemap.xml returned status 403.",
+    "evidence": "https://gingerpeople.com/sitemap.xml"
+  },
+  "robots_txt": {
+    "label": "Robots.txt",
+    "status": "Warn",
+    "detail": "robots.txt returned status 403.",
+    "evidence": "https://gingerpeople.com/robots.txt"
+  },
+  "critical_pages_loading": {
+    "label": "Critical Pages Loading",
+    "status": "Warn",
+    "detail": "0/3 pages loaded. 0 blocked.",
+    "evidence": null
+  },
+  "meta_tags_social": {
+    "label": "Meta Tags & Social Previews",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "structured_data": {
+    "label": "Structured Data",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "favicon": {
+    "label": "Favicon",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "mobile_friendly": {
+    "label": "Mobile-Friendly",
+    "status": "Warn",
+    "detail": "Mobile layout not measured (measurement pass did not run).",
+    "evidence": null
+  },
+  "page_speed_mobile": {
+    "label": "Page Speed Mobile",
+    "status": "Warn",
+    "detail": "Page speed not measured (measurement pass did not run).",
+    "evidence": null
+  },
+  "page_speed_desktop": {
+    "label": "Page Speed Desktop",
+    "status": "Warn",
+    "detail": "Page speed not measured (measurement pass did not run).",
+    "evidence": null
+  },
+  "broken_links": {
+    "label": "Broken Links",
+    "status": "Pass",
+    "detail": "No broken links in 0 sampled links.",
+    "evidence": null
+  },
+  "image_optimization": {
+    "label": "Image Optimization",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "cookie_privacy": {
+    "label": "Cookie/Privacy",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "checkout_reachable": {
+    "label": "Checkout Reachable",
+    "status": "Warn",
+    "detail": "Not measured; no valid browser evidence was collected.",
+    "evidence": null
+  },
+  "payment_methods": {
+    "label": "Payment Methods",
+    "status": "Warn",
+    "detail": "No retail checkout surface detected; accepted payment methods were not assessed. Brand or processor names in page copy are not treated as accepted payments.",
+    "evidence": null
+  },
+  "shopping_journey": {
+    "label": "Shopping Journey",
+    "status": "Warn",
+    "detail": "No product page found to start journey.",
+    "evidence": ""
+  }
+}

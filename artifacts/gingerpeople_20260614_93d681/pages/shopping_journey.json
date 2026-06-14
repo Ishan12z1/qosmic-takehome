@@ -1,0 +1,18 @@
+{
+  "outcome": "no_product_found",
+  "retailer_routed": false,
+  "friction_score": 1.0,
+  "friction_flags": [
+    "no_product_found"
+  ],
+  "friction_detail": "Score 5.0/5 - journey not attempted",
+  "journey_observations": {
+    "click_count_to_checkout": 0,
+    "trust_badges_at_checkout": false,
+    "cart_upsell_present": false,
+    "urgency_elements_present": false,
+    "error_messages_detected": false,
+    "api_add_to_cart_fallback": false
+  },
+  "payment_methods_detected": []
+}

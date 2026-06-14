@@ -125,13 +125,25 @@ The path from here to an autonomous, self-learning loop is in `EVAL_LOOP.md`.
 
 ## Validation runs
 
-Two full verification bundles are committed so a reviewer can follow citations
-all the way back to the underlying artifacts.
+Two full verification bundles and one blocked-site partial bundle are committed
+so a reviewer can follow both successful and blocked outcomes back to the
+underlying artifacts.
 
 | Store | Run ID | Crawl health | Deterministic eval | Layer 9 |
 |---|---|---|---|---|
 | zenrojas.com | `zenrojas_20260614_ab4535` | Healthy, 10/10 sampled pages, full journey | 9/9 layers passed | 47/50 |
 | beardbrand.com | `beardbrand_20260614_4df413` | Healthy, 10/10 sampled pages, full journey | 9/9 layers passed | 46/50 |
+| gingerpeople.com | `gingerpeople_20260614_93d681` | Blocked, 0/3 core pages loaded, no full audit possible | 3/3 blocked-mode layers passed | Not applicable |
+
+Why Ginger People is packaged differently:
+
+- `gingerpeople.com` is one of the two assignment URLs from `docs/README.md`.
+- In the current run environment, the site timed out on the homepage and all
+  selected core pages, so the harness correctly produced a partial
+  crawl-issues report instead of fabricating a full CRO audit.
+- `zenrojas.com` remains the full successful generalization sample.
+- `beardbrand.com` is included as an extra successful validation run to show the
+  harness generalizing beyond the named assignment stores.
 
 Reviewer-friendly entry points:
 
@@ -139,6 +151,8 @@ Reviewer-friendly entry points:
 - `eval_results/zenrojas_20260614_ab4535_eval.md`
 - `sample_output/beardbrand_20260614_4df413_audit.md`
 - `eval_results/beardbrand_20260614_4df413_eval.md`
+- `sample_output/gingerpeople_20260614_93d681_audit.md`
+- `eval_results/gingerpeople_20260614_93d681_eval.md`
 
 ---
 

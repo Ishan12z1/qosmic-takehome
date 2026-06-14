@@ -1,0 +1,54 @@
+{
+  "run_id": "gingerpeople_20260614_93d681",
+  "base_url": "https://gingerpeople.com",
+  "slug": "gingerpeople",
+  "crawled_at": "2026-06-14T14:37:19.032124",
+  "total_discovered": 9,
+  "selected_pages": [
+    {
+      "url": "https://gingerpeople.com/",
+      "page_type": "homepage"
+    },
+    {
+      "url": "https://gingerpeople.com/cart",
+      "page_type": "cart_page"
+    },
+    {
+      "url": "https://gingerpeople.com/collections/all",
+      "page_type": "collection_page"
+    }
+  ],
+  "rejected_pages": [
+    {
+      "url": "https://gingerpeople.com/pages/where-to-buy",
+      "page_type": "where_to_buy",
+      "reason": "optional_guessed_path_unavailable:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/pages/where-to-buy\", waiting "
+    },
+    {
+      "url": "https://gingerpeople.com/pages/returns",
+      "page_type": "faq_shipping_returns",
+      "reason": "fallback_failed:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/pages/returns\", waiting until"
+    },
+    {
+      "url": "https://gingerpeople.com/pages/shipping",
+      "page_type": "faq_shipping_returns",
+      "reason": "fallback_failed:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/pages/shipping\", waiting unti"
+    },
+    {
+      "url": "https://gingerpeople.com/pages/faq",
+      "page_type": "faq_shipping_returns",
+      "reason": "optional_guessed_path_unavailable:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/pages/faq\", waiting until \"do"
+    },
+    {
+      "url": "https://gingerpeople.com/pages/about",
+      "page_type": "about_page",
+      "reason": "optional_guessed_path_unavailable:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/pages/about\", waiting until \""
+    },
+    {
+      "url": "https://gingerpeople.com/blogs/news",
+      "page_type": "blog_or_content_page",
+      "reason": "optional_guessed_path_unavailable:Page.goto: Timeout 35000ms exceeded.\nCall log:\n  - navigating to \"https://gingerpeople.com/blogs/news\", waiting until \"d"
+    }
+  ],
+  "blocked_pages": []
+}
