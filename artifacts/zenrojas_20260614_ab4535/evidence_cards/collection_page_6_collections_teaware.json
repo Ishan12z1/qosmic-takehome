@@ -1,0 +1,28 @@
+{
+  "page_url": "https://zenrojas.com/collections/teaware",
+  "page_type": "collection_page",
+  "name": "collection_page_6_collections_teaware",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+  "observed_strengths": [
+    {
+      "observation": "Teaware collection intro ('Elevate Your Tea Ritual') frames accessories as ritual enhancers, supporting attach to the consumable catalog",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_6_collections_teaware.json",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Thin teaware range (Tea Infuser, Mug, Tea Bags) with no bundling between teaware and tea on the collection page",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/collection_page_6_collections_teaware.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "No ratings or filtering on the grid, same as the teas collection",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/collection_page_6_collections_teaware.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Teaware acts as an attach category to teas, but the collection presents items individually with no bundle path.",
+  "pillar_tags": ["AOV", "Conversion"]
+}

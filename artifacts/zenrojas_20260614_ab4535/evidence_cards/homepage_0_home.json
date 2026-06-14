@@ -1,0 +1,43 @@
+{
+  "page_url": "https://zenrojas.com/",
+  "page_type": "homepage",
+  "name": "homepage_0_home",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+  "observed_strengths": [
+    {
+      "observation": "Clear above-fold brand promise headline 'Exceptional aroma. Exceptional tea.' establishing the 100% organic loose-leaf positioning",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Use-case driven navigation into benefit collections (Sleep & Relaxation, Immune Support, Daily Energy) with dedicated 'Shop' CTAs, helping shoppers self-select",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Persistent 'Free shipping on all $50+ orders' announcement bar sets an AOV anchor on entry",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No customer reviews, ratings, or social-proof counts surfaced above the fold on the homepage",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No email capture / newsletter incentive visible on the homepage to convert non-buyers into a retained audience",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.md",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "OG title is the generic 'Home Page' and meta description is only ' 100% Organic Loose Leaf tea' — thin metadata weakens social/search snippets",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/homepage_0_home.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Homepage routes shoppers either by benefit collection or directly to featured products; primary path to PDP is one click via 'Shop' CTAs or the Teas nav.",
+  "pillar_tags": ["Conversion", "AOV", "Retention", "Acquisition"]
+}

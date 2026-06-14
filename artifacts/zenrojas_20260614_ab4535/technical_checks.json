@@ -1,0 +1,104 @@
+{
+  "ssl_certificate": {
+    "label": "SSL Certificate",
+    "status": "Pass",
+    "detail": "HTTPS storefront loaded successfully.",
+    "evidence": "https://zenrojas.com"
+  },
+  "https_redirect": {
+    "label": "HTTPS Redirect",
+    "status": "Pass",
+    "detail": "HTTP redirected to HTTPS.",
+    "evidence": "http://zenrojas.com"
+  },
+  "sitemap": {
+    "label": "Sitemap",
+    "status": "Pass",
+    "detail": "sitemap.xml found with ~5 entries.",
+    "evidence": "https://zenrojas.com/sitemap.xml"
+  },
+  "robots_txt": {
+    "label": "Robots.txt",
+    "status": "Pass",
+    "detail": "robots.txt accessible.",
+    "evidence": "https://zenrojas.com/robots.txt"
+  },
+  "critical_pages_loading": {
+    "label": "Critical Pages Loading",
+    "status": "Pass",
+    "detail": "10/10 selected pages loaded successfully.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "meta_tags_social": {
+    "label": "Meta Tags & Social Previews",
+    "status": "Warn",
+    "detail": "Title+meta description present on 9/10 pages. OG tags present on all pages.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "structured_data": {
+    "label": "Structured Data",
+    "status": "Warn",
+    "detail": "No JSON-LD detected across 10 crawled pages.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "favicon": {
+    "label": "Favicon",
+    "status": "Warn",
+    "detail": "No favicon link tag detected across 10 crawled pages.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "mobile_friendly": {
+    "label": "Mobile-Friendly",
+    "status": "Pass",
+    "detail": "Viewport meta present and no horizontal overflow at 375px.",
+    "evidence": "https://zenrojas.com/"
+  },
+  "page_speed_mobile": {
+    "label": "Page Speed Mobile",
+    "status": "Pass",
+    "detail": "Navigation timing (single run, not Lighthouse): load 1733ms, DCL 970ms at 375px viewport.",
+    "evidence": "https://zenrojas.com/"
+  },
+  "page_speed_desktop": {
+    "label": "Page Speed Desktop",
+    "status": "Pass",
+    "detail": "Navigation timing (single run, not Lighthouse): load 1978ms, DCL 1033ms.",
+    "evidence": "https://zenrojas.com/"
+  },
+  "broken_links": {
+    "label": "Broken Links",
+    "status": "Warn",
+    "detail": "4 non-critical broken links in 40 sampled.",
+    "evidence": null
+  },
+  "image_optimization": {
+    "label": "Image Optimization",
+    "status": "Warn",
+    "detail": "31/92 images missing alt text (33%) across 10 crawled pages. Byte-level audit not run.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "cookie_privacy": {
+    "label": "Cookie/Privacy",
+    "status": "Pass",
+    "detail": "Privacy Policy and Terms found. Cookie policy also present.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/homepage_0_home.png"
+  },
+  "checkout_reachable": {
+    "label": "Checkout Reachable",
+    "status": "Pass",
+    "detail": "Cart loaded and checkout entry reached. Journey stopped before payment entry.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_checkout.png"
+  },
+  "payment_methods": {
+    "label": "Payment Methods",
+    "status": "Pass",
+    "detail": "Detected: Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay, Shop Pay, Diners Club, JCB.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png"
+  },
+  "shopping_journey": {
+    "label": "Shopping Journey",
+    "status": "Pass",
+    "detail": "Score 5.0/5 - no blockers detected. Payment: Visa, Mastercard, Amex, PayPal, Apple Pay, Google Pay, Shop Pay, Diners Club, JCB.",
+    "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/shopping_journey_cart.png"
+  }
+}

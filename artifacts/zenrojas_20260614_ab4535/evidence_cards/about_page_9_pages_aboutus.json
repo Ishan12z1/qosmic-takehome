@@ -1,0 +1,33 @@
+{
+  "page_url": "https://zenrojas.com/pages/aboutus",
+  "page_type": "about_page",
+  "name": "about_page_9_pages_aboutus",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/about_page_9_pages_aboutus.png",
+  "observed_strengths": [
+    {
+      "observation": "Strong brand story with a differentiating 'Veteran owned' credential and a mindfulness/wellness mission ('every sip is a reminder to slow down')",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Newsletter 'Subscribe' capture present on the page, converting brand-interested readers into the email list",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.json",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "About page tells the story but contains no CTA back into the catalog or featured products to convert engaged readers",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.md",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "The 'Veteran owned' and ethically-sourced trust signals are not echoed on PDPs or cart where purchase decisions happen",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/about_page_9_pages_aboutus.json",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "About page builds trust but is a funnel dead-end with no path back to products; its trust cues are siloed from the buying surfaces.",
+  "pillar_tags": ["Conversion", "Retention"]
+}

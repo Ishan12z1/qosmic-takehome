@@ -1,0 +1,33 @@
+{
+  "page_url": "https://zenrojas.com/pages/faqs",
+  "page_type": "faq_shipping_returns",
+  "name": "faq_shipping_returns_8_pages_faqs",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/faq_shipping_returns_8_pages_faqs.png",
+  "observed_strengths": [
+    {
+      "observation": "A dedicated FAQ page exists and is linked in the footer, giving shoppers a self-serve support surface",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Newsletter 'Subscribe' capture is present in the page footer, providing an email-list entry point",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.json",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "FAQ content leads with brand/history trivia ('Who first discovered tea?') rather than shipping, returns, and delivery-time questions that resolve purchase objections",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/faq_shipping_returns_8_pages_faqs.md",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No FAQ structured data (FAQPage JSON-LD), so the Q&A content is not eligible for search rich results",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/technical_checks.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "FAQ supports the funnel but under-serves logistics questions; shipping/returns reassurance is not front-loaded.",
+  "pillar_tags": ["Conversion", "Retention", "Acquisition"]
+}

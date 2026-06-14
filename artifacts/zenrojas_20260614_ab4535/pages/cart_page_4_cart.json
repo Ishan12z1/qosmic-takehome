@@ -1,0 +1,102 @@
+{
+  "url": "https://zenrojas.com/cart",
+  "page_type": "cart_page",
+  "title": "Your Shopping Cart – Zen Rojas",
+  "meta_description": "",
+  "canonical": "https://zenrojas.com/cart",
+  "og_title": "Your Shopping Cart",
+  "og_description": "100% Organic Loose Leaf tea",
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Shopping Cart"
+    }
+  ],
+  "ctas": [
+    "View cart",
+    "Checkout",
+    "Subscribe"
+  ],
+  "important_links": [
+    {
+      "text": "Home",
+      "href": "/"
+    },
+    {
+      "text": "Teas",
+      "href": "/collections/teas"
+    },
+    {
+      "text": "Teaware",
+      "href": "/collections/teaware"
+    },
+    {
+      "text": "Gift Cards",
+      "href": "/collections/gift-cards"
+    },
+    {
+      "text": "Contact Us",
+      "href": "/pages/contactus"
+    },
+    {
+      "text": "About Us",
+      "href": "/pages/aboutus"
+    },
+    {
+      "text": "Log in",
+      "href": "https://zenrojas.com/customer_authentication/redirect?locale=en&region_country=US"
+    },
+    {
+      "text": "Create account",
+      "href": "https://shopify.com/27573977165/account?locale=en&region_country=US&buyer_flags=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6ZW4tcm9"
+    },
+    {
+      "text": "Search",
+      "href": "/search"
+    },
+    {
+      "text": "Blog",
+      "href": "/blogs/weekly-blog"
+    },
+    {
+      "text": "Ambassador Program",
+      "href": "/pages/ambassadorprogram"
+    },
+    {
+      "text": "FAQs",
+      "href": "/pages/faqs"
+    },
+    {
+      "text": "Refund Policy",
+      "href": "/pages/returnpolicy"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "/pages/privacypolicy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "/policies/terms-of-service"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/zenrojas0"
+    },
+    {
+      "text": "Twitter",
+      "href": "https://twitter.com/ZenRojas0"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/zen_rojas/"
+    },
+    {
+      "text": "View cart",
+      "href": "/cart"
+    },
+    {
+      "text": "Continue browsing here",
+      "href": "/collections/all"
+    }
+  ]
+}

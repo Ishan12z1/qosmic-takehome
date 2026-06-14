@@ -1,0 +1,103 @@
+{
+  "url": "https://zenrojas.com/pages/aboutus",
+  "page_type": "about_page",
+  "title": "About Us – Zen Rojas",
+  "meta_description": "At Zen Rojas, we believe every sip is a reminder to slow down, breathe deeply, and reconnect with the moment. Our teas are crafted to bring harmony to your day — one mindful cup at a time. Veteran owned and family operated, Zen Rojas was born from a simple truth: calm is something we create. Through years of service and travel, we discovered how deeply nature can restore balance and peace. That experience shaped our mission — to provide organic, intentional blends that nourish both body and mind. Every tea we carry is designed to support your wellness — from grounding greens and soothing herbs to uplifting florals that awaken the senses. At our core, Zen Rojas is more than tea. It’s a ritual. A breath. A return to stillness. Thank you for sharing a cup with us. From our family to yours — peace, gratitude, and good tea. Zen Rojas Proudly Veteran-Owned and family operated | Crafted with Intention | Rooted in Calm",
+  "canonical": "https://zenrojas.com/pages/aboutus",
+  "og_title": "About Us",
+  "og_description": "At Zen Rojas, we believe every sip is a reminder to slow down, breathe deeply, and reconnect with the moment. Our teas are crafted to bring harmony to your day — one mindful cup at a time. Veteran owned and family operated, Zen Rojas was born from a simple truth: calm is something we create. Through years of service and travel, we discovered how deeply nature can restore balance and peace. That experience shaped our mission — to provide organic, intentional blends that nourish both body and mind. Every tea we carry is designed to support your wellness — from grounding greens and soothing herbs to uplifting florals that awaken the senses. At our core, Zen Rojas is more than tea. It’s a ritual. A breath. A return to stillness. Thank you for sharing a cup with us. From our family to yours — peace, gratitude, and good tea. Zen Rojas Proudly Veteran-Owned and family operated | Crafted with Intention | Rooted in Calm",
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "About Us"
+    }
+  ],
+  "ctas": [
+    "View cart",
+    "Subscribe",
+    "Powered by Shopify",
+    "Close Cart"
+  ],
+  "important_links": [
+    {
+      "text": "Home",
+      "href": "/"
+    },
+    {
+      "text": "Teas",
+      "href": "/collections/teas"
+    },
+    {
+      "text": "Teaware",
+      "href": "/collections/teaware"
+    },
+    {
+      "text": "Gift Cards",
+      "href": "/collections/gift-cards"
+    },
+    {
+      "text": "Contact Us",
+      "href": "/pages/contactus"
+    },
+    {
+      "text": "About Us",
+      "href": "/pages/aboutus"
+    },
+    {
+      "text": "Log in",
+      "href": "https://zenrojas.com/customer_authentication/redirect?locale=en&region_country=US"
+    },
+    {
+      "text": "Create account",
+      "href": "https://shopify.com/27573977165/account?locale=en&region_country=US&buyer_flags=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6ZW4tcm9"
+    },
+    {
+      "text": "Search",
+      "href": "/search"
+    },
+    {
+      "text": "Blog",
+      "href": "/blogs/weekly-blog"
+    },
+    {
+      "text": "Ambassador Program",
+      "href": "/pages/ambassadorprogram"
+    },
+    {
+      "text": "FAQs",
+      "href": "/pages/faqs"
+    },
+    {
+      "text": "Refund Policy",
+      "href": "/pages/returnpolicy"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "/pages/privacypolicy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "/policies/terms-of-service"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/zenrojas0"
+    },
+    {
+      "text": "Twitter",
+      "href": "https://twitter.com/ZenRojas0"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/zen_rojas/"
+    },
+    {
+      "text": "View cart",
+      "href": "/cart"
+    },
+    {
+      "text": "Search",
+      "href": "/search"
+    }
+  ]
+}

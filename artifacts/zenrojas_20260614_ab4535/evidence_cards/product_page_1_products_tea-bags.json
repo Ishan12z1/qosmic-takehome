@@ -1,0 +1,53 @@
+{
+  "page_url": "https://zenrojas.com/products/tea-bags",
+  "page_type": "product_page",
+  "name": "product_page_1_products_tea-bags",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+  "observed_strengths": [
+    {
+      "observation": "Both 'Add to Cart' and 'Buy with Shop' (Shop Pay express) buttons are present above the fold, giving a one-tap accelerated checkout path",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Frequently bought together' bundle widget with pre-checked add-ons (Tea Bags + Organic Black Tea + Tea Infuser) and an 'Add selected to cart' button",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "'Complete Your Ritual' cross-sell row recommends four complementary products below the description",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "Shop Pay installments offer ('Pay over time for orders over $35') reduces payment friction",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Structured, scannable description with 'Why We Love It', 'How to Use', and a 30-Day Warranty mention",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.md",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Reviews widget is present but empty ('No reviews yet') — zero social proof at the point of decision",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_1_products_tea-bags.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No subscribe-and-save / replenishment option on a consumable product, leaving recurring revenue on the table",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_1_products_tea-bags.json",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "No JSON-LD Product structured data on the PDP, weakening rich-result eligibility in search",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/technical_checks.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Single-step add-to-cart with Shop Pay express alternative; AOV is actively encouraged via a 'Frequently bought together' bundle and a 'Complete Your Ritual' cross-sell.",
+  "pillar_tags": ["Conversion", "AOV", "Retention", "Acquisition"]
+}

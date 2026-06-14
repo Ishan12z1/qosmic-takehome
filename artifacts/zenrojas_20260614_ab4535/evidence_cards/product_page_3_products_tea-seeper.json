@@ -1,0 +1,33 @@
+{
+  "page_url": "https://zenrojas.com/products/tea-seeper",
+  "page_type": "product_page",
+  "name": "product_page_3_products_tea-seeper",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+  "observed_strengths": [
+    {
+      "observation": "Teaware PDP (Tea Infuser) positions itself as the entry accessory for new loose-leaf drinkers ('Brew Mindfully, Sip Calmly'), pairing naturally with the tea catalog",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Complete Your Ritual' cross-sell surfaces Tea Bags, Loose Leaf Samplers, Mug, and Tea Bag Samplers — strong attach path for a hardware item",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No reviews/ratings shown for the infuser, removing reassurance on a physical product where durability matters",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_3_products_tea-seeper.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No bundle pricing that pairs the infuser with a starter tea, despite the obvious 'teaware + tea' attach opportunity",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_3_products_tea-seeper.json",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "Accessory PDP funnels into consumable teas via the cross-sell row, but relies on a flat add-to-cart with no infuser+tea bundle incentive.",
+  "pillar_tags": ["Conversion", "AOV"]
+}

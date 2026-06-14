@@ -1,0 +1,33 @@
+{
+  "page_url": "https://zenrojas.com/blogs/weekly-blog/building-a-family-legacy-through-wellness-community-and-purpose-driven-growth",
+  "page_type": "blog_or_content_page",
+  "name": "blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.png",
+  "observed_strengths": [
+    {
+      "observation": "An active weekly blog with founder-led storytelling (Ashley & Jesse Rojas) supports content-driven organic acquisition and brand depth",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
+      "pillar": "Acquisition"
+    },
+    {
+      "observation": "Comment capability ('Leave a comment') invites engagement and dwell time on content",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Blog post has no in-content product links, CTAs, or email capture to convert readers into shoppers or subscribers",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.md",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "Post title and meta are truncated mid-word ('Purpose-Driv'), indicating untuned SEO metadata",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/blog_or_content_page_10_blogs_weekly-blog_building-a-family-lega.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "Content exists for acquisition but does not bridge readers into the catalog or email list; no monetization path from the article.",
+  "pillar_tags": ["Acquisition", "Retention"]
+}

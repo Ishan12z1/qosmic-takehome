@@ -1,0 +1,272 @@
+{
+  "run_id": "zenrojas_20260614_ab4535",
+  "base_url": "https://zenrojas.com",
+  "slug": "zenrojas",
+  "crawled_at": "2026-06-14T10:44:53.349597",
+  "total_discovered": 54,
+  "selected_pages": [
+    {
+      "url": "https://zenrojas.com/",
+      "page_type": "homepage"
+    },
+    {
+      "url": "https://zenrojas.com/products/tea-bags",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://zenrojas.com/products/blacktea",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://zenrojas.com/products/tea-seeper",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://zenrojas.com/cart",
+      "page_type": "cart_page"
+    },
+    {
+      "url": "https://zenrojas.com/collections/teas",
+      "page_type": "collection_page"
+    },
+    {
+      "url": "https://zenrojas.com/collections/teaware",
+      "page_type": "collection_page"
+    },
+    {
+      "url": "https://zenrojas.com/pages/faqs",
+      "page_type": "faq_shipping_returns"
+    },
+    {
+      "url": "https://zenrojas.com/pages/aboutus",
+      "page_type": "about_page"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/building-a-family-legacy-through-wellness-community-and-purpose-driven-growth",
+      "page_type": "blog_or_content_page"
+    }
+  ],
+  "rejected_pages": [
+    {
+      "url": "https://zenrojas.com/products/bodyguardtea",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/heartburntea",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/zen-rojas-mug",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/teabagsamplers",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/organicsleeptea",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/looseleafsamplers",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/premiumsenchagreentea",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/unwind",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/products/zen-rojas-e-giftcard",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/collections/gift-cards",
+      "page_type": "collection_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/collections/best-sellers",
+      "page_type": "collection_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/collections/tea-essentials",
+      "page_type": "collection_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/collections/all",
+      "page_type": "collection_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/pages/faq",
+      "page_type": "faq_shipping_returns",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/pages/returns",
+      "page_type": "faq_shipping_returns",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/pages/shipping",
+      "page_type": "faq_shipping_returns",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/pages/about",
+      "page_type": "about_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/bold-journey",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/meet-jesse-rojas-of-zen-rojas",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/h",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/4-8",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/caio",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/6-30",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/5-12",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/hola",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/hallo",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/kjhdchg",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/he-hfrvhi",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/carajillo",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/ginger-2-17",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/howdy-y-all",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/unwind-2-24",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/sleep-tea-2-3",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/bodyguard-3-3",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/heartburn-2-10",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/big-texas-3-24",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/sleepy-mocktail",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/jesses-intro-3-10",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/strawberry-green-tea",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/xin-chao-before-texas",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/weekly-blog/were-so-happy-youre-here",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/blogs/news",
+      "page_type": "blog_or_content_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://zenrojas.com/pages/where-to-buy",
+      "page_type": "where_to_buy",
+      "reason": "optional_guessed_path_unavailable:http_404"
+    }
+  ],
+  "blocked_pages": []
+}

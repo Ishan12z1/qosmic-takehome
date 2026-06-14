@@ -1,0 +1,140 @@
+{
+  "url": "https://zenrojas.com/",
+  "page_type": "homepage",
+  "title": "Home Page – Zen Rojas",
+  "meta_description": "100% Organic Loose Leaf tea",
+  "canonical": "https://zenrojas.com/",
+  "og_title": "Home Page",
+  "og_description": "100% Organic Loose Leaf tea",
+  "headings": [
+    {
+      "tag": "h2",
+      "text": "Exceptional aroma. Exceptional tea."
+    },
+    {
+      "tag": "h2",
+      "text": "Find Your Moment of Zen"
+    },
+    {
+      "tag": "h2",
+      "text": "Sleep & Relaxation"
+    },
+    {
+      "tag": "h2",
+      "text": "Immune Support"
+    },
+    {
+      "tag": "h2",
+      "text": "Daily Energy"
+    },
+    {
+      "tag": "h3",
+      "text": "Tea Infuser"
+    },
+    {
+      "tag": "h3",
+      "text": "Tea Bags"
+    },
+    {
+      "tag": "h3",
+      "text": "Zen Rojas Mug 11oz"
+    },
+    {
+      "tag": "h3",
+      "text": "Zen Rojas Tea Bag Samplers"
+    },
+    {
+      "tag": "h3",
+      "text": "Zen Rojas Loose Leaf Samplers"
+    }
+  ],
+  "ctas": [
+    "View cart",
+    "Shop Organic Sleep Tea",
+    "Shop Bodyguard Organic Tea",
+    "Shop Premium Sencha Organic Green Tea",
+    "Shop Heartburn Organic Tea"
+  ],
+  "important_links": [
+    {
+      "text": "Home",
+      "href": "/"
+    },
+    {
+      "text": "Teas",
+      "href": "/collections/teas"
+    },
+    {
+      "text": "Teaware",
+      "href": "/collections/teaware"
+    },
+    {
+      "text": "Gift Cards",
+      "href": "/collections/gift-cards"
+    },
+    {
+      "text": "Contact Us",
+      "href": "/pages/contactus"
+    },
+    {
+      "text": "About Us",
+      "href": "/pages/aboutus"
+    },
+    {
+      "text": "Log in",
+      "href": "https://zenrojas.com/customer_authentication/redirect?locale=en&region_country=US"
+    },
+    {
+      "text": "Create account",
+      "href": "https://shopify.com/27573977165/account?locale=en&region_country=US&buyer_flags=eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ6ZW4tcm9"
+    },
+    {
+      "text": "Search",
+      "href": "/search"
+    },
+    {
+      "text": "Blog",
+      "href": "/blogs/weekly-blog"
+    },
+    {
+      "text": "Ambassador Program",
+      "href": "/pages/ambassadorprogram"
+    },
+    {
+      "text": "FAQs",
+      "href": "/pages/faqs"
+    },
+    {
+      "text": "Refund Policy",
+      "href": "/pages/returnpolicy"
+    },
+    {
+      "text": "Privacy Policy",
+      "href": "/pages/privacypolicy"
+    },
+    {
+      "text": "Terms of Service",
+      "href": "/policies/terms-of-service"
+    },
+    {
+      "text": "Facebook",
+      "href": "https://www.facebook.com/zenrojas0"
+    },
+    {
+      "text": "Twitter",
+      "href": "https://twitter.com/ZenRojas0"
+    },
+    {
+      "text": "Instagram",
+      "href": "https://www.instagram.com/zen_rojas/"
+    },
+    {
+      "text": "View cart",
+      "href": "/cart"
+    },
+    {
+      "text": "Discover Your Ritual",
+      "href": "/collections/teas"
+    }
+  ]
+}

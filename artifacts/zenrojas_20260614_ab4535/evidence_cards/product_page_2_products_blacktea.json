@@ -1,0 +1,33 @@
+{
+  "page_url": "https://zenrojas.com/products/blacktea",
+  "page_type": "product_page",
+  "name": "product_page_2_products_blacktea",
+  "run_id": "zenrojas_20260614_ab4535",
+  "screenshot": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+  "observed_strengths": [
+    {
+      "observation": "Benefit-led description ('Bold Flavor, Mindful Energy') with sourcing provenance (Sri Lanka and India, ethically grown) builds product credibility",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "'Complete Your Ritual' cross-sell section recommends complementary products (Loose Leaf Samplers, Tea Bags, Bodyguard Organic Tea)",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "No reviews or rating shown adjacent to the buy box on a flagship product, so no social proof at the decision point",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/screenshots/product_page_2_products_blacktea.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "No subscribe-and-save option for a repeat-purchase consumable, missing a recurring-revenue hook",
+      "evidence": "artifacts/zenrojas_20260614_ab4535/pages/product_page_2_products_blacktea.json",
+      "pillar": "Retention"
+    }
+  ],
+  "purchase_path_notes": "Standard add-to-cart with Shop Pay express; AOV supported via the 'Complete Your Ritual' cross-sell row shared across PDPs.",
+  "pillar_tags": ["Conversion", "AOV", "Retention"]
+}
