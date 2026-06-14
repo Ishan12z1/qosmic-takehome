@@ -3,7 +3,7 @@
 How this harness was built with a coding agent (Claude Code), what the agent
 drove, and where I took the wheel.
 
-> Times below are **active hands-on steering** — the time I was engaged
+> Times below are **active hands-on steering** - the time I was engaged
 > (reading, deciding, prompting, verifying), not wall-clock. Because the agent
 > ran asynchronously while I reviewed, the work was spread across a few evenings;
 > the brief allows turning it around over a few days, and the effort total stays
@@ -13,8 +13,8 @@ drove, and where I took the wheel.
 
 | Part | Time spent | Notes |
 |---|---:|---|
-| Part 1 — Runtime harness (crawler + skills + entry files) | ~2h | Modular crawler, 5 registered skills, CLAUDE.md / AGENTS.md |
-| Part 2 — Eval system + autonomy plan | ~2h | 9 deterministic layers + LLM rubric, degraded mode, failure-log loop |
+| Part 1 - Runtime harness (crawler + skills + entry files) | ~2h | Modular crawler, 5 registered skills, CLAUDE.md / AGENTS.md |
+| Part 2 - Eval system + autonomy plan | ~2h | 9 deterministic layers + LLM rubric, degraded mode, failure-log loop |
 | Validation & packaging | ~1h | Multi-store runs, integrity fixes, sample outputs |
 | Total | ~5h | At the stated hard ceiling |
 
@@ -22,39 +22,43 @@ drove, and where I took the wheel.
 
 I drove the agent in tight, verifiable loops rather than one large prompt: set a
 goal, have the agent implement, then make it prove each change before moving on.
-The highest-leverage thing I did was hold the **quality bar** — I fed the agent a
-detailed code-review critique and made it verify every finding against the code
-before fixing anything, so fixes were grounded in real defects, not guesses.
+The highest-leverage thing I did was hold the quality bar - I fed the agent a
+detailed critique and made it verify every finding against the code before
+fixing anything, so fixes were grounded in real defects, not guesses.
 
 ## Agent Prompts And Decisions
 
 | Prompt / task I gave | What the agent drove | Where I took the wheel |
 |---|---|---|
-| "What's the current status of the project?" | Read the repo and summarized state, completed phases, and open gaps | Used the summary to decide where to focus next |
-| "Run the eval website list… just do Type B" | Crawled and audited a Type B store end-to-end through the pipeline | Scoped the work down to Type B instead of all 17 sites |
-| Pasted a detailed code-review critique: "check if this is correct, and are we missing more — thoroughly" | Verified all critique findings line-by-line against the actual code; confirmed which were real and found additional gaps | Supplied the critique as the explicit quality bar to audit against |
-| "Fix all of these issues — make a step-by-step plan; also write a summary.md for unreachable sites" | Produced a phased plan and implemented every fix across crawler, skills, and evals | Defined the requirements, including the always-on `summary.md` for broken/blocked sites |
-| Three scoping decisions (asked by the agent) | Implemented to spec | **Decided:** real mobile/page-speed checks (not hardcoded Warns); regenerate reports only by running the pipeline (never hand-edited); leave artifact handling as-is |
-| "Check each update after you make it, before moving forward" | Compile/unit-tested and re-ran the pipeline after every change | Imposed the incremental-verification cadence |
-| "I deleted all artifacts — run 2–3 sites to confirm it does what we want" | Ran several stores end-to-end; surfaced a real journey gap (variant selection) and a CORS bug, then fixed and re-verified both | Forced a clean-slate validation that exposed the gaps |
-| Tightened the report contract myself | — | **Hand-edited `run_eval.py` and the writer skill** to enforce exactly four README sections, in order |
-| "Check it against the README — does what we built match?" | Mapped each requirement to evidence and produced a conformance assessment | Judged the result and the remaining gaps |
+| "Read the repo and tell me the real current status: what is implemented, what is missing, and what looks broken." | Read the repo, mapped the pipeline, and summarized completed phases plus the highest-risk gaps. | Used that inventory to choose where to spend the remaining time. |
+| "Build the crawler first. It needs to crawl a representative Shopify journey safely, stop at checkout entry, and save reusable artifacts." | Implemented and iterated on the crawler modules, URL discovery, technical checks, and shopping journey capture. | Set the safety boundary and held the line on not going past checkout. |
+| "Write the skills next: page evidence extraction, evidence synthesis, audit writing, and eval judging." | Drafted the skill files and shaped the per-page -> summary -> audit pipeline. | Decided the skill boundaries and what each stage was and was not allowed to claim. |
+| "Add a fail-closed eval. I want exact section checks, exact experiment counts, evidence-path validation, and technical-check fidelity." | Built the deterministic eval layers and the quality-rubric flow around them. | Chose the contract details that were important enough to gate the output. |
+| "Check this critique against the code and tell me which points are real, which are wrong, and what else we are missing." | Verified each critique finding line-by-line against the actual implementation and surfaced additional issues. | Supplied the critique as the review bar and decided which findings mattered most. |
+| "Fix all confirmed issues, but do it step by step. Also write a `summary.md` whenever a site is unreachable or blocked." | Produced a phased plan and implemented fixes across crawler, skills, and evals. | Added the requirement that blocked or unreachable runs must still leave an honest machine-readable record. |
+| "After every meaningful change, run the relevant checks before moving on." | Re-ran tests, crawl flows, and evals after each batch of changes. | Enforced the verification cadence instead of letting the work drift into one big untested rewrite. |
+| "I deleted the old artifacts. Re-run a few stores end-to-end and tell me what still breaks in practice." | Re-ran the system on multiple stores, surfaced a variant-selection gap and a CORS issue, then fixed and re-verified them. | Forced a clean-slate validation pass to expose issues hidden by stale artifacts. |
+| "Do not hand-edit outputs. If a report is wrong, fix the pipeline or the skills, then regenerate it." | Regenerated reports through the pipeline after fixes instead of patching markdown outputs directly. | Set the rule that output quality had to come from the harness, not manual cleanup. |
+| "Check the final system against the assignment README and tell me exactly where we match it and where we still fall short." | Mapped the implementation and outputs back to the assignment contract and produced a conformance review. | Judged the remaining gaps, especially around packaging, blocked-site handling, and submission framing. |
+| Agent-initiated scoping questions during implementation | Implemented to the chosen scope after asking for decisions when tradeoffs were non-obvious. | **Decided:** real mobile/page-speed checks instead of hardcoded Warns; regenerate reports only through the pipeline; package blocked sites as honest partial audits instead of forcing full reports. |
+| Tightened one contract edge manually | - | **Hand-edited `run_eval.py` and the writer skill** to enforce exactly four README sections, in order. |
 
 ## Decisions I Would Reverse
 
 When the headless journey can't select a required product variant, I have it add
 to cart via Shopify's `/cart.js` / `/cart/add.js` API as a fallback. This made
 cart/checkout reachability reliable across stores, but it trades away some
-pure-UX-simulation fidelity — a real shopper's variant-selection friction is no
+pure-UX-simulation fidelity - a real shopper's variant-selection friction is no
 longer fully exercised. I would revisit this to detect and report that friction
 explicitly instead of routing around it.
 
 ## What I Did Not Measure
 
 - **Real Core Web Vitals.** Page speed is a single-run navigation-timing proxy,
-  clearly labeled as such — not a Lighthouse/field measurement.
+  clearly labeled as such - not a Lighthouse or field measurement.
 - **Visual correctness of citations.** Citations are verified to resolve, sit
-  under the correct run_id, and match the claim's artifact type — but I did not
-  confirm that each screenshot visually proves its specific claim.
+  under the correct run_id, and some contradiction cases are checked - but the
+  system does not perform exhaustive human visual verification of every cited
+  screenshot.
 - **Live competitor benchmarks.** Competitors are selected by category and cited
   by URL, not crawled and measured the way the audited store is.
