@@ -1,0 +1,95 @@
+{
+  "page_url": "https://beardbrand.com/products/custom-mens-cologne-set",
+  "page_type": "product_page",
+  "name": "product_page_3_products_custom-mens-cologne-set",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+  "facts": [
+    {
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "A full reviews section is visible lower on the PDP."
+    },
+    {
+      "key": "review_count_visible",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/pages/product_page_3_products_custom-mens-cologne-set.md",
+      "note": "The reviews section states \"Based on 367 customer reviews.\""
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "absent",
+      "scope": "not_adjacent_to_cta",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "The sampled top-of-page bundle builder does not show a visible rating summary near the add-to-cart CTA."
+    },
+    {
+      "key": "bundle_present",
+      "state": "present",
+      "scope": "above_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "This PDP is itself a configurable 4-item bundle builder."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "absent",
+      "scope": "below_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "No separate recommendation grid is visible in the sampled screenshot."
+    },
+    {
+      "key": "subscription_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "The bundle builder presents one-time fragrance selection controls only."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "product_details_and_accordion",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "The PDP includes fragrance FAQs, ingredient detail, and Beardbrand Assurance content."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "note": "No wallet or express checkout CTA is visible."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The sampled bundle PDP is a real AOV mechanic, letting shoppers assemble a 4-item fragrance set on one page.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "pillar": "AOV"
+    },
+    {
+      "observation": "This PDP carries deep educational support through FAQs and a large review base.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The top-of-page bundle builder does not surface review proof near the primary CTA, even though strong review volume exists lower on the page.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_3_products_custom-mens-cologne-set.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Naming is inconsistent across metadata and visible content: the page metadata references a custom men's cologne set while the visible H1 says \"Custom Father's Day Bundle.\"",
+      "evidence": "artifacts/beardbrand_20260614_4df413/pages/product_page_3_products_custom-mens-cologne-set.json",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "This page is strong for bundle construction, but its review proof is pushed lower and its naming is inconsistent.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV",
+    "Acquisition"
+  ]
+}

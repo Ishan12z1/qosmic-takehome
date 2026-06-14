@@ -1,0 +1,302 @@
+{
+  "run_id": "beardbrand_20260614_4df413",
+  "base_url": "https://beardbrand.com",
+  "slug": "beardbrand",
+  "crawled_at": "2026-06-14T13:07:55.320230",
+  "total_discovered": 672,
+  "selected_pages": [
+    {
+      "url": "https://beardbrand.com/",
+      "page_type": "homepage"
+    },
+    {
+      "url": "https://beardbrand.com/products/book-of-reminders",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/utility-beard-trimmer",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://beardbrand.com/products/custom-mens-cologne-set",
+      "page_type": "product_page"
+    },
+    {
+      "url": "https://beardbrand.com/cart",
+      "page_type": "cart_page"
+    },
+    {
+      "url": "https://www.beardbrand.com/collections/body",
+      "page_type": "collection_page"
+    },
+    {
+      "url": "https://www.beardbrand.com/collections/hair",
+      "page_type": "collection_page"
+    },
+    {
+      "url": "https://www.beardbrand.com/pages/faqs",
+      "page_type": "faq_shipping_returns"
+    },
+    {
+      "url": "https://beardbrand.com/pages/learn-about-us",
+      "page_type": "about_page"
+    },
+    {
+      "url": "https://beardbrand.com/blogs/urbanbeardsman",
+      "page_type": "blog_or_content_page"
+    }
+  ],
+  "rejected_pages": [
+    {
+      "url": "https://beardbrand.com/products/four-vices-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://beardbrand.com/products/short-game-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/black-sails-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/desert-road-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/ghost-tracer-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/alliance-membership",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tweezers",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/beard-brush",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/beard-combs",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/trimming-scissors",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-beard-oil",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-beard-balm",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-beard-oil",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-beard-oil",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-mustache-wax",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/norse-winter-beard-oil",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-beard-oil",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-beard-balm",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/norse-winter-beard-balm",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-styling-paste",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-beard-balm",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-beard-balm",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-sea-salt-spray",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-mustache-wax",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-styling-paste",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-grooming-set",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/norse-winter-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-mustache-wax",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-mens-cologne",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-styling-paste",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-styling-paste",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-sea-salt-spray",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-sea-salt-spray",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-sea-salt-spray",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-utility-beard-wash",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-utility-beard-wash",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-utility-beard-wash",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-utility-beard-wash",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-beard-foundations-set",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-utility-beard-softener",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-aluminum-free-deodorant",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-utility-bar-soap-3-pack",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-beard-foundations-set",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/tree-ranger-utility-beard-softener",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/bold-fortune-beard-foundations-set",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-beard-foundations-set",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/old-money-beard-oil-cologne-bundle",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    },
+    {
+      "url": "https://www.beardbrand.com/products/temple-smoke-utility-beard-softener",
+      "page_type": "product_page",
+      "reason": "quota_exceeded"
+    }
+  ],
+  "blocked_pages": []
+}

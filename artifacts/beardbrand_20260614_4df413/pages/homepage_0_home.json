@@ -1,0 +1,134 @@
+{
+  "url": "https://beardbrand.com/",
+  "page_type": "homepage",
+  "title": "Beard Products – Beardbrand",
+  "meta_description": "Simplify your grooming routine. Versatile beard, hair, and skin products for men. Invest in yourself and Keep on Growing.",
+  "canonical": "https://www.beardbrand.com/",
+  "og_title": "Beardbrand",
+  "og_description": "Simplify your grooming routine. Versatile beard, hair, and skin products for men. Invest in yourself and Keep on Growing.Beardbrand",
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Beardbrand"
+    },
+    {
+      "tag": "h2",
+      "text": "Fragrances"
+    },
+    {
+      "tag": "h2",
+      "text": "Join Our Community"
+    },
+    {
+      "tag": "h2",
+      "text": "Grow Your Mind"
+    },
+    {
+      "tag": "h3",
+      "text": "Short Game"
+    },
+    {
+      "tag": "h3",
+      "text": "Black Sails"
+    },
+    {
+      "tag": "h3",
+      "text": "Four Vices"
+    },
+    {
+      "tag": "h3",
+      "text": "Ghost Tracer"
+    },
+    {
+      "tag": "h3",
+      "text": "Desert Road"
+    }
+  ],
+  "ctas": [
+    "Shop",
+    "Open cart0",
+    "Shop All"
+  ],
+  "important_links": [
+    {
+      "text": "40% OffCologne Sets",
+      "href": "/products/custom-mens-cologne-set"
+    },
+    {
+      "text": "Shop",
+      "href": "/collections"
+    },
+    {
+      "text": "Beard Oil",
+      "href": "/collections/beard-oil"
+    },
+    {
+      "text": "Beard Balm",
+      "href": "/collections/beard-balm"
+    },
+    {
+      "text": "Utility Beard Softener",
+      "href": "/collections/utility-beard-softener"
+    },
+    {
+      "text": "Utility Beard Wash",
+      "href": "/collections/utility-beard-wash"
+    },
+    {
+      "text": "Utility Bar Soap",
+      "href": "/collections/utility-bar-soap"
+    },
+    {
+      "text": "Men's Cologne",
+      "href": "/collections/mens-cologne"
+    },
+    {
+      "text": "Utility Deodorant",
+      "href": "/collections/aluminum-free-deodorant"
+    },
+    {
+      "text": "Styling Paste",
+      "href": "/collections/styling-paste"
+    },
+    {
+      "text": "Sea Salt Spray",
+      "href": "/collections/sea-salt-spray"
+    },
+    {
+      "text": "Mustache Wax",
+      "href": "/collections/mustache-wax"
+    },
+    {
+      "text": "Utility Beard Trimmer",
+      "href": "/products/utility-beard-trimmer"
+    },
+    {
+      "text": "Combs, Brushes & Tools",
+      "href": "/collections/combs-brushes-tools"
+    },
+    {
+      "text": "Book of Reminders",
+      "href": "/products/book-of-reminders"
+    },
+    {
+      "text": "Alliance Membership",
+      "href": "/products/alliance-membership"
+    },
+    {
+      "text": "Deals",
+      "href": "/collections/current-deals"
+    },
+    {
+      "text": "Beard",
+      "href": "/collections/beard"
+    },
+    {
+      "text": "Hair",
+      "href": "/collections/hair"
+    },
+    {
+      "text": "Body",
+      "href": "/collections/body"
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "page_url": "https://www.beardbrand.com/pages/faqs",
+  "page_type": "faq_shipping_returns",
+  "name": "faq_shipping_returns_8_pages_faqs",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+  "facts": [
+    {
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "\"Grow Your Mind\" email capture is visible near the footer."
+    },
+    {
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "No signup reward is shown with the email field."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "No reviews or testimonials are visible on the FAQ page."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "The FAQ content does not include a product CTA in the sampled body."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "note": "The page leads with \"Pain-Free Ordering\" and addresses return/shipping trust questions."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The FAQ page leads with commerce-relevant ordering, returns, and shipping questions rather than generic brand trivia.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The page is useful for objections but does not route readers back into product discovery with a body CTA.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/faq_shipping_returns_8_pages_faqs.png",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "This is a strong objection-handling support page, but it remains a content dead end in the sampled body.",
+  "pillar_tags": [
+    "Conversion",
+    "Acquisition"
+  ]
+}

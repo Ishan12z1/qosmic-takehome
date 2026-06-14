@@ -1,0 +1,84 @@
+{
+  "page_url": "https://www.beardbrand.com/products/utility-beard-trimmer",
+  "page_type": "product_page",
+  "name": "product_page_2_products_utility-beard-trimmer",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+  "facts": [
+    {
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "above_fold_and_reviews_section",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "The PDP shows a rating summary above the fold and a larger reviews section below."
+    },
+    {
+      "key": "review_count_visible",
+      "state": "present",
+      "scope": "above_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "The sampled PDP shows 35 reviews."
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "present",
+      "scope": "adjacent_to_cta",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "The star rating and review count sit alongside the title and price."
+    },
+    {
+      "key": "bundle_present",
+      "state": "absent",
+      "scope": "above_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "No bundle builder is visible in the main purchase area."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "\"Still Looking?\" recommendations are visible below the reviews module."
+    },
+    {
+      "key": "subscription_present",
+      "state": "not_applicable",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "This sampled PDP is a durable trimmer rather than a replenishable consumable."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "buy_box_and_accordion",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "Feature, FAQ, and shipping/returns/guarantees accordions are visible near the buy box."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "note": "No accelerated wallet checkout button is visible."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "This PDP is strong at conversion: review proof, price, limited-quantity messaging, and trust content all appear near the decision area.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The PDP does not add a visible bundle or accessory attach offer in the primary purchase area.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_2_products_utility-beard-trimmer.png",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "This is the strongest sampled PDP for conversion clarity; the main gap is attach merchandising rather than trust.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV"
+  ]
+}

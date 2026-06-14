@@ -1,0 +1,89 @@
+{
+  "page_url": "https://beardbrand.com/products/book-of-reminders",
+  "page_type": "product_page",
+  "name": "product_page_1_products_book-of-reminders",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+  "facts": [
+    {
+      "key": "reviews_visible",
+      "state": "present",
+      "scope": "above_fold_and_reviews_section",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "A rating summary is visible near the title and a full reviews section appears lower on the PDP."
+    },
+    {
+      "key": "review_count_visible",
+      "state": "present",
+      "scope": "above_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "The sampled PDP shows 19 reviews."
+    },
+    {
+      "key": "rating_summary_near_cta",
+      "state": "present",
+      "scope": "adjacent_to_cta",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "The rating summary is visible next to the product title and price area."
+    },
+    {
+      "key": "bundle_present",
+      "state": "absent",
+      "scope": "above_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "No bundle or add-on module is visible in the main purchase area."
+    },
+    {
+      "key": "cross_sell_present",
+      "state": "present",
+      "scope": "below_fold",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "\"Still Looking?\" product recommendations are visible below the reviews section."
+    },
+    {
+      "key": "subscription_present",
+      "state": "not_applicable",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "This sampled PDP is a book rather than a replenishable grooming SKU."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "above_fold_and_accordion",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "Shipping, returns, and Beardbrand Assurance content are visible."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "absent",
+      "scope": "buy_box",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "note": "No accelerated wallet checkout button is visible on the sampled PDP."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "This PDP places review proof near the decision area and backs it up with a full review section lower on the page.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "The PDP includes trust-building shipping and assurance content plus a recommendation rail below the fold.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "pillar": "AOV"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The sampled PDP is in a sold-out state, so the page becomes more informational than transactional at the primary CTA moment.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/product_page_1_products_book-of-reminders.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "Proof and assurance are strong here, but the sold-out state limits direct purchase utility on this sampled PDP.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV"
+  ]
+}

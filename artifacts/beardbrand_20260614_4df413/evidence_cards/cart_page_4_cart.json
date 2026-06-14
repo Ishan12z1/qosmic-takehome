@@ -1,0 +1,63 @@
+{
+  "page_url": "https://beardbrand.com/cart",
+  "page_type": "cart_page",
+  "name": "cart_page_4_cart",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+  "facts": [
+    {
+      "key": "empty_cart_state",
+      "state": "present",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "note": "The direct cart-page crawl captured an empty-cart state with a \"Start Shopping\" CTA."
+    },
+    {
+      "key": "cart_upsell_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "note": "\"WANT MORE?\" is visible, but no actual recommendation products are rendered in the sampled empty-cart view."
+    },
+    {
+      "key": "free_shipping_progress_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "note": "The cart states the $75 free-shipping threshold, but no progress bar is visible."
+    },
+    {
+      "key": "trust_reassurance_present",
+      "state": "present",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "note": "The cart highlights free shipping, free swaps, and formulation reassurance."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "note": "No accelerated wallet checkout controls are visible in the sampled cart page."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The cart communicates clear benefit statements even in the empty-cart state.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The cart shows a cross-sell section heading but not actual recommendation content in the sampled state.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/cart_page_4_cart.png",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "This artifact is an empty-cart view; use the journey cart artifact for populated-cart claims.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV"
+  ]
+}

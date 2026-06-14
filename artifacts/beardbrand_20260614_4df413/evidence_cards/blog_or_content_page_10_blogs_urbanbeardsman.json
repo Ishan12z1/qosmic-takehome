@@ -1,0 +1,63 @@
+{
+  "page_url": "https://beardbrand.com/blogs/urbanbeardsman",
+  "page_type": "blog_or_content_page",
+  "name": "blog_or_content_page_10_blogs_urbanbeardsman",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+  "facts": [
+    {
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "note": "\"Grow Your Mind\" email capture is visible near the footer."
+    },
+    {
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "note": "No discount or reward is shown with the email field."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "content_hub",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "note": "The blog index does not show review stars or testimonials in the sampled view."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "content_hub",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "note": "The page routes into content categories and articles, not products."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "content_hub",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "note": "The content hub signals depth across beard, mustache, hair, body, personal growth, lifestyle, and founder topics."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The blog index is a broad content engine with strong topical segmentation and a visible latest-articles feed.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "pillar": "Acquisition"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The content hub builds attention but does not visibly bridge readers into products from the sampled page body.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/blog_or_content_page_10_blogs_urbanbeardsman.png",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "This surface is strong for organic content depth and email capture, but weak at converting content engagement into product discovery.",
+  "pillar_tags": [
+    "Retention",
+    "Acquisition"
+  ]
+}

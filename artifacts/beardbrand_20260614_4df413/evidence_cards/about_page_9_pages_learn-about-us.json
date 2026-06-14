@@ -1,0 +1,63 @@
+{
+  "page_url": "https://beardbrand.com/pages/learn-about-us",
+  "page_type": "about_page",
+  "name": "about_page_9_pages_learn-about-us",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+  "facts": [
+    {
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "note": "\"Grow Your Mind\" email capture is visible near the footer."
+    },
+    {
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "note": "The email field does not show a signup incentive."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "note": "The about page body does not show customer reviews or testimonials."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "note": "The main CTAs are quizzes and content links rather than product links."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "note": "The page communicates founder story, product ethos, and material philosophy."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The about page is trust-rich and gives shoppers multiple self-selection quizzes.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The page helps with brand belief and self-discovery but does not hand readers back to products with a direct product CTA.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/about_page_9_pages_learn-about-us.png",
+      "pillar": "Acquisition"
+    }
+  ],
+  "purchase_path_notes": "The about page is strong for brand trust and guided self-selection, but weak at moving readers directly into shopping.",
+  "pillar_tags": [
+    "Conversion",
+    "Acquisition"
+  ]
+}

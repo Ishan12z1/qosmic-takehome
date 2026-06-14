@@ -1,0 +1,24 @@
+{
+  "outcome": "full_journey",
+  "retailer_routed": false,
+  "friction_score": 5.0,
+  "friction_flags": [],
+  "friction_detail": "Score 5.0/5 - no blockers detected",
+  "journey_observations": {
+    "click_count_to_checkout": 4,
+    "trust_badges_at_checkout": false,
+    "cart_upsell_present": false,
+    "urgency_elements_present": false,
+    "error_messages_detected": false,
+    "api_add_to_cart_fallback": false
+  },
+  "payment_methods_detected": [
+    "Visa",
+    "Mastercard",
+    "Amex",
+    "PayPal",
+    "Apple Pay",
+    "Shop Pay",
+    "JCB"
+  ]
+}

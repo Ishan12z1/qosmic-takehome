@@ -1,0 +1,95 @@
+{
+  "page_url": "https://beardbrand.com",
+  "page_type": "shopping_journey",
+  "name": "shopping_journey",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_checkout.png",
+  "outcome": "full_journey",
+  "friction_score": 5.0,
+  "friction_flags": [],
+  "friction_detail": "Score 5.0/5 - no blockers detected",
+  "journey_observations": {
+    "click_count_to_checkout": 4,
+    "trust_badges_at_checkout": false,
+    "cart_upsell_present": false,
+    "urgency_elements_present": false,
+    "error_messages_detected": false,
+    "api_add_to_cart_fallback": false
+  },
+  "payment_methods_detected": [
+    "Visa",
+    "Mastercard",
+    "Amex",
+    "PayPal",
+    "Apple Pay",
+    "Shop Pay",
+    "JCB"
+  ],
+  "facts": [
+    {
+      "key": "populated_cart_visible",
+      "state": "present",
+      "scope": "cart",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_cart.png",
+      "note": "The journey cart shows the Utility Beard Trimmer, subtotal, and checkout CTA."
+    },
+    {
+      "key": "free_shipping_progress_present",
+      "state": "absent",
+      "scope": "cart",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_cart.png",
+      "note": "The cart states the free-shipping threshold but does not show a progress meter."
+    },
+    {
+      "key": "cart_upsell_present",
+      "state": "absent",
+      "scope": "cart",
+      "evidence": "artifacts/beardbrand_20260614_4df413/pages/shopping_journey.json",
+      "note": "journey_observations.cart_upsell_present is false."
+    },
+    {
+      "key": "express_checkout_present",
+      "state": "present",
+      "scope": "checkout",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_checkout.png",
+      "note": "Express checkout buttons are visible above the email and address form."
+    },
+    {
+      "key": "email_opt_in_prechecked",
+      "state": "present",
+      "scope": "checkout",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_checkout.png",
+      "note": "\"Email me with news and offers\" is pre-checked at checkout."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "The shopping journey reaches checkout in 4 clicks with no blockers or error states.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/pages/shopping_journey.json",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Checkout offers express checkout and broad payment-method coverage.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_checkout.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Checkout captures marketing consent with a pre-checked email opt-in.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_checkout.png",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "The populated cart does not visibly continue merchandising with either recommendations or a free-shipping progress cue before checkout.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/shopping_journey_cart.png",
+      "pillar": "AOV"
+    }
+  ],
+  "purchase_path_notes": "Use this artifact for populated-cart and checkout claims; the standalone cart-page artifact is an empty-cart state.",
+  "pillar_tags": [
+    "Conversion",
+    "AOV",
+    "Retention"
+  ]
+}

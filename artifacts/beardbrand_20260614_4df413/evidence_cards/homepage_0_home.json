@@ -1,0 +1,73 @@
+{
+  "page_url": "https://beardbrand.com/",
+  "page_type": "homepage",
+  "name": "homepage_0_home",
+  "run_id": "beardbrand_20260614_4df413",
+  "primary_visual_evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+  "facts": [
+    {
+      "key": "email_capture_present",
+      "state": "present",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "note": "\"Grow Your Mind\" email capture is visible near the footer."
+    },
+    {
+      "key": "email_incentive_present",
+      "state": "absent",
+      "scope": "footer",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "note": "The email field asks only for an address and does not offer a discount or other signup incentive."
+    },
+    {
+      "key": "social_proof_present",
+      "state": "absent",
+      "scope": "page_body",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "note": "No review stars, testimonials, or customer quotes are visible on the sampled homepage."
+    },
+    {
+      "key": "product_cta_present",
+      "state": "present",
+      "scope": "hero_and_feature_blocks",
+      "evidence": "artifacts/beardbrand_20260614_4df413/pages/homepage_0_home.json",
+      "note": "CTAs include \"Shop,\" \"Shop All,\" and fragrance/product-level links."
+    },
+    {
+      "key": "trust_story_present",
+      "state": "present",
+      "scope": "hero_and_value_sections",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "note": "The homepage leads with a strong brand point of view and shows value statements such as free shipping and swaps."
+    }
+  ],
+  "observed_strengths": [
+    {
+      "observation": "Homepage merchandising is strong and immediately product-led, with direct paths into fragrance and category discovery.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "pillar": "Conversion"
+    },
+    {
+      "observation": "Footer email capture is consistently present on the homepage rather than being hidden on account pages only.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "pillar": "Retention"
+    }
+  ],
+  "missing_or_weak": [
+    {
+      "observation": "Homepage email capture is visible but not incentivized.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "pillar": "Retention"
+    },
+    {
+      "observation": "The sampled homepage relies on brand imagery and product merchandising without visible customer-proof elements.",
+      "evidence": "artifacts/beardbrand_20260614_4df413/screenshots/homepage_0_home.png",
+      "pillar": "Conversion"
+    }
+  ],
+  "purchase_path_notes": "The homepage is strong at moving shoppers into catalog browsing, but its email capture is low-friction rather than high-value.",
+  "pillar_tags": [
+    "Conversion",
+    "Retention"
+  ]
+}
